@@ -1,0 +1,129 @@
+/* Site Colors: Dark grey: #303841, medium-grey: #3A4750, red: #D72323 blue: #1089FF */
+
+/* simple selector styling */
+
+body {
+    font-family: roboto, Arial, Helvetica, "Droid Sans", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+    color: #303841;
+    padding: 15px;
+    text-align: center;
+}
+
+h3 {
+    color: #303841;
+    padding: 0;
+}
+
+hr {
+    border-bottom: #D72323 inset 1px;
+    margin: auto;
+    width: 15%;
+}
+
+/* header section */
+.nav-item {
+    padding: 0 15px;
+}
+
+/* Main section */
+main {
+    margin-bottom: 20px;
+}
+
+/* footer */
+.footer {
+    background-color: #303841;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 0;
+}
+
+.footer a:link,
+.footer a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #D72323;
+}
+
+.footer a:active {
+    color: #a71f1f;
+    text-decoration: underline;
+}
+
+.footer p {
+    padding: 2.5em 0 .5em;
+    text-align: center;
+}
+
+/* Jumbotron for each aisle */
+
+.jumbotron {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0;
+}
+
+.jumbotron-dairy {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url(../images/aisle_dairy.jpg);
+    text-align: center;
+}
+
+.jumbotron-meat {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url(../images/aisle_meat.jpg);
+    text-align: center;
+}
+
+.jumbotron-produce {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url(../images/aisle_produce.jpg);
+    text-align: center;
+}
+
+.jumbotron-bakery {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url(../images/aisle_bakery.jpg);
+    text-align: center;
+}
+
+.jumbotron-beverages {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url(../images/aisle_beverages.jpg);
+    text-align: center;
+}
+
+/* ---- Media Queries in addition to the Bootstrap Queries ---- */
+
+@media (min-width: 576px) {
+    .footer {
+        max-width: 99%;
+    }
+}
+
+@media (min-width: 768px) {
+    .footer {
+        max-width: 99%;
+    }
+}
+
+@media (min-width: 992px) {
+    .footer {
+        max-width: 99%;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .footer {
+        max-width: 99%;
+    }
+}

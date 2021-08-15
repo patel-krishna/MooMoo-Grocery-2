@@ -1,0 +1,279 @@
+/* Mobile */
+[class*="col-"] {
+  width: 100%;
+}
+
+.hide-mobile {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* styling */
+a {
+  color: #303841;
+}
+
+a:hover {
+  transition: 0.4s;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
+form label {
+  font-weight: bold;
+}
+
+input {
+  font-family: inherit;
+}
+
+select {
+  font-family: inherit;
+  font-size: large;
+}
+
+/* Header */
+.backstore-header {
+  border-color: #d72323;
+  border-style: none none solid none;
+  border-width: 1px;
+}
+
+.backstore-header-logo {
+  padding-left: 15px;
+}
+
+.sign-out-button {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
+
+/* Navigation Bar */
+.backstore-vertical-navbar {
+  background-color: lightgrey;
+  border-radius: 5px;
+  font-size: larger;
+  height: 100%;
+  line-height: 2;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 0 0;
+  width: auto;
+}
+
+.navbar-item {
+  display: block;
+  list-style-type: none;
+  padding-left: 12px;
+  text-decoration: none;
+  width: auto;
+}
+
+.navbar-item:hover {
+  background-color: #d72323;
+  border-radius: 5px;
+  color: white;
+}
+
+.backstore-vertical-navbar a.active {
+  background-color: #d72323;
+  border-radius: 5px;
+  color: white;
+}
+
+.backstore-vertical-navbar a:hover:not(.active) {
+  background-color: #d75a5a;
+  border-radius: 5px;
+  color: white;
+}
+
+/* Backstore Form (Edit Properties) */
+.properties {
+  line-height: 2;
+}
+
+.properties select {
+  padding-top: 6px;
+}
+
+.properties-input {
+  border-color: lightgrey;
+  border-style: none none solid none;
+  border-width: 1px;
+  display: block;
+  font-size: medium;
+  padding: 8px;
+  width: 100%;
+}
+
+.properties-row {
+  width: auto;
+}
+
+/* Backstore Table (List of Users/Products/Orders) */
+.backstore-table-header-row {
+  line-height: 2;
+}
+
+.backstore-table-header {
+  padding: 0 15px 0 0;
+  text-align: left;
+}
+
+.backstore-list {
+  line-height: 4;
+  border-color: #303841;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  padding: 0 0 8px 15px;
+  width: 100%;
+}
+
+.backstore-list td {
+  max-width: 10rem;
+  overflow: hidden;
+}
+
+.backstore-list a {
+  background-color: lightgrey;
+  border-radius: 5px;
+  display: block;
+  float: left;
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 60%;
+}
+
+.backstore-list a.edit-button:hover {
+  background-color: #1089ff;
+}
+
+.backstore-list a:hover {
+  background-color: #d72323;
+  border-radius: 5px;
+  color: white;
+}
+
+/* Page Numbers */
+.page-numbers-container {
+  margin-top: 15px;
+}
+
+.page-numbers {
+  text-align: center;
+  width: auto;
+}
+
+.page-numbers a {
+  color: inherit;
+  padding: 8px 16px;
+  text-decoration: underline;
+}
+
+.page-numbers a.active {
+  background-color: #d72323;
+  border-radius: 5px;
+  color: white;
+}
+
+.page-numbers a:hover:not(.active) {
+  background-color: #d75a5a;
+  border-radius: 5px;
+  color: white;
+}
+
+/* Desktop */
+@media only screen and (min-width: 768px) {
+  .col-1 {
+    width: 8.33%;
+  }
+  .col-2 {
+    width: 16.66%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33%;
+  }
+  .col-5 {
+    width: 41.66%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.33%;
+  }
+  .col-8 {
+    width: 66.66%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.33%;
+  }
+  .col-11 {
+    width: 91.66%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+
+  .backstore-vertical-navbar {
+    font-size: inherit;
+    overflow: auto;
+    position: fixed;
+    top: 82px;
+    width: 15%;
+  }
+
+  .backstore-list {
+    line-height: 3;
+  }
+
+  .backstore-list td {
+    max-width: 8rem;
+  }
+
+  .backstore-list li a {
+    padding: 0 50px;
+  }
+
+  .backstore-table-header {
+    padding: 0 50px 0 0;
+  }
+}
+
+@media only screen and (min-width: 1260px) {
+  .backstore-list td {
+    max-width: 14rem;
+    overflow: hidden;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+}

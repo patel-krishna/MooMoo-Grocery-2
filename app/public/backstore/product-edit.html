@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="John Lin 40176227" />
+    <meta name="description" content="P8 Edit Product" />
+
+    <title>Edit Product | MooMoo Grocery</title>
+    <link rel="icon" href="../images/icon-moo.png" />
+    <link rel="stylesheet" href="../css/styles-backstore.css" />
+
+    <!-- Include Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <header class="backstore-header">
+        <a href="../index.html"><img class="backstore-header-logo" src="../images/moomoologo.png"
+                alt="MooMooGrocery logo" /></a>
+        <a class="sign-out-button" href="../index.html">Sign Out</a>
+    </header>
+
+    <div class="row">
+        <div class="col-2">
+            <ul class="backstore-vertical-navbar">
+                <li>
+                    <a class="navbar-item" href="order-list.html">Order List</a>
+                </li>
+                <ul>
+                    <li><a class="navbar-item" href="add-order.html">Add Order</a></li>
+                </ul>
+                <li><a class="navbar-item" href="product-list.html">Product List</a></li>
+                <ul>
+                    <li>
+                        <a class="navbar-item active" href="product-edit.html">Add Product</a>
+                    </li>
+                </ul>
+                <li>
+                    <a class="navbar-item" href="user-list.html">User List</a>
+                </li>
+                <ul>
+                    <li>
+                        <a class="navbar-item" href="user-edit.html">Add User</a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+        <div class="col-8">
+            <h1>Edit Product Info</h1>
+            <h3>Modify all details of an inventory item.</h3>
+            <form class="properties" action="" method="post" enctype="text/plain">
+                <div class="">
+                    <div class="col-6">
+                        <label for="item-name">Item Name:</label>
+                        <input class="properties-input" type="text" id="item-name" name="item-name" value="" />
+                    </div>
+                    <div class="col-6">
+                        <label for="item-id">Serial Number:</label>
+                        <input class="properties-input" type="text" id="item-id" name="item-id" value="" />
+                    </div>
+                </div>
+                <div class="prop-row">
+                    <div class="col-12">
+                        <label for="description">Product Description:</label><br />
+                        <textarea type="description" ; id="description" ; name="description" ; value="" ; style="
+                                    width: 100%;
+                                    height: 400px;
+                                    border: solid 1px;
+                                " ;></textarea>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <label for="price">Price:</label>
+                    <input class="properties-input" type="number" min="0" step="0.01" pattern="^\d*(\.\d{0,2})?$"
+                        id="price" name="price" placeholder="0.00" />
+                </div>
+                <div class="col-2">
+                    <label for="quantity">Quantity: </label>
+                    <input class="properties-input" type="number" min="0" id="quantity" name="quantity"
+                        placeholder="0" />
+                </div>
+                <div class="col-2">
+                    <label for="size">Size/Weight: </label>
+                    <input class="properties-input" type="number" min="0" id="size" name="size" placeholder="0" />
+                </div>
+                <div class="col-2">
+                    <label for="unit">Unit: </label>
+                    <select id="unit" name="unit" class="properties-input">
+                        <option value="g">g</option>
+                        <option value="kg">kg</option>
+                        <option value="mL">ml</option>
+                        <option value="L">L</option>
+                        <option value="L">ea</option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <label for="type">Type: </label>
+                    <input
+                        class="properties-input"
+                        type="text"
+                        id="type"
+                        name="type"
+                        value=""
+                    />
+                </div>
+                <div class="col-2">
+                    <label for="aisle">Aisle: </label>
+                    <select
+                        id="aisle"
+                        name="aisle"
+                        class="properties-input"
+                    >
+                        <option value="Produce">Produce</option>
+                        <option value="Bakery">Bakery</option>
+                        <option value="Meat and Poultry">
+                            Meat and Poultry
+                        </option>
+                        <option value="Dairy and Eggs">
+                            Dairy and Eggs
+                        </option>
+                        <option value="Beverages">Beverages</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <input class="save-button" type="submit" name="" value="Submit" />
+                </div>
+            </form>
+        </div>
+        <div class="col-2">
+            <!-- Empty Column -->
+        </div>
+    </div>
+</body>
+
+</html>

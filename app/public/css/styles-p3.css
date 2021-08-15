@@ -1,0 +1,36 @@
+#productDescription {
+    margin-top: 25px;
+}
+
+#productImage {
+    padding: 25px;
+}
+
+#more-description {
+    margin-top: 25px;
+}
+
+.product-size {
+    width: fit-content;
+}
+
+h6 {
+    color: #303841;
+}
+
+.img-fluid {
+    object-fit: cover;
+    width: 500px;
+    height: 500px;
+    float: right;
+}
+
+.footer {
+    margin-top: 50px;
+}
+
+@media (max-width: 770px) {
+    .img-fluid {
+        float: none;
+    }
+}

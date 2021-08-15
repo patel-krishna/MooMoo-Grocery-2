@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="John Lin 40176227" />
+    <meta name="description" content="P7 Product List" />
+
+    <title>Product List | MooMoo Grocery</title>
+    <link rel="icon" href="../images/icon-moo.png" />
+    <link rel="stylesheet" href="../css/styles-backstore.css" />
+
+    <!-- Include Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      a.add-product {
+        background-color: lightgrey;
+        border-radius: 5px;
+        display: block;
+        float: left;
+        margin: 0 0 20px;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      a.add-product:hover,
+      a.edit-action:hover {
+        background-color: #1089ff;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="backstore-header">
+      <a href="../index.html"
+        ><img
+          class="backstore-header-logo"
+          src="../images/moomoologo.png"
+          alt="MooMooGrocery logo"
+      /></a>
+      <a class="sign-out-button" href="../index.html">Sign Out</a>
+    </header>
+
+    <div class="row">
+      <div class="col-2">
+        <ul class="backstore-vertical-navbar">
+          <li>
+            <a class="navbar-item" href="order-list.html">Order List</a>
+          </li>
+          <ul>
+            <li><a class="navbar-item" href="add-order.html">Add Order</a></li>
+          </ul>
+          <li>
+            <a class="navbar-item active" href="product-list.html"
+              >Product List</a
+            >
+          </li>
+          <ul>
+            <li>
+              <a class="navbar-item" href="product-edit.html">Add Product</a>
+            </li>
+          </ul>
+          <li>
+            <a class="navbar-item" href="user-list.html">User List</a>
+          </li>
+          <ul>
+            <li>
+              <a class="navbar-item" href="user-edit.html">Add User</a>
+            </li>
+          </ul>
+        </ul>
+      </div>
+
+      <div class="col-10">
+        <h1>Product List</h1>
+        <h3>Inventory</h3>
+        <!-- Add product button -->
+        <a class="add-product" href="product-edit.html">Add Product</a>
+        <table class="backstore-list">
+          <tr class="backstore-table-header-row">
+            <th class="backstore-table-header">Serial Number</th>
+            <th class="backstore-table-header">Product Name</th>
+            <th class="backstore-table-header hide-mobile">Display Price</th>
+            <th class="backstore-table-header hide-mobile">
+              Current Inventory
+            </th>
+            <th class="backstore-table-header">Edit</th>
+            <th class="backstore-table-header hide-mobile">Delete</th>
+          </tr>
+          <tr>
+            <td>0000</td>
+            <td>Baguette</td>
+            <td class="hide-mobile">$2.99</td>
+            <td class="hide-mobile">90</td>
+            <td>
+              <a class="edit-button" href="product-edit.html">Edit</a>
+            </td>
+            <td><a class="hide-mobile" href="#">Delete</a></td>
+          </tr>
+          <tr>
+            <td>0001</td>
+            <td>Multigrain Sliced Bread</td>
+            <td class="hide-mobile">$3.99</td>
+            <td class="hide-mobile">57</td>
+            <td>
+              <a class="edit-button" href="product-edit.html">Edit</a>
+            </td>
+            <td><a class="hide-mobile" href="#">Delete</a></td>
+          </tr>
+          <tr>
+            <td>0002</td>
+            <td>Sourdough Loaf</td>
+            <td class="hide-mobile">$4.99</td>
+            <td class="hide-mobile">32</td>
+            <td>
+              <a class="edit-button" href="product-edit.html">Edit</a>
+            </td>
+            <td><a class="hide-mobile" href="#">Delete</a></td>
+          </tr>
+          <tr>
+            <td>0003</td>
+            <td>Doughnuts</td>
+            <td class="hide-mobile">$5.99</td>
+            <td class="hide-mobile">11</td>
+            <td>
+              <a class="edit-button" href="product-edit.html">Edit</a>
+            </td>
+            <td><a class="hide-mobile" href="#">Delete</a></td>
+          </tr>
+          <tr>
+            <td>0004</td>
+            <td>Croissants, Half-Dozen</td>
+            <td class="hide-mobile">$5.99</td>
+            <td class="hide-mobile">7</td>
+            <td>
+              <a class="edit-button" href="product-edit.html">Edit</a>
+            </td>
+            <td><a class="hide-mobile" href="#">Delete</a></td>
+          </tr>
+        </table>
+
+        <div class="page-numbers-container">
+          <div class="page-numbers">
+            <a href="#">&laquo;</a>
+            <a href="#" class="active">1</a>
+            <a href="#">&raquo;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <!-- Nothing here yet... -->
+      </div>
+    </div>
+  </body>
+</html>

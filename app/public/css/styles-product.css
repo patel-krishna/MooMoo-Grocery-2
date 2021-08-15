@@ -1,0 +1,9 @@
+/* responsive product image zoom when needs be */
+.embed-responsive-item {
+  object-fit: cover;
+}
+
+.product-card {
+  max-width: 90%;
+  margin: auto;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Zachary Bruce 40136585">
+  <meta name="description" content="P9 User List">
+
+  <title>User List | MooMoo Grocery</title>
+  <link rel="icon" href="../images/icon-moo.png">
+  <link rel="stylesheet" href="../css/styles-backstore.css">
+
+  <!-- Include Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="backstore-header">
+    <a href="../index.html"><img class="backstore-header-logo" src="../images/moomoologo.png" alt="MooMooGrocery logo"></a>
+    <a class="sign-out-button" href="../index.html">Sign Out</a>
+  </header>
+
+  <div class="row">
+    <div class="col-2">
+      <ul class="backstore-vertical-navbar">
+        <li><a class="navbar-item" href="order-list.html">Order List</a></li>
+        <ul><li><a class="navbar-item" href="add-order.html">Add Order</a></li></ul>
+        <li><a class="navbar-item" href="product-list.html">Product List</a></li>
+        <ul><li><a class="navbar-item" href="product-edit.html">Add Product</a></li></ul>
+        <li><a class="navbar-item active" href="user-list.html">User List</a></li>
+        <ul><li><a class="navbar-item" href="user-edit.html">Add User</a></li></ul>
+      </ul>
+    </div>
+
+    <div class="col-10">
+      <h1>User List</h1>
+      <h3>List of MooMoo Grocery user accounts.</h3>
+      <table class="backstore-list">
+        <tr class="backstore-table-header-row">
+          <th class="backstore-table-header">User ID</th>
+          <th class="backstore-table-header">Last Name</th>
+          <th class="backstore-table-header">First Name</th>
+          <th class="backstore-table-header hide-mobile">Email Address</th>
+          <th class="backstore-table-header hide-mobile">Phone Number</th>
+          <th class="backstore-table-header">Edit User</th>
+          <th class="backstore-table-header">Delete User</th>
+        </tr>
+        <tr>
+          <td>0001</td>
+          <td>Bruce</td>
+          <td>Zachary</td>
+          <td class="hide-mobile">zackrbruce@gmail.com</td>
+          <td class="hide-mobile">514 111-1111</td>
+          <td><a class="edit-button" href="user-edit.html">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+        <tr>
+          <td>0002</td>
+          <td>Kim</td>
+          <td>Youngjae</td>
+          <td class="hide-mobile">youngjae0719@gmail.com</td>
+          <td class="hide-mobile">514 222-2222</td>
+          <td><a class="edit-button" href="user-edit.html">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+        <tr>
+          <td>0003</td>
+          <td>Maltais</td>
+          <td>Sephora</td>
+          <td class="hide-mobile">seph156@gmail.com</td>
+          <td class="hide-mobile">514 333-3333</td>
+          <td><a class="edit-button" href="user-edit.html">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+        <tr>
+          <td>0004</td>
+          <td>Lin</td>
+          <td>John</td>
+          <td class="hide-mobile">john.lin@mail.concordia.ca</td>
+          <td class="hide-mobile">514 444-4444</td>
+          <td><a class="edit-button" href="user-edit.html">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+        <tr>
+          <td>0005</td>
+          <td>Patel</td>
+          <td>Krishna</td>
+          <td class="hide-mobile">krishnaletap@gmail.com</td>
+          <td class="hide-mobile">514 555-5555</td>
+          <td><a class="edit-button" href="user-edit.html">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+      </table>
+
+      <div class="page-numbers-container">
+        <div class="page-numbers">
+          <a href="#">&laquo;</a>
+          <a href="#" class="active">1</a>
+          <a href="#">&raquo;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+/* p1, p2 specific simple selector styles */
+h3 {
+    color: #fff;
+    padding: 2%;
+}
+
+/* header section */
+header.container-fluid {
+    border-bottom: #D72323 inset 1px;
+}
+
+#register-link {
+    color: #1089FF;
+}
+
+
+/* main-display carousel */
+.main-carousel {
+    text-align: center;
+}
+
+.main-carousel h1 {
+    color: #fff;
+    max-width: fit-content;
+    margin: auto;
+    margin-bottom: 10%;
+}
+
+.carousel-item-1 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://images.unsplash.com/photo-1471895131770-64cf5212f657?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1103&q=80");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10% 10% 2%;
+}
+
+.carousel-item-2 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://images.unsplash.com/photo-1506617420156-8e4536971650?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1568&q=80");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10% 10% 2%;
+}
+
+.carousel-item-3 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=967&q=80");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10% 10% 2%;
+}
+
+.btn-red {
+    color: #fff;
+    background-color: #D72323;
+    border-color: #D72323;
+    padding: 15px;
+}
+
+.btn-red:hover {
+    color: #fff;
+    background-color: #a71f1f;
+    border-color: #a71f1f;
+    padding: 15px;
+}
+
+/* Banner */
+[role="banner"] {
+    background-color: #1089FF;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.btn-banner {
+    margin-bottom: 5px;
+}
+
+/* Featured Products */
+.featured-products {
+    text-align: center;
+}
+
+.featured-products h2 {
+    margin-top: 1em;
+}
+
+.featured-products a:link,
+.featured-products a:visited {
+    color: #D72323;
+    text-decoration: none;
+}
+
+.featured-products a:hover {
+    color: #a71f1f;
+}
+
+.featured-products a:active {
+    color: #a71f1f;
+    text-decoration: underline;
+}
+
+.embed-responsive .card-img-top {
+    object-fit: cover;
+}
+
+.card-title {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.card-text {
+    text-align: left;
+}
+
+.card-title {
+    background-color: #3A4750;
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* News */
+.covid-news {
+    width: 80%;
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 4em;
+}
+
+/* ---- Aisle page styles ---- */
+
+.aisle-title {
+    color: #fff;
+}
+
+.aisle-featured h2 {
+    padding: 1em;
+}
+
+.aisle-featured hr {
+    margin-bottom: 1.5em;
+}
+
+.featured-products-cards {
+    margin-bottom: 3em;
+}
+
+.card-price {
+    font-weight: 600;
+}
+
+/* ---- Media Queries in addition to the Bootstrap and universal media queries ---- */
+
+@media (min-width: 768px) {
+    .aisle-title,
+    .main-carousel h1 {
+        font-size: 3.2em;
+    }
+}
+
+@media (min-width: 992px) {
+    .aisle-title,
+    .main-carousel h1 {
+        font-size: 3.4em;
+    }
+}
