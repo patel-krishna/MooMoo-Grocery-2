@@ -52,7 +52,7 @@
                          ?>
                         <div class="form-group w-25">
                             <input id="quantity" class="form-control form-control-lg" type="number" name="quantity"
-                                min="1" value="<?php echo $product_obj->quantity; ?>" onchange="calculateSubtotal()" />
+                                min="1" value="1" onchange="calculateSubtotal()" />
                             <label for="quantity">Quantity</label>
                         </div>
                         <h4>Subtotal: &#36;<span id="subtotal"></span></h4>
@@ -72,7 +72,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body w-100">
-                                        <p>Add <span id="popup-quantity"><?php echo $product_obj->quantity; ?></span> x <?php echo $product_obj->name; ?> to cart</p>
+                                        <p>Add <span id="popup-quantity"></span> x <?php echo $product_obj->name; ?> to cart</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"

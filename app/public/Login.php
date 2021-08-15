@@ -108,8 +108,8 @@
                     <a href="~"><input type="button" id="forgetpassword" value="Forget Password?"></a>
                 </div>
                 <hr style="width: 60%;" />
-                <h5>Don't you have your account? <a href="SignUp.html">Sign Up</a></h5>
-                <h5>Admin? <a href="backstore/order-list.html">Go to Backstore</a></h5>
+                <h5>Don't you have your account? <a href="SignUp.php">Sign Up</a></h5>
+                <h5>Admin? <a href="backstore/order-list.php">Go to Backstore</a></h5>
             </div>
         </div>
 
