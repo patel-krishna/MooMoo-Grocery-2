@@ -43,12 +43,12 @@
         <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
           <div class="card mb-3 h-100">
             <div class="embed-responsive embed-responsive-4by3">
-              <img src="images/eggs.png" class="card-img-top embed-responsive-item" alt="Large Brown Eggs">
+              <a href="aisles/dairy.php"><img src="images/eggs.png" class="card-img-top embed-responsive-item" alt="Large Brown Eggs"></a>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Large Brown Eggs</h4>
+              <a href="aisles/dairy.php"><h4 class="card-title">Brown Eggs</h4></a>
               <p class="card-text">Certified organic eggs. These eggs are Omega-3 enriched and are produced on a free
-                range farm in St. Jerome. &#36;4.69 for 12.</p>
+                range farm in St. Jerome.</p>
               <a href="aisles/dairy.php">Go to Dairy Aisle</a>
             </div>
           </div>
@@ -56,26 +56,24 @@
         <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
           <div class="card mb-3 h-100">
             <div class="embed-responsive embed-responsive-4by3">
-              <img src="images/yogurt.png" class="card-img-top embed-responsive-item" alt="Yogurt">
+              <a href="aisles/produce.php"><img src="images/fruits.jpg" class="card-img-top embed-responsive-item" alt="fruit"></a>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Greek Yogurt</h4>
-              <p class="card-text">Greek Yogurt is high in protien and full of nutirents, these fruit flavoured yogurt
-                cups make the perfect snack. &#36;6.99 for 4.</p>
-              <a href="aisles/dairy.php">Go to Dairy Aisle</a>
+              <a href="aisles/produce.php"><h4 class="card-title">Tropical Fruit</h4></a>
+              <p class="card-text">We have an array of beautiful internationally sourced tropical fruit from eco-friendly farms.</p>
+              <a href="aisles/produce.php">Go to Produce Aisle</a>
             </div>
           </div>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
           <div class="card mb-3 h-100">
             <div class="embed-responsive embed-responsive-4by3">
-              <img src="images/blue-cheese.png" class="card-img-top embed-responsive-item" alt="Blue Cheese">
+              <a href="aisles/meat.php"><img src="images/steak.jpeg" class="card-img-top embed-responsive-item" alt="Beef Steak"></a>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Blue Cheese</h4>
-              <p class="card-text">Saint Augur Blue Cheese. Sharp and salty, this blue cheese is made of cow's milk and
-                is aged for 12 weeks. &#36;6.49/125 grams.</p>
-              <a href="aisles/dairy.php">Go to Dairy Aisle</a>
+              <a href="aisles/meat.php"><h4 class="card-title">Beef Steaks</h4></a>
+              <p class="card-text">Barbeque some of our beautiful steaks for a lovely summer treat. We have many available cuts of AAA American beef.</p>
+              <a href="aisles/meat.php">Go to Meat Aisle</a>
             </div>
           </div>
         </div>

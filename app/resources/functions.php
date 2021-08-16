@@ -45,10 +45,10 @@ function display_aisle_products($aisle, $section) {
         <div class="col-sm-12 col-md-6 {$div_media} mb-3">
             <div class="card mb-3 h-100">
                 <div class="embed-responsive embed-responsive-4by3">
-                    <img src="../images/{$product->image}" class="card-img-top embed-responsive-item" alt="{$product->name}">
+                    <a href="../products/productDisplay.php?category={$aisle}&amp;id={$product->id}"><img src="../images/{$product->image}" class="card-img-top embed-responsive-item" alt="{$product->name}"></a>
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title">{$product->name}</h4>
+                    <a href="../products/productDisplay.php?category={$aisle}&amp;id={$product->id}"><h4 class="card-title">{$product->name}</h4></a>
                     <p class="card-text">{$product->name} &#8211; {$product->unit}</p>
                     <p class="card-text card-price">&#36;{$product->price}</p>
                     <p class="card-text"><small class="text-muted">&#36;{$product->price_per_unit}</small></p>
