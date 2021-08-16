@@ -2,11 +2,11 @@
 <aisles>
     <!-- dairy aisle -->
     <aisle_dairy>
-        <aisle_section label='Milk Product'>
+        <aisle_section label="Milk Product">
             <product>
                 <id>001</id>
                 <name>Itmbe Natural Milk</name>
-                <serial>09876100</serial>
+                <serial>09876001</serial>
                 <description>Natural unprocessed milk, Itambe Natural milk is full of nutrients.</description>
                 <image>milk.png</image>
                 <quantity>90</quantity>
@@ -17,7 +17,7 @@
             <product>
                 <id>002</id>
                 <name>Chobani Greek Yogurt</name>
-                <serial>09876101</serial>
+                <serial>09876002</serial>
                 <description>Advanced nutrition yogurt that’s lactose-free and easy to digest. In addition to being high in protein, it's crafted with real fruit and only natural ingredients.</description>
                 <image>yogurt.png</image>
                 <quantity>120</quantity>
@@ -30,28 +30,13 @@
                     <flavour>Blackberry</flavour>
                 </options>
             </product>
-            <product>
-                <id>003</id>
-                <name>Lewis Road Ice Cream</name>
-                <serial>09876102</serial>
-                <description>These artisanal frozen desserts are sweet and freshing on these hot summer days.</description>
-                <image>ice-cream.png</image>
-                <quantity>48</quantity>
-                <unit>500 ml</unit>
-                <price>6.79</price>
-                <price_per_unit>1.36 / 100 ml</price_per_unit>
-                <options>
-                    <flavour>Strawberry</flavour>
-                    <flavour>Chocolate</flavour>
-                    <flavour>BlueBerry</flavour>
-                </options>
-            </product>
+            
         </aisle_section>
-        <aisle_section label='Eggs'>
+        <aisle_section label="Eggs">
             <product>
                 <id>004</id>
                 <name>Nutri Brown Eggs</name>
-                <serial>09876200</serial>
+                <serial>09876004</serial>
                 <description>Organic free range eggs. The hens that produce these eggs are fed organic feed in a Quebec free farm.</description>
                 <image>eggs.png</image>
                 <quantity>45</quantity>
@@ -62,7 +47,7 @@
             <product>
                 <id>005</id>
                 <name>Nutri Omega-3 White</name>
-                <serial>09876201</serial>
+                <serial>09876005</serial>
                 <description>Omega-3 free range eggs. The hens that produce these eggs are fed organic feed in a Quebec free farm.</description>
                 <image>white-eggs.png</image>
                 <quantity>70</quantity>
@@ -71,11 +56,11 @@
                 <price_per_unit>0.40 / ea</price_per_unit>
             </product>
         </aisle_section>
-        <aisle_section label='Cheese'>
+        <aisle_section label="Cheese">
             <product>
                 <id>006</id>
                 <name>Saint Augur Blue</name>
-                <serial>09876511</serial>
+                <serial>09876006</serial>
                 <description>Strong and spicy, Saint Augur Blue is made from pasturized cow's millk and imported from the village of Beauzac in France. Aged for 60 days.</description>
                 <image>blue-cheese.png</image>
                 <quantity>23</quantity>
@@ -86,7 +71,7 @@
             <product>
                 <id>007</id>
                 <name>Der Scharfe Maxx</name>
-                <serial>09876512</serial>
+                <serial>09876007</serial>
                 <description>Sweet and creamy, Der Scharfe Maxx is made from raw cow's millk and imported from Finland. Aged for 2 years.</description>
                 <image>gouda.png</image>
                 <quantity>17</quantity>
@@ -97,7 +82,7 @@
             <product>
                 <id>008</id>
                 <name>Swiss Gruyere</name>
-                <serial>09876513</serial>
+                <serial>09876008</serial>
                 <description>Sharp and flavourful, Swiss Gruyere is made from raw cow's millk and imported from Switzerland. Aged for 300 days.</description>
                 <image>swiss.png</image>
                 <quantity>34</quantity>
@@ -109,11 +94,11 @@
     </aisle_dairy>
     <!-- bakery aisle -->
     <aisle_bakery>
-        <aisle_section label='Bread'>
+        <aisle_section label="Bread">
             <product>
                 <id>009</id>
                 <name>Multigrain Sliced Bread</name>
-                <serial>0987300</serial>
+                <serial>09876009</serial>
                 <description>Homestyle multigrain loaf high in fibre.</description>
                 <image>multigrain.jpg</image>
                 <quantity>86</quantity>
@@ -124,7 +109,7 @@
             <product>
                 <id>010</id>
                 <name>Baguette</name>
-                <serial>09876101</serial>
+                <serial>09876010</serial>
                 <description>Crispy crust with a soft, pillowy interior.</description>
                 <image>baguette.jpeg</image>
                 <quantity>37</quantity>
@@ -135,7 +120,7 @@
             <product>
                 <id>011</id>
                 <name>Sourdough Loaf</name>
-                <serial>09876102</serial>
+                <serial>09876011</serial>
                 <description>Crunchy exterior with a slightly tangy bite.</description>
                 <image>sourdough.jpeg</image>
                 <quantity>48</quantity>
@@ -144,11 +129,11 @@
                 <price_per_unit>0.71 / 100 g</price_per_unit>
             </product>
         </aisle_section>
-        <aisle_section label='Pastries'>
+        <aisle_section label="Pastries">
             <product>
                 <id>012</id>
                 <name>Doughnuts, Half Dozen</name>
-                <serial>09876200</serial>
+                <serial>09876012</serial>
                 <description>Box of six glazed doughnuts freshly baked in our in-house bakery.</description>
                 <image>donut.jpg</image>
                 <quantity>60</quantity>
@@ -159,7 +144,7 @@
             <product>
                 <id>013</id>
                 <name>Croissants, Half Dozen</name>
-                <serial>09876201</serial>
+                <serial>09876013</serial>
                 <description>Box of six flacky croissants freshly baked in our in-house bakery.</description>
                 <image>croissant.jpg</image>
                 <quantity>79</quantity>
@@ -168,11 +153,11 @@
                 <price_per_unit>1.66 / 100 g</price_per_unit>
             </product>
         </aisle_section>
-        <aisle_section label='Desserts'>
+        <aisle_section label="Desserts">
             <product>
                 <id>014</id>
                 <name>Chocolate Cake 8-inch</name>
-                <serial>09876511</serial>
+                <serial>09876014</serial>
                 <description>Chocolate cake with frosting baked in our in-house bakery.</description>
                 <image>cake.jpeg</image>
                 <quantity>9</quantity>
@@ -183,7 +168,7 @@
             <product>
                 <id>015</id>
                 <name>Apple Pie</name>
-                <serial>09876512</serial>
+                <serial>09876015</serial>
                 <description>Apple pie with lattice crust baked in our in-house bakery.</description>
                 <image>pie.jpg</image>
                 <quantity>19</quantity>
@@ -194,7 +179,7 @@
             <product>
                 <id>016</id>
                 <name>Cookies, Dozen</name>
-                <serial>09876513</serial>
+                <serial>09876016</serial>
                 <description>A dozen soft chocolate chip cookies baked in our in-house bakery.</description>
                 <image>cookie.jpg</image>
                 <quantity>18</quantity>
@@ -206,11 +191,11 @@
     </aisle_bakery>
     <!-- produce aisle -->
     <aisle_produce>
-        <aisle_section label='Fruits'>
+        <aisle_section label="Fruits">
             <product>
                 <id>017</id>
                 <name>Apple</name>
-                <serial>0299130</serial>
+                <serial>09876017</serial>
                 <description>Apples are a family favourite for snacks, salads, and sauces because of their mild yet sweet flavour. The apple's distinctive appearance is created by a combination of vivid red and delicate traces of green.</description>
                 <image>apple.jpg</image>
                 <quantity>201</quantity>
@@ -221,7 +206,7 @@
             <product>
                 <id>018</id>
                 <name>Banana</name>
-                <serial>0299130</serial>
+                <serial>09876018</serial>
                 <description>Bananas are a favourite breakfast choice or snack, at anytime of the day since they are soft, sweet, and delicious. The bright yellow peel provides natural protection while keeping the fruit and serves as a good indicator of when it's time to consume it!</description>
                 <image>banana.jpg</image>
                 <quantity>198</quantity>
@@ -232,7 +217,7 @@
             <product>
                 <id>019</id>
                 <name>Pear</name>
-                <serial>0299140</serial>
+                <serial>09876019</serial>
                 <description>Pears will give every fruit dish a distinct flavour. They deliver delicious sweetness. Salad dressings, preserves, and chutneys can be made using them.</description>
                 <image>pear.jpg</image>
                 <quantity>99</quantity>
@@ -241,11 +226,11 @@
                 <price_per_unit>4.34 / kg</price_per_unit>
             </product>
         </aisle_section>
-        <aisle_section label='Vegetables'>
+        <aisle_section label="Vegetables">
             <product>
                 <id>020</id>
                 <name>Carrots</name>
-                <serial>09876200</serial>
+                <serial>09876020</serial>
                 <description>Carrots are a terrific snack as well as a great addition to any meal. salads or as a side dish Vitamin C and beta-carotene are abundant.</description>
                 <image>carrots.jpg</image>
                 <quantity>178</quantity>
@@ -256,7 +241,7 @@
             <product>
                 <id>021</id>
                 <name>Radishes</name>
-                <serial>09876200</serial>
+                <serial>09876021</serial>
                 <description>Radishes come in a variety of sizes and colours, ranging from spherical to carrot-shaped with white skin. Depending on the cultivar, they are crisp and have a moderate or peppery flavour. Salads and sandwiches can be made with raw radishes, or as a simple side dish, roast whole with butter.</description>
                 <image>radish.jpg</image>
                 <quantity>86</quantity>
@@ -267,7 +252,7 @@
             <product>
                 <id>022</id>
                 <name>Tomato</name>
-                <serial>0299140</serial>
+                <serial>09876022</serial>
                 <description>Pears will give every fruit dish a distinct flavour. They deliver delicious sweetness. Salad dressings, preserves, and chutneys can be made using them.</description>
                 <image>tomato.jpg</image>
                 <quantity>215</quantity>
@@ -279,11 +264,11 @@
     </aisle_produce>
     <!-- meat aisle -->
     <aisle_meat>
-        <aisle_section label='Beef and Pork'>
+        <aisle_section label="Beef and Pork">
             <product>
                 <id>023</id>
                 <name>Beef Steak</name>
-                <serial>09876101</serial>
+                <serial>09876023</serial>
                 <description>Our AAA Beef Steaks come from pastured American cows.</description>
                 <image>steak.jpeg</image>
                 <quantity>40</quantity>
@@ -299,7 +284,7 @@
             <product>
                 <id>024</id>
                 <name>Pork Ribs</name>
-                <serial>09876102</serial>
+                <serial>0987600124</serial>
                 <description>Our pork ribs come from pastured American pigs.</description>
                 <image>pork.jpeg</image>
                 <quantity>26</quantity>
@@ -314,11 +299,11 @@
                 </options>
             </product>
         </aisle_section>
-        <aisle_section label='Chicken'>
+        <aisle_section label="Chicken">
             <product>
                 <id>025</id>
                 <name>Chicken Breasts</name>
-                <serial>09876201</serial>
+                <serial>09876025</serial>
                 <description>Our chicken breasts come from organically raised American chickens.</description>
                 <image>chickb.jpeg</image>
                 <quantity>65</quantity>
@@ -329,7 +314,7 @@
             <product>
                 <id>026</id>
                 <name>Chicken Legs</name>
-                <serial>09876201</serial>
+                <serial>09876026</serial>
                 <description>Our chicken legs come from organically raised American chickens.</description>
                 <image>chickl.jpeg</image>
                 <quantity>90</quantity>
@@ -338,11 +323,11 @@
                 <price_per_unit>0.99 / 50 g</price_per_unit>
             </product>
         </aisle_section>
-        <aisle_section label='Sausage and Bacon'>
+        <aisle_section label="Sausage and Bacon">
             <product>
                 <id>027</id>
                 <name>Pork Ribs</name>
-                <serial>09876102</serial>
+                <serial>09876027</serial>
                 <description>Our sausages come from organically raised American pigs.</description>
                 <image>sausage.jpeg</image>
                 <quantity>43</quantity>
@@ -359,7 +344,7 @@
             <product>
                 <id>028</id>
                 <name>Bacon</name>
-                <serial>09876102</serial>
+                <serial>09876028</serial>
                 <description>Our bacon comes from organically raised American pigs.</description>
                 <image>bacon.jpeg</image>
                 <quantity>54</quantity>
@@ -375,11 +360,11 @@
     </aisle_meat>
     <!-- beverages aisle -->
     <aisle_beverages>
-        <aisle_section label='Juice'>
+        <aisle_section label="Juice">
             <product>
                 <id>029</id>
                 <name>Orange Juice</name>
-                <serial>0987300</serial>
+                <serial>09876029</serial>
                 <description>100% pure fresh cold pressed orange juice, not from concentrate, imported directly from Florida.</description>
                 <image>orange.jpg</image>
                 <quantity>225</quantity>
@@ -390,7 +375,7 @@
             <product>
                 <id>030</id>
                 <name>Natural One Mango Juice</name>
-                <serial>0987300</serial>
+                <serial>09876030</serial>
                 <description>100% pure mango juice, not from concentrate, no added sugar.</description>
                 <image>mango.jpg</image>
                 <quantity>180</quantity>
@@ -401,7 +386,7 @@
             <product>
                 <id>031</id>
                 <name>Mixed Berry Juice</name>
-                <serial>0987300</serial>
+                <serial>09876031</serial>
                 <description>100% pure blend of strawberry, blackberry, blueberry and raspberry juice. Not from concentrate, no sugar added.</description>
                 <image>berry.jpg</image>
                 <quantity>170</quantity>
@@ -410,11 +395,11 @@
                 <price_per_unit>0.75 / 100 ml</price_per_unit>
             </product>
         </aisle_section>
-        <aisle_section label='Sparkling Water'>
+        <aisle_section label="Sparkling Water">
             <product>
                 <id>032</id>
                 <name>Perrier Sparkling Mineral Water</name>
-                <serial>0987300</serial>
+                <serial>098760032</serial>
                 <description>Sparking mineral water from France, 0 calories and 0 sugar added.</description>
                 <image>perrier.jpg</image>
                 <quantity>154</quantity>
@@ -425,7 +410,7 @@
             <product>
                 <id>033</id>
                 <name>La Croix Grapefruit Sparkling Water</name>
-                <serial>0987300</serial>
+                <serial>09876033</serial>
                 <description>Premium sparkling water flavoured with the natural essence of Grapefruit, 0 calories and 0 sugar added.</description>
                 <image>lacroix.jpg</image>
                 <quantity>98</quantity>
@@ -434,11 +419,11 @@
                 <price_per_unit>0.24 / 100 ml</price_per_unit>
             </product>
         </aisle_section>
-        <aisle_section label='Soft Drinks'>
+        <aisle_section label="Soft Drinks">
             <product>
                 <id>034</id>
                 <name>Coca-Cola Classic</name>
-                <serial>0987300</serial>
+                <serial>09876034</serial>
                 <description>The classic Coca-Cola, made with no artificial flavours or preservatives.</description>
                 <image>coke.jpg</image>
                 <quantity>106</quantity>
@@ -449,7 +434,7 @@
             <product>
                 <id>035</id>
                 <name>Jarritos Pineapple Soda</name>
-                <serial>0987300</serial>
+                <serial>09876035</serial>
                 <description>Naturally flavoured Mexican pineapple soda, sweetened with real sugar.</description>
                 <image>jarrito.jpg</image>
                 <quantity>89</quantity>
@@ -460,7 +445,7 @@
             <product>
                 <id>036</id>
                 <name>Pepsi</name>
-                <serial>0987300</serial>
+                <serial>09876036</serial>
                 <description>Cola flavoured soft drink.</description>
                 <image>pepsi.jpg</image>
                 <quantity>120</quantity>

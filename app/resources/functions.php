@@ -1,8 +1,18 @@
 <?php
 
-// ---- Helper funtions
-function redirect($location) {
-    header("Location: $location");
+function set_message($msg) {
+    if (empty($msg)) {
+        $msg = "";
+    } else {
+        $_SESSION['message'] = $msg;
+    }
+}
+
+function display_message($msg) {
+    if (isset($_SESSION['message'])) {
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
 }
 
 function load_aisle_xml($aisle) {
@@ -54,6 +64,7 @@ function display_aisle_products($aisle, $section) {
 
 
 // ----- product page functions
+
 function getJumbotron($aisle_name) {
     $category = explode("_", $aisle_name)[1];
     return "jumbotron-" . $category;
@@ -99,5 +110,42 @@ function getOptions($options) {
 }
 
 // #################################### BACK END FUNCTIONS
+
+//  ----- products list
+
+function display_products() {
+    $xml = simplexml_load_file(XML_DB . DS . "products.xml") or die("Error: Cannot create object");
+    foreach ($xml->children() as $aisle_categories) {
+        foreach ($aisle_categories->children() as $aisle_section) {
+            $aisle_name = $aisle_categories->getName();
+            foreach ($aisle_section->children() as $product) {
+                $product_out = <<<DELIMITER
+                <tr>
+                    <td>{$product->serial}</td>
+                    <td>{$product->name}</td>
+                    <td class="hide-mobile">&#36;{$product->price}</td>
+                    <td class="hide-mobile">{$product->quantity}</td>
+                    <td><a class="edit-action" href="product-edit.php?category={$aisle_name}&amp;id={$product->id}">Edit</a> <a class="delete-action" href="delete_product.php?category={$aisle_name}&amp;id={$product->id}">Delete</a></td>
+                </tr> 
+                DELIMITER;
+        
+                echo $product_out;
+            }
+        }
+    
+    }
+}
+
+// deletes a product from products.xml
+function deleteProductXml($product_aisle, $product_id) {
+    $xml = new DOMDOcument;
+    $xml->load(XML_DB . DS . "products.xml");
+    $xpath = new DOMXpath($xml);
+    foreach($xpath->query('//' . $product_aisle . '/aisle_section/product[id="' . $product_id . '"]') as $node) {        
+        $node->parentNode->removeChild($node);
+    }
+    $xml->save(XML_DB . DS . "products.xml");
+}
+
 
 ?>
