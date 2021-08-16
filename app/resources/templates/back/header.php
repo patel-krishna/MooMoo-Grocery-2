@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Backstore Page" />
 
   <title>MooMoo Grocery | Backstore </title>
   <link rel="icon" href="../images/icon-moo.png">
