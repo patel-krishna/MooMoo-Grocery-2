@@ -10,6 +10,8 @@ defined("TEMPLATE_FRONT") ? null : define("TEMPLATE_FRONT", __DIR__ . DS . "temp
 
 defined("TEMPLATE_BACK") ? null : define("TEMPLATE_BACK", __DIR__ . DS . "templates/back");
 
+defined("UPLOADS") ? null : define("UPLOADS", __DIR__ . DS . "uploads");
+
 defined("XML_DB") ? null : define("XML_DB", __DIR__ . DS . "data");
 
 require_once("functions.php");

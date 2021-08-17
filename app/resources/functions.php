@@ -147,5 +147,46 @@ function deleteProductXml($product_aisle, $product_id) {
     $xml->save(XML_DB . DS . "products.xml");
 }
 
+// ----- add/edit products
+
+function add_product() {
+    if (isset($_POST['publish'])) {
+        $name = $serial = $description = $price = $quantity = $size = $unit = $option = $aisle = "";
+        $name = sanitize_input($_POST["item-name"]);
+        $serial = sanitize_input($_POST["item-serial"]);
+        $description = sanitize_input($_POST["description"]);
+        $price = sanitize_input($_POST["price"]);
+        $quantity = sanitize_input($_POST["quantity"]);
+        $size = sanitize_input($_POST["size"]);
+        $unit = sanitize_input($_POST["unit"]);
+        $option = sanitize_input($_POST["options"]);
+        $aisle = explode("-",sanitize_input($_POST["aisle"]));
+        $image = htmlspecialchars($_FILES['file']['name']);
+        $temp_image = htmlspecialchars($_FILES['file']['tmp_name']);
+        $aisle_name = $aisle[0];
+        $aisle_category = $aisle[1];
+        
+        move_uploaded_file($temp_image, UPLOADS . DS . $image);
+
+        $xml = new DOMDOcument;
+        $xml->load(XML_DB . DS . "products.xml");
+        $xpath = new DOMXpath($xml);
+        $root = NULL;
+        foreach($xpath->query('//' . $aisle_name . '/aisle_section[@label="' . $aisle_category . '"]') as $node) {        
+            // TODO: finish this function
+            $root = $node->createElement();
+        }
+        // $xml->save(XML_DB . DS . "products.xml");
+    
+
+    }
+}
+
+function sanitize_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
 ?>

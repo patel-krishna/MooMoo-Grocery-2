@@ -7,9 +7,9 @@
 
 <div class="col-10">
   <h1>Product List</h1>
-  <h3>Inventory</h3>
   <!-- Add product button -->
   <a class="add-product" href="product-edit.php">Add Product</a>
+  <!-- list of products -->
   <table class="backstore-list">
     <tr class="backstore-table-header-row">
       <th class="backstore-table-header">Serial Number</th>

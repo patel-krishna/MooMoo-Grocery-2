@@ -37,7 +37,7 @@ function moreDescription() {
       flavour.selectedIndex = sessionStorage.getItem(productName + "f");
     }
     if (sessionStorage.getItem(productName + "c")) {
-      cutSelectedIndex = sessionStorage.getItem(productName + "c");
+      cut.selectedIndex = sessionStorage.getItem(productName + "c");
     }
     calculateSubtotal();
   }

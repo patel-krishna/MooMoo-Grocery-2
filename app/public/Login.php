@@ -94,7 +94,7 @@
 
 <body>
     <div class="header">
-        <a href="index.html"><img id="logo" src="images/moomoologo.png"></a>
+        <a href="index.php"><img id="logo" src="images/moomoologo.png"></a>
     </div>
     <div class="mainbody">
         <div class="card">

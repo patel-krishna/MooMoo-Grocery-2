@@ -365,3 +365,18 @@ a.edit-action {
       display: table-cell;
   }
 }
+
+input[type=submit] {
+  padding:10px 25px; 
+  background:#ccc; 
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  font-size: 1rem;
+}
+
+input[type=submit]:hover {
+  background-color: #1089FF;
+  color: white;
+}

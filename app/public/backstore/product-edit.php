@@ -1,4 +1,9 @@
-<?php require_once("../../resources/config.php"); ?>
+<?php require_once("../../resources/config.php"); 
+    // if(isset($_GET['id']) && isset($_GET['category'])) {
+    //     $product_aisle = htmlspecialchars($_GET["category"]);
+    //     $product_id =  htmlspecialchars($_GET["id"]);
+    // }
+?>
 
 <?php include(TEMPLATE_BACK . DS . "header.php"); ?>
 
@@ -7,16 +12,16 @@
 
 <div class="col-8">
     <h1>Edit Product Info</h1>
-    <h3>Modify all details of an inventory item.</h3>
-    <form class="properties" action="" method="post" enctype="text/plain">
+    <?php add_product(); ?>
+    <form class="properties" method="post" action="" enctype="multipart/form-data">
         <div class="">
             <div class="col-6">
                 <label for="item-name">Item Name:</label>
-                <input class="properties-input" type="text" id="item-name" name="item-name" value="" />
+                <input class="properties-input" type="text" id="item-name" name="item-name" value=""  />
             </div>
             <div class="col-6">
-                <label for="item-id">Serial Number:</label>
-                <input class="properties-input" type="text" id="item-id" name="item-id" value="" />
+                <label for="item-serial">Serial Number:</label>
+                <input class="properties-input" type="text" id="item-serial" name="item-serial" value="" />
             </div>
         </div>
         <div class="prop-row">
@@ -26,23 +31,23 @@
                                     width: 100%;
                                     height: 400px;
                                     border: solid 1px;
-                                " ;></textarea>
+                                " ;  ></textarea>
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-4">
             <label for="price">Price:</label>
             <input class="properties-input" type="number" min="0" step="0.01" pattern="^\d*(\.\d{0,2})?$" id="price"
-                name="price" placeholder="0.00" />
+                name="price" placeholder="0.00"   />
         </div>
-        <div class="col-2">
+        <div class="col-4">
             <label for="quantity">Quantity: </label>
-            <input class="properties-input" type="number" min="0" id="quantity" name="quantity" placeholder="0" />
+            <input class="properties-input" type="number" min="0" id="quantity" name="quantity" placeholder="0"  />
         </div>
-        <div class="col-2">
+        <div class="col-4">
             <label for="size">Size/Weight: </label>
             <input class="properties-input" type="number" min="0" id="size" name="size" placeholder="0" />
         </div>
-        <div class="col-2">
+        <div class="col-4">
             <label for="unit">Unit: </label>
             <select id="unit" name="unit" class="properties-input">
                 <option value="g">g</option>
@@ -52,30 +57,43 @@
                 <option value="L">ea</option>
             </select>
         </div>
-        <div class="col-2">
-            <label for="type">Type: </label>
-            <input class="properties-input" type="text" id="type" name="type" value="" />
+        <div class="col-4">
+            <label for="options">Options: </label>
+            <select id="options" name="options" class="properties-input">
+                <option value="none">None</option>
+                <option value="flavour">Flavour</option>
+                <option value="cut">Cut</option>
+            </select>
         </div>
-        <div class="col-2">
+        <div class="col-4">
             <label for="aisle">Aisle: </label>
             <select id="aisle" name="aisle" class="properties-input">
-                <option value="Produce">Produce</option>
-                <option value="Bakery">Bakery</option>
-                <option value="Meat and Poultry">
-                    Meat and Poultry
-                </option>
-                <option value="Dairy and Eggs">
-                    Dairy and Eggs
-                </option>
-                <option value="Beverages">Beverages</option>
+                <option value="aisle_produce-Fruits">Produce - Fruits</option>
+                <option value="aisle_produce-Vegetables">Produce - Vegetables</option>
+                <option value="aisle_bakery-Bread">Bakery - Bread</option>
+                <option value="aisle_bakery-Pastries">Bakery - Pastries</option>
+                <option value="aisle_bakery-Desserts">Bakery - Desserts</option>
+                <option value="aisle_meat-Beef">Meat - Beef and Pork</option>
+                <option value="aisle_meat-Sausage">Meat - Sausages and Bacon</option>
+                <option value="aisle_meat-Chicken">Meat - Chicken</option>
+                <option value="aisle_dairy-Milk">Dairy - Milk Products</option>
+                <option value="aisle_dairy-Cheese">Dairy - Cheese Products</option>
+                <option value="aisle_dairy-Eggs">Dairy - Eggs</option>
+                <option value="aisle_beverages-Sparkling">Beverages - Sparkling Water</option>
+                <option value="aisle_beverages-Juice">Beverages - Juice</option>
+                <option value="aisle_beverages-Pop">Beverages - Soft Drinks</option>
             </select>
         </div>
         <div class="col-12">
-            <input class="save-button" type="submit" name="" value="Submit" />
+            <label for="product-image">Product Image: </label>
+            <input type="file" name="file" style="font-size:large;"/>
+        </div>
+        <div class="col-12">
+            <input class="save-button" type="submit" name="publish" value="Submit" />
         </div>
     </form>
 </div>
-<div class="col-2">
+<div class="col-3">
     <!-- Empty Column -->
 </div>
 </div>
