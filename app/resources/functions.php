@@ -195,7 +195,7 @@ function display_users() {
               <td class="hide-mobile">{$user->email}</td>
               <td class="hide-mobile">{$user->phonenumber}</td>
               <td>
-                  <a class="edit-action" href="edit-user.php?id={$user->id}">Edit</a>
+                  <a class="edit-action" href="user-edit.php?id={$user->id}">Edit</a>
                   <a class="delete-action" href="delete_user.php?id={$user->id}">Delete</a>
               </td>
             </tr>

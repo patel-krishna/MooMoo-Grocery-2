@@ -5,6 +5,13 @@
 <!-- Side Navigation -->
 <?php include(TEMPLATE_BACK . DS . "side-nav.php"); ?>
 
+<?php
+  if(isset($_GET['id'])) {
+    $user_id = htmlspecialchars($_GET["id"]);
+    $user = getUserXml($user_id);
+  }
+?>
+
 <div class="col-8">
   <h1>Edit User Info</h1>
   <h3>Modify all details of a user's account.</h3>
@@ -12,35 +19,35 @@
     <div class="prop-row">
       <div class="col-4">
         <label for="first-name">First Name:</label>
-        <input class="properties-input" type="text" id="first-name" name="first-name" value="">
+        <input class="properties-input" type="text" id="first-name" name="first-name" value="<?php echo $user->firstname; ?>">
       </div>
       <div class="col-4">
         <label for="middle-name">Middle Name:</label>
-        <input class="properties-input" type="text" id="middle-name" name="middle-name" value="">
+        <input class="properties-input" type="text" id="middle-name" name="middle-name" value="<?php echo $user->middlename; ?>">
       </div>
       <div class="col-4">
         <label for="last-name">Last Name:</label>
-        <input class="properties-input" type="text" id="last-name" name="last-name" value="">
+        <input class="properties-input" type="text" id="last-name" name="last-name" value="<?php echo $user->lastname; ?>">
       </div>
     </div>
     <div class="prop-row">
       <div class="col-7">
         <label for="email-address">Email Address:</label>
-        <input class="properties-input" type="email" id="email-address" name="email-address" value="">
+        <input class="properties-input" type="email" id="email-address" name="email-address" value="<?php echo $user->email; ?>">
       </div>
       <div class="col-5">
         <label for="phone-number">Phone Number:</label>
-        <input class="properties-input" type="text" id="phone-number" name="phone-number" value="">
+        <input class="properties-input" type="text" id="phone-number" name="phone-number" value="<?php echo $user->phonenumber; ?>">
       </div>
     </div>
     <div class="prop-row">
       <div class="col-7">
         <label for="street-address">Street Address:</label>
-        <input class="properties-input" type="text" id="street-address" name="street-address" value="">
+        <input class="properties-input" type="text" id="street-address" name="street-address" value="<?php echo $user->address; ?>">
       </div>
       <div class="col-2">
         <label for="apartment">Apt:</label>
-        <input class="properties-input" type="text" id="apartment" name="apartment" value="">
+        <input class="properties-input" type="text" id="apartment" name="apartment" value="<?php echo $user->apartment; ?>">
       </div>
       <div class="col-3">
         <label for="province">Province:</label>
@@ -61,20 +68,20 @@
     <div class="prop-row">
       <div class="col-5">
         <label for="city">City:</label>
-        <input class="properties-input" type="text" id="city" name="city" value="">
+        <input class="properties-input" type="text" id="city" name="city" value="<?php echo $user->city; ?>">
       </div>
       <div class="col-4">
         <label for="postal-code">Postal Code:</label>
-        <input class="properties-input" type="text" id="postal-code" name="postal-code" value="">
+        <input class="properties-input" type="text" id="postal-code" name="postal-code" value="<?php echo $user->postalcode; ?>">
       </div>
       <div class="col-3">
         <label for="country">Country:</label>
-        <input class="properties-input" type="text" id="country" name="country" value="">
+        <input class="properties-input" type="text" id="country" name="country" value="<?php echo $user->country; ?>">
       </div>
     </div>
     <div class="col-12">
       <label for="password">Current Password: </label>
-      <input class="properties-input" type="password" id="password" name="password" value="">
+      <input class="properties-input" type="password" id="password" name="password" value="<?php echo $user->password; ?>">
     </div>
     <div class="col-12">
       <label for="new-password">New Password*: </label>
@@ -93,13 +100,13 @@
           <option value="moomoo">MooMoo Card</option>
         </select>
       </div>
-      <div class="col-6">
+      <div class="col-5">
         <label for="card-number">Card Number:</label>
-        <input class="properties-input" type="text" id="card-number" name="card-number" value="">
+        <input class="properties-input" type="text" maxlength="16" id="card-number" name="card-number" value="<?php echo $user->cardnumber; ?>">
       </div>
-      <div class="col-2">
+      <div class="col-3">
         <label for="cvc">CVC:</label>
-        <input class="properties-input" type="text" id="cvc" name="cvc" value="">
+        <input class="properties-input" type="text" maxlength="3"id="cvc" name="cvc" value="<?php echo $user->cvc; ?>">
       </div>
     </div>
     <div class="col-12">
