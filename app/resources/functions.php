@@ -232,6 +232,19 @@ function add_product($is_set, $id, $img) {
     }
 }
 
+// sanitize input
+function sanitize_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+function getNextProductId() {
+    $xml = simplexml_load_file(XML_DB . DS . "products.xml") or die("Error: Cannot create object");
+    return $xml->next[0];
+}
+
 // user list
 
 function display_users() {
@@ -278,19 +291,6 @@ function deleteUserXml($user_id) {
     $node->parentNode->removeChild($node);
   }
   $xml->save(XML_DB . DS . "users.xml");
-}
-
-// sanitize input
-function sanitize_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
-function getNextProductId() {
-    $xml = simplexml_load_file(XML_DB . DS . "products.xml") or die("Error: Cannot create object");
-    return $xml->next[0];
 }
 
 ?>
