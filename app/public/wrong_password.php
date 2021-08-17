@@ -1,5 +1,4 @@
 <?php require_once("../resources/config.php"); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -105,6 +104,7 @@
             <div class="cardinside">
                 <p>Email Address <br /> <input type="email" id="email" name="email"><br /></p>
                 <p>Password <br /> <input type="password" id="password" name="password"><br /></p>
+                <p style= "color: red;">Your password is wrong. Please check again.</p>
                 <div class="buttons">
                     <input type="submit" id="submit" value="Log in" name="submit">&nbsp;&nbsp;
                     <a href="~"><input type="button" id="forgetpassword" value="Forget Password?"></a>
