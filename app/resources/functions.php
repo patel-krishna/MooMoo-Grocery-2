@@ -127,11 +127,7 @@ function display_products() {
                     <td class="hide-mobile">&#36;{$product->price}</td>
                     <td class="hide-mobile">{$product->quantity}</td>
                     <td><a class="edit-action" href="product-edit.php?category={$aisle_name}&amp;label={$label}&amp;id={$product->id}">Edit</a> <a class="delete-action" href="delete_product.php?category={$aisle_name}&amp;id={$product->id}">Delete</a></td>
-<<<<<<< HEAD
                 </tr>
-=======
-                </tr> 
->>>>>>> upstream/master
                 DELIMITER;
 
                 echo $product_out;
@@ -187,11 +183,8 @@ function add_product($is_set, $id, $img) {
         if ($is_set) {
             $nextId = $id;
             $image = $img;
-<<<<<<< HEAD
+
             foreach($xpath->query('//' . $aisle_name . '/aisle_section/product[id="' . $id . '"]') as $node) {
-=======
-            foreach($xpath->query('//' . $aisle_name . '/aisle_section/product[id="' . $id . '"]') as $node) {        
->>>>>>> upstream/master
                 $node->parentNode->removeChild($node);
             }
         } else {
@@ -200,7 +193,6 @@ function add_product($is_set, $id, $img) {
             foreach ($xpath->query('//next') as $next) {
                 $next->firstChild->nodeValue = ($nextId + 1);
             }
-<<<<<<< HEAD
         }
 
         $aisle_section = $xpath->query('//' . $aisle_name . '/aisle_section[@label="' . $aisle_category . '"]');
@@ -235,42 +227,6 @@ function add_product($is_set, $id, $img) {
             $product->appendChild($poption);
         }
 
-=======
-        }
-        
-        $aisle_section = $xpath->query('//' . $aisle_name . '/aisle_section[@label="' . $aisle_category . '"]');
-
-        $product = $xml->createElement("product");
-        
-        $pid = $xml->createElement("id", $nextId);
-        $product->appendChild($pid);
-        $pname = $xml->createElement("name", $name);
-        $product->appendChild($pname);
-        $pserial = $xml->createElement("serial", $serial);
-        $product->appendChild($pserial);
-        $pdescription = $xml->createElement("description", $description);
-        $product->appendChild($pdescription);
-        $pprice = $xml->createElement("price", $price);
-        $product->appendChild($pprice);
-        $pquantity = $xml->createElement("quantity", $quantity);
-        $product->appendChild($pquantity);
-        $punit = $xml->createElement("unit", $size . " " . $unit);
-        $product->appendChild($punit);
-        $pppunit = $xml->createElement("price_per_unit", $price_per . " / " . $per_unit);
-        $product->appendChild($pppunit);
-        $pimage = $xml->createElement("image", $image);
-        $product->appendChild($pimage);
-        if (strcasecmp($option, "none") !== 0) {
-            $poption = $xml->createElement("options", "");
-            $values = explode(",", $optionvals);
-            foreach ($values as $value) {
-                $pvalue = $xml->createElement($option, ucwords($value));
-                $poption->appendChild($pvalue);
-            }
-            $product->appendChild($poption);
-        }
-
->>>>>>> upstream/master
         $aisle_section->item(0)->appendChild($product);
         $xml->save(XML_DB . DS ."products.xml") or die("Error, unable to save xml file.");
         header("Location: product-list.php");
@@ -290,7 +246,6 @@ function getNextProductId() {
     return $xml->next[0];
 }
 
-<<<<<<< HEAD
 // user list
 
 function display_users() {
@@ -340,6 +295,3 @@ function deleteUserXml($user_id) {
 }
 
 ?>
-=======
-?>
->>>>>>> upstream/master
