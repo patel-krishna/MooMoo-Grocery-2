@@ -8,7 +8,8 @@
     $product_obj = getProductXml($product_aisle, $product_id);
 ?>
 
-<body class="d-flex flex-column min-vh-100" onload="loadQty(<?php echo htmlspecialchars($_GET['id']); ?>)" onbeforeunload="saveQty(<?php echo htmlspecialchars($_GET['id']); ?>)">
+<body class="d-flex flex-column min-vh-100" onload="loadQty(<?php echo htmlspecialchars($_GET['id']); ?>)"
+    onbeforeunload="saveQty(<?php echo htmlspecialchars($_GET['id']); ?>)">
     <!-- Navigation bar linking to home and menus -->
     <?php include(TEMPLATE_FRONT . DS . "product-navbar.php") ?>
 
@@ -71,7 +72,8 @@
                                         </button>
                                     </div>
                                     <div class="modal-body w-100">
-                                        <p>Add <span id="popup-quantity"></span> x <?php echo $product_obj->name; ?> to cart</p>
+                                        <p>Add <span id="popup-quantity"></span> x <?php echo $product_obj->name; ?> to
+                                            cart</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -86,7 +88,8 @@
                     <div id="more-description" style="margin: 10px; display: none;">
                         <p>
                             <?php echo $product_obj->description; ?>
-                            <p style="color: gray; font-size: smaller;">Serial #: <?php echo $product_obj->serial; ?></p>
+                            <p style="color: gray; font-size: smaller;">Serial #: <?php echo $product_obj->serial; ?>
+                            </p>
                         </p>
                     </div>
                 </div>
