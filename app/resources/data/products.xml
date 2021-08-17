@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aisles>
+    <next>44</next>
     <!-- dairy aisle -->
     <aisle_dairy>
         <aisle_section label="Milk">
-            <product>
-                <id>001</id>
-                <name>Itmbe Natural Milk</name>
-                <serial>09876100</serial>
-                <description>Natural unprocessed milk, Itambe Natural milk is full of nutrients.</description>
-                <image>milk.png</image>
-                <quantity>90</quantity>
-                <unit>1 L</unit>
-                <price>4.19</price>
-                <price_per_unit>0.42 / 100 ml</price_per_unit>
-            </product>
-            
             <product>
                 <id>003</id>
                 <name>Lewis Road Ice Cream</name>
@@ -31,7 +20,9 @@
                     <flavour>BlueBerry</flavour>
                 </options>
             </product>
-        </aisle_section>
+        <product><id>43</id><name>Itmbe Natural Milk</name><serial>09876100</serial><description>Natural unprocessed milk, Itambe Natural milk is full of nutrients.</description><price>4.19</price><quantity>90</quantity><unit>1 L</unit><price_per_unit>0.42 / 100 mL</price_per_unit><image>milk.png</image></product>
+        
+    <product><id>42</id><name>Chobani Greek Yogurt</name><serial>09877201</serial><description>Advanced nutrition yogurt that’s lactose-free and easy to digest. In addition to being high in protein, it's crafted with real fruit and only natural ingredients.</description><price>6.99</price><quantity>120</quantity><unit>400 g</unit><price_per_unit>1.05 / 100 g</price_per_unit><image>yogurt.png</image><options><flavour>Blueberry</flavour><flavour>   Strawberry</flavour><flavour>   Blackberry</flavour></options></product></aisle_section>
         <aisle_section label="Eggs">
             <product>
                 <id>004</id>

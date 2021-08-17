@@ -119,13 +119,14 @@ function display_products() {
         foreach ($aisle_categories->children() as $aisle_section) {
             $aisle_name = $aisle_categories->getName();
             foreach ($aisle_section->children() as $product) {
+                $label = $aisle_section['label'];
                 $product_out = <<<DELIMITER
                 <tr>
                     <td>{$product->serial}</td>
                     <td>{$product->name}</td>
                     <td class="hide-mobile">&#36;{$product->price}</td>
                     <td class="hide-mobile">{$product->quantity}</td>
-                    <td><a class="edit-action" href="product-edit.php?category={$aisle_name}&amp;id={$product->id}">Edit</a> <a class="delete-action" href="delete_product.php?category={$aisle_name}&amp;id={$product->id}">Delete</a></td>
+                    <td><a class="edit-action" href="product-edit.php?category={$aisle_name}&amp;label={$label}&amp;id={$product->id}">Edit</a> <a class="delete-action" href="delete_product.php?category={$aisle_name}&amp;id={$product->id}">Delete</a></td>
                 </tr> 
                 DELIMITER;
         
@@ -149,7 +150,8 @@ function deleteProductXml($product_aisle, $product_id) {
 
 // ----- add/edit products
 
-function add_product() {
+// adding form input for product to xml file
+function add_product($is_set, $id, $img) {
     if (isset($_POST['publish'])) {
         $name = $serial = $description = $price = $quantity = $size = $unit = $option = $aisle = "";
         $name = sanitize_input($_POST["item-name"]);
@@ -159,7 +161,10 @@ function add_product() {
         $quantity = sanitize_input($_POST["quantity"]);
         $size = sanitize_input($_POST["size"]);
         $unit = sanitize_input($_POST["unit"]);
-        $option = sanitize_input($_POST["options"]);
+        $price_per = sanitize_input($_POST["price_per"]);
+        $per_unit = sanitize_input($_POST["per_unit"]);
+        $option = strtolower(sanitize_input($_POST["options"]));
+        $optionvals = strtolower(sanitize_input($_POST["option-vals"]));
         $aisle = explode("-",sanitize_input($_POST["aisle"]));
         $image = htmlspecialchars($_FILES['file']['name']);
         $temp_image = htmlspecialchars($_FILES['file']['tmp_name']);
@@ -168,25 +173,76 @@ function add_product() {
         
         move_uploaded_file($temp_image, UPLOADS . DS . $image);
 
-        $xml = new DOMDOcument;
+        $xml = new DOMDocument('1.0', "UTF-8");
         $xml->load(XML_DB . DS . "products.xml");
-        $xpath = new DOMXpath($xml);
-        $root = NULL;
-        foreach($xpath->query('//' . $aisle_name . '/aisle_section[@label="' . $aisle_category . '"]') as $node) {        
-            // TODO: finish this function
-            $root = $node->createElement();
-        }
-        // $xml->save(XML_DB . DS . "products.xml");
-    
+        $xml->formatOutput = true;
 
+        $xpath = new DOMXpath($xml);
+
+
+        if ($is_set) {
+            $nextId = $id;
+            $image = $img;
+            foreach($xpath->query('//' . $aisle_name . '/aisle_section/product[id="' . $id . '"]') as $node) {        
+                $node->parentNode->removeChild($node);
+            }
+        } else {
+            $nextId = getNextProductId();
+            // increment next id value
+            foreach ($xpath->query('//next') as $next) {
+                $next->firstChild->nodeValue = ($nextId + 1);
+            }
+        }
+        
+        $aisle_section = $xpath->query('//' . $aisle_name . '/aisle_section[@label="' . $aisle_category . '"]');
+
+        $product = $xml->createElement("product");
+        
+        $pid = $xml->createElement("id", $nextId);
+        $product->appendChild($pid);
+        $pname = $xml->createElement("name", $name);
+        $product->appendChild($pname);
+        $pserial = $xml->createElement("serial", $serial);
+        $product->appendChild($pserial);
+        $pdescription = $xml->createElement("description", $description);
+        $product->appendChild($pdescription);
+        $pprice = $xml->createElement("price", $price);
+        $product->appendChild($pprice);
+        $pquantity = $xml->createElement("quantity", $quantity);
+        $product->appendChild($pquantity);
+        $punit = $xml->createElement("unit", $size . " " . $unit);
+        $product->appendChild($punit);
+        $pppunit = $xml->createElement("price_per_unit", $price_per . " / " . $per_unit);
+        $product->appendChild($pppunit);
+        $pimage = $xml->createElement("image", $image);
+        $product->appendChild($pimage);
+        if (strcasecmp($option, "none") !== 0) {
+            $poption = $xml->createElement("options", "");
+            $values = explode(",", $optionvals);
+            foreach ($values as $value) {
+                $pvalue = $xml->createElement($option, ucwords($value));
+                $poption->appendChild($pvalue);
+            }
+            $product->appendChild($poption);
+        }
+
+        $aisle_section->item(0)->appendChild($product);
+        $xml->save(XML_DB . DS ."products.xml") or die("Error, unable to save xml file.");
+        header("Location: product-list.php");
     }
 }
 
+// sanitize input
 function sanitize_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
+}
+
+function getNextProductId() {
+    $xml = simplexml_load_file(XML_DB . DS . "products.xml") or die("Error: Cannot create object");
+    return $xml->next[0];
 }
 
 ?>
