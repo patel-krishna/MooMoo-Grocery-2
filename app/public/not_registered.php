@@ -1,4 +1,5 @@
 <?php require_once("../resources/config.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Successfully signed up</title>
+    <title>Log in</title>
     <link rel="icon" href="images/icon-moo.png">
     <style>
         body {
@@ -29,7 +30,7 @@
         }
 
         .card {
-            background-color: rgb(134, 134, 134, 0.5);
+            background-color: rgb(134, 134, 134, 0.4);
             padding: 10px;
             margin: 90px;
             text-align: center;
@@ -90,101 +91,29 @@
         .buttons input:hover {
             background-color: rgb(185, 158, 158);
         }
-        .message{color: white; font-weight: bold; font-style: italic;}
     </style>
 </head>
 
 <body>
-<?php 
-      
-     if(isset($_POST['submit']))
-     { $xml = new DOMDocument('1.0', "UTF-8");
-       $xml ->load(XML_DB . DS ."users.xml");
-       $xml -> formatOutput = true;
-
-       $users = $xml -> getElementsByTagName("users")->item(0);
-
-       $user = $xml ->createElement("user");
-       $user->setAttribute("name", $_POST['firstname']);
-
-
-       $firstname = $_POST['firstname'];
-       $lastname = $_POST['lastname'];
-       $middlename = $_POST['middlename'];
-       $address = $_POST['address'];
-       $apartment = $_POST['apartment'];
-       $city = $_POST['city'];
-       $country = $_POST['country'];
-       $province = $_POST['province'];
-       $postalcode = $_POST['postalcode'];
-       $phonenumber = $_POST['phonenumber'];
-       $email =$_POST['email'];
-       $language = $_POST['language'];
-       $password = $_POST['password'];
-       $paymentmethod = $_POST['paymentmethod'];  
-       $cardnumber =$_POST['cardnumber'];
-       $cvc = $_POST['cvc'];
-
-        $fname= $xml->createElement("firstname", $firstname);
-        $user->appendChild($fname);
-        $lname= $xml->createElement("lastname", $lastname);
-        $user->appendChild($lname);
-        $mname= $xml->createElement("middlename", $middlename);
-        $user->appendChild($mname);
-        $faddress= $xml->createElement("address", $address);
-        $user->appendChild($faddress);
-        $fapartment= $xml->createElement("apartment", $apartment);
-        $user->appendChild($fapartment);
-        $fcity= $xml->createElement("city", $city);
-        $user->appendChild($fcity);
-        $fcountry= $xml->createElement("country", $country);
-        $user->appendChild($fcountry);
-        $fprovince= $xml->createElement("province", $province);
-        $user->appendChild($fprovince);
-        $fpostalcode= $xml->createElement("postalcode", $postalcode);
-        $user->appendChild($fpostalcode);
-        $fphonenumber= $xml->createElement("phonenumber", $phonenumber);
-        $user->appendChild($fphonenumber);
-        $femail= $xml->createElement("email", $email);
-        $user->appendChild($femail);
-        $flanguage= $xml->createElement("language", $language);
-        $user->appendChild($flanguage);
-        $fpassword= $xml->createElement("password", $password);
-        $user->appendChild($fpassword);
-        $fpaymentmethod= $xml->createElement("paymentmethod", $paymentmethod);
-        $user->appendChild($fpaymentmethod);
-        $fcardnumber= $xml->createElement("cardnumber", $cardnumber);
-        $user->appendChild($fcardnumber);
-        $fcvc= $xml->createElement("cvc", $cvc);
-        $user->appendChild($fcvc);
-        
-        $users->appendChild($user);
-        $xml ->save(XML_DB . DS ."users.xml") or die("Error, unable to create xml file.");
-        
-     }
-     
-    
-    ?>
     <div class="header">
         <a href="index.php"><img id="logo" src="images/moomoologo.png"></a>
     </div>
     <div class="mainbody">
         <div class="card">
-            <span class="name">Successfully Signed up!</span>
-            <br/><br/><span class="message">Now you can log in!</span>
-        <form action="Afterlogin.php" method="POST">
+          <form action="Afterlogin.php" method="POST">
+            <span class="name">Log In</span>
             <div class="cardinside">
                 <p>Email Address <br /> <input type="email" id="email" name="email"><br /></p>
                 <p>Password <br /> <input type="password" id="password" name="password"><br /></p>
+                <p style= "color: red;">You are not registered. Please sign up first!</p>
                 <div class="buttons">
                     <input type="submit" id="submit" value="Log in" name="submit">&nbsp;&nbsp;
                     <a href="~"><input type="button" id="forgetpassword" value="Forget Password?"></a>
                 </div>
                 <hr style="width: 60%;" />
-              
-                
+                <h5>Don't you have your account? <a href="SignUp.php">Sign Up</a></h5>
             </div>
-         </form>
+          </form>  
         </div>
 
         <div class="Footer">

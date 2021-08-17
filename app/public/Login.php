@@ -1,4 +1,5 @@
 <?php require_once("../resources/config.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -105,12 +106,11 @@
                 <p>Email Address <br /> <input type="email" id="email" name="email"><br /></p>
                 <p>Password <br /> <input type="password" id="password" name="password"><br /></p>
                 <div class="buttons">
-                    <input type="submit" id="submit" value="Log in">&nbsp;&nbsp;
+                    <input type="submit" id="submit" value="Log in" name="submit">&nbsp;&nbsp;
                     <a href="~"><input type="button" id="forgetpassword" value="Forget Password?"></a>
                 </div>
                 <hr style="width: 60%;" />
                 <h5>Don't you have your account? <a href="SignUp.php">Sign Up</a></h5>
-                <h5>Admin? <a href="backstore/order-list.php">Go to Backstore</a></h5>
             </div>
           </form>  
         </div>
