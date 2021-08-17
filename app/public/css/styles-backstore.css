@@ -318,7 +318,8 @@ a.add-product, a.add-user {
 
 a.add-order:hover,
 a.edit-action:hover,
-a.add-product:hover {
+a.add-product:hover,
+a.add-user:hover {
   background-color: #1089FF;
   color: white;
 }
