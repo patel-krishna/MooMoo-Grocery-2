@@ -34,19 +34,13 @@
       </div>
     </div>
     <div class="prop-row">
-      <div class="col-10">
+      <div class="col-7">
         <label for="street-address">Street Address:</label>
         <input class="properties-input" type="text" id="street-address" name="street-address" value="">
       </div>
       <div class="col-2">
         <label for="apartment">Apt:</label>
         <input class="properties-input" type="text" id="apartment" name="apartment" value="">
-      </div>
-    </div>
-    <div class="prop-row">
-      <div class="col-5">
-        <label for="city">City:</label>
-        <input class="properties-input" type="text" id="city" name="city" value="">
       </div>
       <div class="col-3">
         <label for="province">Province:</label>
@@ -63,9 +57,19 @@
           <option value="SK">SK</option>
         </select>
       </div>
+    </div>
+    <div class="prop-row">
+      <div class="col-5">
+        <label for="city">City:</label>
+        <input class="properties-input" type="text" id="city" name="city" value="">
+      </div>
       <div class="col-4">
         <label for="postal-code">Postal Code:</label>
         <input class="properties-input" type="text" id="postal-code" name="postal-code" value="">
+      </div>
+      <div class="col-3">
+        <label for="country">Country:</label>
+        <input class="properties-input" type="text" id="country" name="country" value="">
       </div>
     </div>
     <div class="col-12">
