@@ -23,7 +23,7 @@
   <user>
     <id>0002</id>
     <firstname>Youngjae</firstname>
-    <middlename></middlename>
+    <middlename/>
     <lastname>Kim</lastname>
     <email>youngjae0719@gmail.com</email>
     <phonenumber>5142222222</phonenumber>
@@ -43,7 +43,7 @@
   <user>
     <id>0003</id>
     <firstname>Sephora</firstname>
-    <middlename></middlename>
+    <middlename/>
     <lastname>Maltais</lastname>
     <email>seph156@gmail.com</email>
     <phonenumber>5143333333</phonenumber>
@@ -63,12 +63,12 @@
   <user>
     <id>0004</id>
     <firstname>John</firstname>
-    <middlename></middlename>
+    <middlename/>
     <lastname>Lin</lastname>
     <email>john.lin@mail.concordia.com</email>
     <phonenumber>5144444444</phonenumber>
     <address>444 Sample Street</address>
-    <apartment></apartment>
+    <apartment/>
     <city>Montreal</city>
     <province>QC</province>
     <country>Canada</country>
@@ -83,7 +83,7 @@
   <user>
     <id>0005</id>
     <firstname>Krishna</firstname>
-    <middlename></middlename>
+    <middlename/>
     <lastname>Patel</lastname>
     <email>krishnaletap@gmail.com</email>
     <phonenumber>5145555555</phonenumber>
@@ -103,7 +103,7 @@
   <user>
     <id>0006</id>
     <firstname>Test</firstname>
-    <middlename></middlename>
+    <middlename/>
     <lastname>Person</lastname>
     <email>testperson1@gmail.com</email>
     <phonenumber>5146666666</phonenumber>
@@ -121,7 +121,6 @@
     <admin>false</admin>
   </user>
 </users>
-
 <!-- user structure
   <user>
     <id></id>

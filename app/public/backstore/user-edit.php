@@ -15,7 +15,7 @@
 <div class="col-8">
   <h1>Edit User Info</h1>
   <h3>Modify all details of a user's account.</h3>
-  <form class="properties" action="" method="post" enctype="text/plain">
+  <form class="properties" action="added-user.php" method="POST">
     <div class="prop-row">
       <div class="col-4">
         <label for="first-name">First Name:</label>
@@ -110,7 +110,7 @@
       </div>
     </div>
     <div class="col-12">
-      <input class="save-button" type="submit" name="" value="Save Changes"></p>
+      <input class="save-button" type="submit" name="submit" value="Save Changes"></p>
       <p><em>*If you do not wish to modify these fields, leave them blank.</em><br>
     </div>
   </form>

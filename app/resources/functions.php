@@ -294,4 +294,9 @@ function deleteUserXml($user_id) {
   $xml->save(XML_DB . DS . "users.xml");
 }
 
+function getNextUserID() {
+  return 1;
+  //return $nextUserID;
+}
+
 ?>
