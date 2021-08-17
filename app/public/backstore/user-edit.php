@@ -9,12 +9,15 @@
   if(isset($_GET['id'])) {
     $user_id = htmlspecialchars($_GET["id"]);
     $user = getUserXml($user_id);
+    $action = "edited-user.php";
+  } else {
+    $action = "added-user.php";
   }
 ?>
 
 <div class="col-8">
   <h1>Edit User Info</h1>
-  <form class="properties" action="edited-user.php" method="POST">
+  <form class="properties" action="<?php echo $action; ?>" method="POST">
     <div class="prop-row">
       <div class="col-8">
         <label for="user-id">User ID:</label>
@@ -23,8 +26,8 @@
       <div class="col-4">
         <label for="language">Language:</label>
         <select class="province-select properties-input" id="language" name="language">
-          <option value="English">English</option>
-          <option value="French">French</option>
+          <option value="English" <?php if ($user->language == "English") echo 'selected' ?> >English</option>
+          <option value="French" <?php if ($user->language == "French") echo 'selected' ?> >French</option>
         </select>
       </div>
     </div>
@@ -64,16 +67,16 @@
       <div class="col-3">
         <label for="province">Province:</label>
         <select class="province-select properties-input" id="province" name="province">
-          <option value="AB">AB</option>
-          <option value="BC">BC</option>
-          <option value="MB">MB</option>
-          <option value="NB">NB</option>
-          <option value="NL">NL</option>
-          <option value="NS">NS</option>
-          <option value="ON">ON</option>
-          <option value="PE">PE</option>
-          <option value="QC">QC</option>
-          <option value="SK">SK</option>
+          <option value="AB" <?php if ($user->province == "AB" || $user->province == "Alberta") echo 'selected' ?> >AB</option>
+          <option value="BC" <?php if ($user->province == "BC" || $user->province == "British Colubmia") echo 'selected' ?> >BC</option>
+          <option value="MB" <?php if ($user->province == "MB" || $user->province == "Manitoba") echo 'selected' ?> >MB</option>
+          <option value="NB" <?php if ($user->province == "NB" || $user->province == "New Brunswick") echo 'selected' ?> >NB</option>
+          <option value="NL" <?php if ($user->province == "NL" || $user->province == "Newfoundland and Labrador") echo 'selected' ?> >NL</option>
+          <option value="NS" <?php if ($user->province == "NS" || $user->province == "Nova Scotia") echo 'selected' ?> >NS</option>
+          <option value="ON" <?php if ($user->province == "ON" || $user->province == "Ontario") echo 'selected' ?> >ON</option>
+          <option value="PE" <?php if ($user->province == "PE" || $user->province == "Prince Edward Island") echo 'selected' ?> >PE</option>
+          <option value="QC" <?php if ($user->province == "QC" || $user->province == "Quebec") echo 'selected' ?> >QC</option>
+          <option value="SK" <?php if ($user->province == "SK" || $user->province == "Saskatchewan") echo 'selected' ?> >SK</option>
         </select>
       </div>
     </div>
@@ -107,9 +110,9 @@
       <div class="col-4">
         <label for="payment-method">Card Type:</label>
         <select class="properties-input" id="payment-method" name="payment-method">
-          <option value="debit">Debit Card</option>
-          <option value="credit">Credit Card</option>
-          <option value="moomoo">MooMoo Card</option>
+          <option value="Debit" <?php if ($user->paymentmethod == "Debit") echo 'selected' ?> >Debit Card</option>
+          <option value="Credit" <?php if ($user->paymentmethod == "Credit") echo 'selected' ?>>Credit Card</option>
+          <option value="Moomoo card" <?php if ($user->paymentmethod == "Moomoo card") echo 'selected' ?>>MooMoo Card</option>
         </select>
       </div>
       <div class="col-5">

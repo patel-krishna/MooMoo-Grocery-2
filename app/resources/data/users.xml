@@ -14,7 +14,7 @@
     <postalcode>A1B 2C3</postalcode>
     <country>Canada</country>
     <password>examplepass123</password>
-    <paymentmethod>Visa</paymentmethod>
+    <paymentmethod>Credit</paymentmethod>
     <cardnumber>1111222233334444</cardnumber>
     <cvc>111</cvc>
     <language>English</language>
@@ -34,7 +34,7 @@
     <country>Canada</country>
     <postalcode>A1B 2C3</postalcode>
     <password>examplepass123</password>
-    <paymentmethod>Mastercard</paymentmethod>
+    <paymentmethod>Debit</paymentmethod>
     <cardnumber>5555666677778888</cardnumber>
     <cvc>999</cvc>
     <language>English</language>
@@ -54,7 +54,7 @@
     <country>Canada</country>
     <postalcode>A1B 2C3</postalcode>
     <password>examplepass123</password>
-    <paymentmethod>Visa</paymentmethod>
+    <paymentmethod>Credit</paymentmethod>
     <cardnumber>7777888899990000</cardnumber>
     <cvc>333</cvc>
     <language>English</language>
@@ -74,7 +74,7 @@
     <country>Canada</country>
     <postalcode>A1B 2C3</postalcode>
     <password>examplepass123</password>
-    <paymentmethod>Visa</paymentmethod>
+    <paymentmethod>Credit</paymentmethod>
     <cardnumber>0000111122223333</cardnumber>
     <cvc>444</cvc>
     <language>English</language>
@@ -94,7 +94,7 @@
     <country>Canada</country>
     <postalcode>A1B 2C3</postalcode>
     <password>examplepass123</password>
-    <paymentmethod>Mastercard</paymentmethod>
+    <paymentmethod>Debit</paymentmethod>
     <cardnumber>1234000011112222</cardnumber>
     <cvc>555</cvc>
     <language>English</language>
@@ -114,7 +114,7 @@
     <country>Canada</country>
     <postalcode>A1B 2C3</postalcode>
     <password>examplepass123</password>
-    <paymentmethod>Mastercard</paymentmethod>
+    <paymentmethod>Debit</paymentmethod>
     <cardnumber>1234111122223333</cardnumber>
     <cvc>555</cvc>
     <language>English</language>
