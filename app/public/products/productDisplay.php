@@ -1,17 +1,16 @@
 <?php require_once("../../resources/config.php"); ?>
 
 <?php include(TEMPLATE_FRONT . DS . "product-header.php") ?>
+<?php 
+    $product_aisle = htmlspecialchars($_GET["category"]);
+    $product_id =  htmlspecialchars($_GET["id"]);
+    $product_category = ucfirst(explode("_", $product_aisle)[1]);
+    $product_obj = getProductXml($product_aisle, $product_id);
+?>
 
-<body class="d-flex flex-column min-vh-100" onload="loadQty()" onbeforeunload="saveQty()">
+<body class="d-flex flex-column min-vh-100" onload="loadQty(<?php echo htmlspecialchars($_GET['id']); ?>)" onbeforeunload="saveQty(<?php echo htmlspecialchars($_GET['id']); ?>)">
     <!-- Navigation bar linking to home and menus -->
     <?php include(TEMPLATE_FRONT . DS . "product-navbar.php") ?>
-
-    <?php 
-        $product_aisle = htmlspecialchars($_GET["category"]);
-        $product_id =  htmlspecialchars($_GET["id"]);
-        $product_category = ucfirst(explode("_", $product_aisle)[1]);
-        $product_obj = getProductXml($product_aisle, $product_id);
-    ?>
 
     <main>
         <section <?php echo 'class="jumbotron ' . getJumbotron($product_aisle) . '"'; ?>>

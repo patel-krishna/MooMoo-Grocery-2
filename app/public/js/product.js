@@ -5,8 +5,7 @@ function moreDescription() {
   }
   
   //saves quantity of product in Session Storage
-  function saveQty() {
-    var productName = document.getElementById("productName").innerHTML;
+  function saveQty(productName) {
     var qty = document.getElementById("quantity");
     var flavour = document.getElementById("flavour");
     var cut = document.getElementById("cut");
@@ -24,8 +23,7 @@ function moreDescription() {
   }
   
   //loads quantity of product from Session Storage
-  function loadQty() {
-    var productName = document.getElementById("productName").innerHTML;
+  function loadQty(productName) {
     var qty = document.getElementById("quantity");
     var flavour = document.getElementById("flavour");
     var cut = document.getElementById("cut");
