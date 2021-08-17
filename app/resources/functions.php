@@ -194,11 +194,25 @@ function display_users() {
               <td>{$user->firstname}</td>
               <td class="hide-mobile">{$user->email}</td>
               <td class="hide-mobile">{$user->phonenumber}</td>
-              <td><a class="edit-action" href="user-edit.php">Edit</a><a class="delete-action" href="#">Delete</a></td>
+              <td>
+                  <a class="edit-action" href="user-edit.php">Edit</a>
+                  <a class="delete-action" href="delete_user.php?id={$user->id}">Delete</a>
+              </td>
             </tr>
             DELIMITER;
             echo $user_out;
         }
+}
+
+//delete a user from users.xml
+function deleteUserXml($user_id) {
+  $xml = new DOMDOcument;
+  $xml->load(XML_DB . DS . "users.xml");
+  $xpath = new DOMXpath($xml);
+  foreach ($xpath->query('//user[id="' . $user_id .'"]') as $node) {
+    $node->parentNode->removeChild($node);
+  }
+  $xml->save(XML_DB . DS . "users.xml");
 }
 
 function sanitize_input($data) {
