@@ -12,6 +12,7 @@
     <city>Montreal</city>
     <province>QC</province>
     <postalcode>A1B 2C3</postalcode>
+    <country>Canada</country>
     <password>examplepass123</password>
     <paymentmethod>Visa</paymentmethod>
     <cardnumber>1111222233334444</cardnumber>

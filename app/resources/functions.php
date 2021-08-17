@@ -195,13 +195,28 @@ function display_users() {
               <td class="hide-mobile">{$user->email}</td>
               <td class="hide-mobile">{$user->phonenumber}</td>
               <td>
-                  <a class="edit-action" href="user-edit.php">Edit</a>
+                  <a class="edit-action" href="edit-user.php?id={$user->id}">Edit</a>
                   <a class="delete-action" href="delete_user.php?id={$user->id}">Delete</a>
               </td>
             </tr>
             DELIMITER;
             echo $user_out;
         }
+}
+
+//return user XML, used for editing user information
+function getUserXml($user_id) {
+  $xml = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
+  $user_xml = NULL;
+
+  foreach ($xml->children() as $user) {
+    if ($user->id == $user_id) {
+      $user_xml = $user;
+      break;
+    }
+  }
+
+  return $user_xml;
 }
 
 //delete a user from users.xml
