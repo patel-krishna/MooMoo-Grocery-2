@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <users>
+<<<<<<< HEAD
   <user>
     <id>0001</id>
     <firstname>Zachary</firstname>
@@ -143,3 +144,6 @@
     <admin></admin>
   </user>
 -->
+=======
+<user name="Youngjae"><admin>yes</admin><firstname>Youngjae</firstname><lastname>Kim</lastname><middlename/><address>1231 Claremont avenue</address><apartment>#207</apartment><city>Montreal</city><country>Canada</country><province>Quebec</province><postalcode>H3Z 2P8</postalcode><phonenumber>4381111111</phonenumber><email>happya@gmail.com</email><language>English</language><password>Nice1234##</password><paymentmethod>debit</paymentmethod><cardnumber>1231312313132122</cardnumber><cvc>123</cvc></user><user name="Junhwan"><firstname>Junhwan</firstname><lastname>Im</lastname><middlename/><address>1233 Claremont avenue</address><apartment>#212</apartment><city>Montreal</city><country>Canada</country><province>New Brunswick</province><postalcode>H3J 3P3</postalcode><phonenumber>4382222222</phonenumber><email>a11@naver.com</email><language>English</language><password>Abcd1234##</password><paymentmethod>debit</paymentmethod><cardnumber>1231312313132122</cardnumber><cvc>111</cvc></user><user name="Sandeep"><firstname>Sandeep</firstname><lastname>Abock</lastname><middlename/><address>1233 Claremont avenue</address><apartment>#212</apartment><city>Montreal</city><country>Canada</country><province>New Brunswick</province><postalcode>H3J 3P3</postalcode><phonenumber>4388807469</phonenumber><email>hello@naver.com</email><language>English</language><password>Hello1234##</password><paymentmethod>debit</paymentmethod><cardnumber>1231312313132122</cardnumber><cvc>123</cvc></user></users>
+>>>>>>> upstream/master

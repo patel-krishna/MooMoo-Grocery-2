@@ -1,6 +1,8 @@
+<?php require_once("../resources/config.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- signup page -->
 <head>
     <meta charset="utf-8">
     <meta name="author" content="Youngjae Kim 40169282" />
@@ -11,6 +13,7 @@
     />
     <title>Sign up page</title>
     <link rel="icon" href="images/icon-moo.png">
+    
     <style>
         body {
             font-family: roboto, Arial, Helvetica, "Droid Sans", sans-serif;
@@ -60,7 +63,7 @@
             text-align: center;
         }
 
-        button {
+        .submit {
             border: none;
             padding: 10px;
             margin: 20px;
@@ -74,11 +77,11 @@
             margin-top: 10px;
         }
 
-        #country {
+        .country {
             width: 15vw;
         }
 
-        #country,
+        .country,
         #language {
             padding: 5px;
         }
@@ -118,39 +121,41 @@
             margin-left: 40px;
         }
     </style>
+    <script type="text/javaScript" src = "js/sign-up.js"></script>
 </head>
 
 <body>
     <div class="header">
-        <a href="index.html"><img id="logo" src="images/moomoologo.png"></a>
+        <a href="index.php"><img id="logo" src="images/moomoologo.png"></a>
     </div>
     <div class="firstrow">
         <h2>Register</h2>
-        <h5>Do you have an account already? <a href="Login.html">Log in</a></h5>
+        <h5>Do you have an account already? <a href="Login.php">Log in</a></h5>
     </div>
-    <form action="">
+
+  
+    <form action="user.php" method="POST">
         <div class="mainbody">
             <div class="card">
                 <span class="name">Personal Information</span>
                 <div class="cardinside">
-                    <p>*FIRST NAME <br /> <input type="text" id="firstname"><br /></p>
-                    <p>*LAST NAME <br /> <input type="text" id="lastname"><br /></p>
-                    <p>MIDDLE NAME <br /> <input type="text" id="middlename"></p>
+                    <p>*FIRST NAME <br /> <input type="text" id="firstname" name="firstname" required><br /></p>
+                    <p>*LAST NAME <br /> <input type="text" id="lastname" name="lastname" required><br /></p>
+                    <p>MIDDLE NAME <br /> <input type="text" id="middlename" name="middlename"></p>
                 </div>
             </div>
             <div class="card">
                 <span class="name">Contact information</span>
                 <div class="cardinside">
-                    <p>*ADDRESS(NO, STREET) <br /> <input type="text" id="address"></p>
-                    <p>APARTMENT <br /> <input type="text" id="apartment"></p>
+                    <p>*ADDRESS(NO, STREET) <br /> <input type="text" id="address" name="address" required></p>
+                    <p>APARTMENT <br /> <input type="text" id="apartment" name="apartment"></p>
                     <div class="location">
-                        <p class="city">*CITY <br /> <input type="text" id="city"></p>
-                        <p>*COUNTRY <br /> <select id="country">
+                        <p class="city">*CITY <br /> <input type="text" id="city" name="city" required></p>
+                        <p>*COUNTRY <br /> <select class="country" name="country" required>
                                 <option>Canada</option>
-                                <option>United states of America</option>
                             </select></p>
                     </div>
-                    <p>*PROVINCE<br /> <select id="country">
+                    <p>*PROVINCE<br /> <select class="country" name="province" required>
                             <option>Alberta</option>
                             <option>British Columbia</option>
                             <option>Prince Edward Island</option>
@@ -165,30 +170,35 @@
                             <option>Northwest Territories</option>
                             <option>Yukon</option>
                         </select></p>
-                    <p>*POSTAL CODE<br /> <input type="text" id="postalcode"></p>
-                    <p>*PHONE NUMBER(without '-') <br /> <input type="text" id="phonenumber" placeholder="111-111-1111"></p>
-                    <p>*EMAIL <br /> <input type="email" id="email"></p>
-                    <p>*CONFIRM EMAIL <br /> <input type="email" id="confirmemail"></p>
-                    <p>*PREFERRED LANGUAGE <br /> <select id="language">
+                    <p>*POSTAL CODE<br /> <input type="text" id="postalcode" name="postalcode" required></p>
+                    <p>*PHONE NUMBER(without '-') <br /> <input type="text" id="phonenumber" placeholder="111-111-1111" name="phonenumber" required></p>
+                    <p>*EMAIL <br /> <input type="email" id="email" name="email" required></p>
+                    <p>*CONFIRM EMAIL <br /> <input type="email" id="confirmemail" name="confirmemail" onchange= "checkemail()" required><br/>
+                        <span id="alertmessage" style="color:red; display:none;">Please confirm it again. Two email addresses are different.</span></p>
+                    <p>*PREFERRED LANGUAGE <br /> <select id="language" name="language" required>
                             <option>English</option>
                             <option>French</option>
                         </select></p>
                     <p>*PASSWORD <span style="text-size-adjust: 1px;">(Must contain at least 10 characters, including at
                             least one number, one lowercase letter, one uppercase letter and one special character.)</span>
-                        <br /><input type="password" id="password"></p>
-                    <p>*CONFIRM PASSWORD <br /><input type="password" id="confirmpassword"></p>
+                        <br /><input type="password" id="password" name="password" onchange="passwordcheck()" required><br/>
+                        <span id="passwordcondition" style="color:red; display:none;">Please set your password again. Some condition is not met.</span></p>
+                    <p>*CONFIRM PASSWORD <br /><input type="password" id="confirmpassword" name="confirmpassword" onchange= "checkpassword()" required><br/>
+                        <span id="passwordmessage" style="color:red; display:none;">Please confirm it again. Two passwords are different.</span></p>
                 </div>
             </div>
             <div class="card">
                 <span class="name">Payment information</span>
                 <div class="cardinside">
                     <p>*PAYMENT METHOD<br />
-                        <label><input type="radio" name="paymentmethod">Debit</label>
-                        <label><input type="radio" name="paymentmethod">Credit</label>
-                        <label><input type="radio" name="paymentmethod">Moomoo card</label></p>
-                    <p>*CARD NUMBER(without space)<br /> <input type="text" id=" cardnumber"
-                            placeholder="**** **** **** ****"></p>
-                    <p>*CVC NUMBER(3 Digits) <br /> <input type="password" id="cvc" style="width: 15px;" placeholder="***">
+                        <input type="radio" name="paymentmethod" value="debit" checked>Debit
+                        <input type="radio" name="paymentmethod" value="credit">Credit
+                        <input type="radio" name="paymentmethod" value="moomoocard">Moomoo card</p>
+                    <p>*CARD NUMBER(without space)<br /> <input type="text" id="cardnumber"
+                            placeholder="**** **** **** ****" name="cardnumber" onchange="cardcheck()" required><br/>
+                            <span id="cardmessage" style="color:red; display:none;">Wrong card number format.</span></p>
+                    <p>*CVC NUMBER(3 Digits) <br /> <input type="password" id="cvc" style="width: 15px;" placeholder="***" name="cvc" onchange="cvccheck()" required><br/>
+                        <span id="cvcmessage" style="color:red; display:none;">Wrong cvc format.</span>
                     </p>
                 </div>
             </div>
@@ -212,15 +222,15 @@
                 </div>
             </div>
         </div>
-        <p class="consent">Consent to Conditions of Use and protection of Personal Information Policy
-            <br /><input type="checkbox">*Yes, I have read and accept the Conditions of Use and protection of Personal
+        <p class="consent" onmousemove="consentcheck()">Consent to Conditions of Use and protection of Personal Information Policy
+            <br /><input type="checkbox" id="consentbox" >*Yes, I have read and accept the Conditions of Use and protection of Personal
             Information Policy
-        </p>
+        </p> <span id="consentboxmessage" style="color:red; display:none; margin-left: 40px"> Please check the box to submit.</span>
         <br />
+       
         <hr />
         <div class="button">
-            <form action="">
-                <a href="#"><button>Create Account</button></a></form>
+           <input type="submit" value="Create Account" class="submit" name="submit">
         </div>
     </form>
 
