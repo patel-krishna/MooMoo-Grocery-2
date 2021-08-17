@@ -194,8 +194,7 @@ function display_users() {
               <td>{$user->firstname}</td>
               <td class="hide-mobile">{$user->email}</td>
               <td class="hide-mobile">{$user->phonenumber}</td>
-              <td><a class="edit-button" href="user-edit.php">Edit</a></td>
-              <td><a href="#">Delete</a></td>
+              <td><a class="edit-action" href="user-edit.php">Edit</a><a class="delete-action" href="#">Delete</a></td>
             </tr>
             DELIMITER;
             echo $user_out;

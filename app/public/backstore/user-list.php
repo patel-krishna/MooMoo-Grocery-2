@@ -16,8 +16,7 @@
       <th class="backstore-table-header">First Name</th>
       <th class="backstore-table-header hide-mobile">Email Address</th>
       <th class="backstore-table-header hide-mobile">Phone Number</th>
-      <th class="backstore-table-header">Edit User</th>
-      <th class="backstore-table-header">Delete User</th>
+      <th class="backstore-table-header" style="text-align: center;">Actions</th>
     </tr>
     <?php display_users() ?>
   </table>
