@@ -14,8 +14,20 @@
 
 <div class="col-8">
   <h1>Edit User Info</h1>
-  <h3>Modify all details of a user's account.</h3>
-  <form class="properties" action="added-user.php" method="POST">
+  <form class="properties" action="edited-user.php" method="POST">
+    <div class="prop-row">
+      <div class="col-8">
+        <label for="user-id">User ID:</label>
+        <input class="properties-input" type="text" id="user-id" name="user-id" value="<?php echo $user->id; ?>" disabled>
+      </div>
+      <div class="col-4">
+        <label for="language">Language:</label>
+        <select class="province-select properties-input" id="language" name="language">
+          <option value="English">English</option>
+          <option value="French">French</option>
+        </select>
+      </div>
+    </div>
     <div class="prop-row">
       <div class="col-4">
         <label for="first-name">First Name:</label>
@@ -81,7 +93,7 @@
     </div>
     <div class="col-12">
       <label for="password">Current Password: </label>
-      <input class="properties-input" type="password" id="password" name="password" value="<?php echo $user->password; ?>">
+      <input class="properties-input" type="password" id="password" name="password" value="<?php echo $user->password; ?>" disabled>
     </div>
     <div class="col-12">
       <label for="new-password">New Password*: </label>
