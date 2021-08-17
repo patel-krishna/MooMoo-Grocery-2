@@ -85,8 +85,8 @@
     <middlename></middlename>
     <lastname>Patel</lastname>
     <email>krishnaletap@gmail.com</email>
-    <phonenumber>5144444444</phonenumber>
-    <address>444 Sample Street</address>
+    <phonenumber>5145555555</phonenumber>
+    <address>555 Sample Street</address>
     <apartment>4</apartment>
     <city>Montreal</city>
     <province>QC</province>
@@ -98,6 +98,26 @@
     <cvc>555</cvc>
     <language>English</language>
     <admin>true</admin>
+  </user>
+  <user>
+    <id>0006</id>
+    <firstname>Test</firstname>
+    <middlename></middlename>
+    <lastname>Person</lastname>
+    <email>testperson1@gmail.com</email>
+    <phonenumber>5146666666</phonenumber>
+    <address>666 Sample Street</address>
+    <apartment>6</apartment>
+    <city>Montreal</city>
+    <province>QC</province>
+    <country>Canada</country>
+    <postalcode>A1B 2C3</postalcode>
+    <password>examplepass123</password>
+    <paymentmethod>Mastercard</paymentmethod>
+    <cardnumber>1234111122223333</cardnumber>
+    <cvc>555</cvc>
+    <language>English</language>
+    <admin>false</admin>
   </user>
 </users>
 

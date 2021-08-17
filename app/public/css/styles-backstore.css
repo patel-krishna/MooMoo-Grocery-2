@@ -305,7 +305,7 @@ select {
 }
 
 a.add-order,
-a.add-product {
+a.add-product, a.add-user {
   background-color: lightgrey;
   border-radius: 5px;
   display: block;
@@ -367,12 +367,12 @@ a.edit-action {
 }
 
 input[type=submit] {
-  padding:10px 25px; 
-  background:#ccc; 
+  padding:10px 25px;
+  background:#ccc;
   border:0 none;
   cursor:pointer;
   -webkit-border-radius: 5px;
-  border-radius: 5px; 
+  border-radius: 5px;
   font-size: 1rem;
 }
 
