@@ -7,14 +7,36 @@
 
 <?php
   if(isset($_GET['id'])) {
+    $is_set = true;
     $user_id = htmlspecialchars($_GET["id"]);
     $user = getUserXml($user_id);
     $action = "edited-user.php";
   } else {
+    $is_set = false;
     $user_id = getNextUserID();
     $action = "added-user.php";
   }
 ?>
+
+<script type="text/javascript">
+  function passwordMatch() {
+      var password = document.getElementById("new-password");
+      var confirmPassword = document.getElementById("confirm-new-password");
+      var errorMessage = document.getElementById("confirm-password-error");
+      var submit = document.getElementById("save-button");
+
+      if(password.value != confirmPassword.value) {
+          errorMessage.style.display = "inline";
+          confirmPassword.focus();
+          confirmPassword.select();
+          submit.disabled = true;
+      }
+      else {
+          errorMessage.style.display = "none";
+          submit.disabled = false;
+      }
+  }
+</script>
 
 <div class="col-8">
   <h1>Edit User Info</h1>
@@ -101,11 +123,12 @@
     </div>
     <div class="col-12">
       <label for="new-password">New Password*: </label>
-      <input class="properties-input" type="password" id="new-password" name="new-password" value="">
+      <input class="properties-input" type="password" id="new-password" name="new-password" value="" <?php if ($is_set == false) echo 'required'; ?>>
     </div>
     <div class="col-12">
       <label for="confirm-new-password">Confirm New Password*: </label>
-      <input class="properties-input" type="password" id="confirm-new-password" name="confirm-new-password" value="">
+      <span id="confirm-password-error" style="color:red; display:none">Error: the passwords you entered do not match.</span>
+      <input class="properties-input" type="password" id="confirm-new-password" name="confirm-new-password" value="" <?php if ($is_set == false) echo 'required'; ?> onchange="passwordMatch()">
     </div>
     <div class="prop-row">
       <div class="col-4">
@@ -126,7 +149,7 @@
       </div>
     </div>
     <div class="col-12">
-      <input class="save-button" type="submit" name="submit" value="Save Changes"></p>
+      <input id="save-button" class="save-button" type="submit" name="submit" value="Save Changes" disabled></p>
       <p><em>*If you do not wish to modify these fields, leave them blank.</em><br>
     </div>
   </form>
