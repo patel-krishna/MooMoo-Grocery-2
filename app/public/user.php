@@ -95,19 +95,22 @@
 </head>
 
 <body>
-<?php 
-      
+<?php
+
      if(isset($_POST['submit']))
      { $xml = new DOMDocument('1.0', "UTF-8");
-       $xml ->load(XML_DB . DS ."users.xml");
-       $xml -> formatOutput = true;
+
+       $xml->preserveWhiteSpace = false;
+       $xml->formatOutput = true;
+
+       $xml->load(XML_DB . DS ."users.xml");
 
        $users = $xml -> getElementsByTagName("users")->item(0);
 
        $user = $xml ->createElement("user");
        $user->setAttribute("name", $_POST['firstname']);
 
-
+       $id = getNextUserID();
        $firstname = $_POST['firstname'];
        $lastname = $_POST['lastname'];
        $middlename = $_POST['middlename'];
@@ -121,10 +124,15 @@
        $email =$_POST['email'];
        $language = $_POST['language'];
        $password = $_POST['password'];
-       $paymentmethod = $_POST['paymentmethod'];  
+       $paymentmethod = $_POST['paymentmethod'];
        $cardnumber =$_POST['cardnumber'];
        $cvc = $_POST['cvc'];
 
+        //increment next user ID
+        $xml->getElementsByTagName("next")->item(0)->textContent = $id + 1;
+
+        $fid= $xml->createElement("id", $id);
+        $user->appendChild($fid);
         $fname= $xml->createElement("firstname", $firstname);
         $user->appendChild($fname);
         $lname= $xml->createElement("lastname", $lastname);
@@ -157,13 +165,13 @@
         $user->appendChild($fcardnumber);
         $fcvc= $xml->createElement("cvc", $cvc);
         $user->appendChild($fcvc);
-        
+
         $users->appendChild($user);
         $xml ->save(XML_DB . DS ."users.xml") or die("Error, unable to create xml file.");
-        
+
      }
-     
-    
+
+
     ?>
     <div class="header">
         <a href="index.php"><img id="logo" src="images/moomoologo.png"></a>
@@ -181,8 +189,8 @@
                     <a href="~"><input type="button" id="forgetpassword" value="Forget Password?"></a>
                 </div>
                 <hr style="width: 60%;" />
-              
-                
+
+
             </div>
          </form>
         </div>

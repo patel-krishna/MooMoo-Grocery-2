@@ -38,7 +38,7 @@ function display_aisle_products($aisle, $section) {
     $aisle_xml = load_aisle_xml($aisle);
     // separate each section
     $section = $aisle_xml->aisle_section[$section];
-    
+
     foreach ($section->children() as $product) {
         $div_media = (count($section) >= 3) ? "col-lg-4": " ";
         $product_card = <<<DELIMITER
@@ -74,7 +74,7 @@ function getProductXml($product_aisle, $product_id) {
     $aisle_xml = load_aisle_xml($product_aisle);
     $product_xml = NULL;
     foreach ($aisle_xml->children() as $section) {
-        foreach ($section->children() as $product) { 
+        foreach ($section->children() as $product) {
             if (strcasecmp($product->id, $product_id) === 0) {
                 $product_xml = $product;
                 break;
@@ -102,7 +102,7 @@ function getOptions($options) {
         echo $select_option;
         $i++;
     }
-    
+
     $select_close = <<<DELIMITER
         </select>
     DELIMITER;
@@ -127,13 +127,13 @@ function display_products() {
                     <td class="hide-mobile">&#36;{$product->price}</td>
                     <td class="hide-mobile">{$product->quantity}</td>
                     <td><a class="edit-action" href="product-edit.php?category={$aisle_name}&amp;label={$label}&amp;id={$product->id}">Edit</a> <a class="delete-action" href="delete_product.php?category={$aisle_name}&amp;id={$product->id}">Delete</a></td>
-                </tr> 
+                </tr>
                 DELIMITER;
-        
+
                 echo $product_out;
             }
         }
-    
+
     }
 }
 
@@ -142,7 +142,7 @@ function deleteProductXml($product_aisle, $product_id) {
     $xml = new DOMDOcument;
     $xml->load(XML_DB . DS . "products.xml");
     $xpath = new DOMXpath($xml);
-    foreach($xpath->query('//' . $product_aisle . '/aisle_section/product[id="' . $product_id . '"]') as $node) {        
+    foreach($xpath->query('//' . $product_aisle . '/aisle_section/product[id="' . $product_id . '"]') as $node) {
         $node->parentNode->removeChild($node);
     }
     $xml->save(XML_DB . DS . "products.xml");
@@ -170,7 +170,7 @@ function add_product($is_set, $id, $img) {
         $temp_image = htmlspecialchars($_FILES['file']['tmp_name']);
         $aisle_name = $aisle[0];
         $aisle_category = $aisle[1];
-        
+
         move_uploaded_file($temp_image, UPLOADS . DS . $image);
 
         $xml = new DOMDocument('1.0', "UTF-8");
@@ -183,7 +183,8 @@ function add_product($is_set, $id, $img) {
         if ($is_set) {
             $nextId = $id;
             $image = $img;
-            foreach($xpath->query('//' . $aisle_name . '/aisle_section/product[id="' . $id . '"]') as $node) {        
+
+            foreach($xpath->query('//' . $aisle_name . '/aisle_section/product[id="' . $id . '"]') as $node) {
                 $node->parentNode->removeChild($node);
             }
         } else {
@@ -193,11 +194,11 @@ function add_product($is_set, $id, $img) {
                 $next->firstChild->nodeValue = ($nextId + 1);
             }
         }
-        
+
         $aisle_section = $xpath->query('//' . $aisle_name . '/aisle_section[@label="' . $aisle_category . '"]');
 
         $product = $xml->createElement("product");
-        
+
         $pid = $xml->createElement("id", $nextId);
         $product->appendChild($pid);
         $pname = $xml->createElement("name", $name);
@@ -243,6 +244,64 @@ function sanitize_input($data) {
 function getNextProductId() {
     $xml = simplexml_load_file(XML_DB . DS . "products.xml") or die("Error: Cannot create object");
     return $xml->next[0];
+}
+
+// user list
+
+function display_users() {
+    $xml = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
+        foreach ($xml->children() as $user) {
+            if ($user->getName() != "next") {
+              $user_out = <<<DELIMITER
+              <tr>
+                <td>{$user->id}</td>
+                <td>{$user->lastname}</td>
+                <td>{$user->firstname}</td>
+                <td class="hide-mobile">{$user->email}</td>
+                <td class="hide-mobile">{$user->phonenumber}</td>
+                <td>
+                    <a class="edit-action" href="user-edit.php?id={$user->id}">Edit</a>
+                    <a class="delete-action" href="delete_user.php?id={$user->id}">Delete</a>
+                </td>
+              </tr>
+              DELIMITER;
+              echo $user_out;
+            }
+        }
+}
+
+//return user XML, used for editing user information
+function getUserXml($user_id) {
+  $xml = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
+  $user_xml = NULL;
+
+  foreach ($xml->children() as $user) {
+    if ($user->id == $user_id) {
+      $user_xml = $user;
+      break;
+    }
+  }
+
+  return $user_xml;
+}
+
+//delete a user from users.xml
+function deleteUserXml($user_id) {
+  $xml = new DOMDocument;
+  $xml->load(XML_DB . DS . "users.xml");
+  $xpath = new DOMXpath($xml);
+  foreach ($xpath->query('//user[id="' . $user_id .'"]') as $node) {
+    $node->parentNode->removeChild($node);
+  }
+  $xml->save(XML_DB . DS . "users.xml");
+}
+
+//returns next unused user ID
+function getNextUserID() {
+  $xmla = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
+  $nextID = $xmla->next[0];
+
+  return $nextID;
 }
 
 ?>
