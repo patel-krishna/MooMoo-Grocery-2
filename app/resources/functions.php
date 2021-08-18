@@ -299,8 +299,8 @@ function deleteUserXml($user_id) {
 
 //returns next unused user ID
 function getNextUserID() {
-  $xmla = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
-  $nextID = $xmla->next[0];
+  $xml = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
+  $nextID = $xml->next[0];
 
   return $nextID;
 }

@@ -52,10 +52,24 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../Login.php">Sign In</a>
+                      <?php
+                        if (isset($_COOKIE["admin"]) || isset($_COOKIE["user"])) {
+                          echo '<a class="nav-link" href="../sign-out.php">Sign Out</a>';
+                        } else {
+                          echo '<a class="nav-link" href="../Login.php">Sign In</a>';
+                        }
+                      ?>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="register-link" href="../SignUp.php">Register</a>
+                      <?php
+                        if (isset($_COOKIE["user"])) {
+                          echo '<a class="nav-link" id="register-link" href="../SignUp.php" style="display: none">Register</a>';
+                        } else if (isset($_COOKIE["admin"])) {
+                          echo '<a class="nav-link" id="backstore-link" href="../backstore/order-list.php" >Backstore</a>';
+                        } else {
+                          echo '<a class="nav-link" id="register-link" href="../SignUp.php">Register</a>';
+                        }
+                      ?>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../cart.php"><span
