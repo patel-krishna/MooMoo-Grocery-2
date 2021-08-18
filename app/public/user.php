@@ -165,7 +165,9 @@
         $user->appendChild($fcardnumber);
         $fcvc= $xml->createElement("cvc", $cvc);
         $user->appendChild($fcvc);
-        
+        $fadmin= $xml->createElement("admin", "no");
+        $user->appendChild($fadmin);
+
         $users->appendChild($user);
         $xml ->save(XML_DB . DS ."users.xml") or die("Error, unable to create xml file.");
 
