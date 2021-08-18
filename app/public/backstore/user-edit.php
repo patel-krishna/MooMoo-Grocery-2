@@ -20,15 +20,15 @@
 
 <script type="text/javascript">
   function passwordMatch() {
-      var password = document.getElementById("new-password");
-      var confirmPassword = document.getElementById("confirm-new-password");
+      var newPassword = document.getElementById("new-password");
+      var confirmNewPassword = document.getElementById("confirm-new-password");
       var errorMessage = document.getElementById("confirm-password-error");
       var submit = document.getElementById("save-button");
 
-      if(password.value != confirmPassword.value) {
+      if(newPassword.value != confirmNewPassword.value) {
           errorMessage.style.display = "inline";
-          confirmPassword.focus();
-          confirmPassword.select();
+          confirmNewPassword.focus();
+          confirmNewPassword.select();
           submit.disabled = true;
       }
       else {
@@ -42,15 +42,22 @@
   <h1>Edit User Info</h1>
   <form class="properties" action="<?php echo $action; ?>" method="POST">
     <div class="prop-row">
-      <div class="col-8">
+      <div class="col-4">
         <label for="user-id">User ID:</label>
         <input class="properties-input" type="text" id="user-id" name="user-id" value="<?php echo $user_id; ?>" readonly>
       </div>
       <div class="col-4">
         <label for="language">Language:</label>
-        <select class="province-select properties-input" id="language" name="language">
+        <select class="language-select properties-input" id="language" name="language">
           <option value="English" <?php if ($user->language == "English") echo 'selected' ?> >English</option>
           <option value="French" <?php if ($user->language == "French") echo 'selected' ?> >French</option>
+        </select>
+      </div>
+      <div class="col-4">
+        <label for="admin">Admin:</label>
+        <select class="admin-select properties-input" id="admin" name="admin">
+          <option value="true" <?php if ($user->admin == "true" || $user->admin == "yes") echo 'selected' ?> >Yes</option>
+          <option value="false" <?php if ($user->admin == "false" || $user->admin == "no") echo 'selected' ?> >No</option>
         </select>
       </div>
     </div>
@@ -149,7 +156,7 @@
       </div>
     </div>
     <div class="col-12">
-      <input id="save-button" class="save-button" type="submit" name="submit" value="Save Changes" disabled></p>
+      <input id="save-button" class="save-button" type="submit" name="submit" value="Save Changes"></p>
       <p><em>*If you do not wish to modify these fields, leave them blank.</em><br>
     </div>
   </form>

@@ -29,7 +29,7 @@ if(isset($_POST['submit'])) {
     $cardnumber =$_POST['card-number'];
     $cvc = $_POST['cvc'];
     $language = $_POST['language'];
-    $admin = 'false';
+    $admin = $_POST['admin'];
 
     $xml->getElementsByTagName("next")->item(0)->textContent = $id + 1;
     $user->appendChild($xml->createElement("id", $id));

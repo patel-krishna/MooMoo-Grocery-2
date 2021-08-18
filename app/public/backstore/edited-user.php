@@ -25,7 +25,7 @@ if(isset($_POST['submit'])) {
     $cardnumber =$_POST['card-number'];
     $cvc = $_POST['cvc'];
     $language = $_POST['language'];
-    $admin = 'false';
+    $admin = $_POST['admin'];
 
     $root = $xml->documentElement;
     $users = $root->getElementsByTagName("user");
