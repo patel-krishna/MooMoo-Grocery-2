@@ -121,26 +121,6 @@
     <language>English</language>
     <admin>no</admin>
   </user>
-  <user name="Junhwan">
-    <id>1007</id>
-    <firstname>Junhwan</firstname>
-    <lastname>Im</lastname>
-    <middlename/>
-    <address>1233 Claremont avenue</address>
-    <apartment>#212</apartment>
-    <city>Montreal</city>
-    <country>Canada</country>
-    <province>New Brunswick</province>
-    <postalcode>H3J 3P3</postalcode>
-    <phonenumber>4381231232</phonenumber>
-    <email>aus@naver.com</email>
-    <language>English</language>
-    <password>Abbb1234##</password>
-    <paymentmethod>debit</paymentmethod>
-    <cardnumber>1231312313131123</cardnumber>
-    <cvc>123</cvc>
-    <admin>no</admin>
-  </user>
 </users>
 <!-- user structure
   <user>
