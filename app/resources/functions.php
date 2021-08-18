@@ -174,11 +174,12 @@ function add_product($is_set, $id, $img) {
         move_uploaded_file($temp_image, UPLOADS . DS . $image);
 
         $xml = new DOMDocument('1.0', "UTF-8");
-        $xml->load(XML_DB . DS . "products.xml");
+
+        $xml->preserveWhiteSpace = false;
         $xml->formatOutput = true;
 
+        $xml->load(XML_DB . DS . "products.xml");
         $xpath = new DOMXpath($xml);
-
 
         if ($is_set) {
             $nextId = $id;
