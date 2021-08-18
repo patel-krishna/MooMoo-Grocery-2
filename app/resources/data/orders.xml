@@ -4,32 +4,14 @@
     <order>
         <order_id>1001</order_id>
         <date>Jul 10, 2021</date>
-        <customer>
-            <id>1001</id>
-            <firstname>Zachary</firstname>
-            <lastname>Bruce</lastname>
-            <address>111 Sample Street</address>
-            <apartment>1</apartment>
-            <city>Montreal</city>
-            <province>QC</province>
-            <postalcode>A1B 2C3</postalcode>
-            <country>Canada</country>
-        </customer>
+        <customer_id>1001</customer_id>
         <cart>
             <product>
                 <id>003</id>
-                <name>Lewis Road Ice Cream</name>
-                <serial>09876102</serial>
-                <quantity>1</quantity>
-                <price>6.79</price>
-                <options>
-                    <flavour>Strawberry</flavour>
-                </options>
+                <p_quantity>1</p_quantity>
             </product>
-            <subtotal>6.79</subtotal>
-            <gst>0.68</gst>
-            <qst>0.34</qst>
-            <total>7.81</total>
+            <total></total>
         </cart>
+        <status>completed</status>
     </order>
 </orders>
