@@ -37,7 +37,7 @@
               if (isset($_COOKIE["user"])) {
                 echo '<a class="nav-link text-primary" id="register-link" href="../SignUp.php" style="display: none">Register</a>';
               } else if (isset($_COOKIE["admin"])) {
-                echo '<a class="nav-link text-primary" id="backstore-link" href="../backstore/order-list.php" >Backstore</a>';
+                echo '<a class="nav-link" id="backstore-link" href="../backstore/order-list.php" >Backstore</a>';
               } else {
                 echo '<a class="nav-link text-primary" id="register-link" href="../SignUp.php">Register</a>';
               }
