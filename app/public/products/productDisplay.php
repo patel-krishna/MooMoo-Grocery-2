@@ -43,7 +43,7 @@
                     <h5><?php echo $product_obj->unit; ?></h5>
                     <h6>&#36;<?php echo $product_obj->price_per_unit; ?></h6>
                     <h5>&#36;<span id="unit-price"><?php echo $product_obj->price; ?></span> /ea</h5>
-                    <form action="<?php echo 'add-to-cart.php?id=' . $product_obj->id; ?>" method="POST">
+                    <form action="<?php echo 'add-to-cart.php?category=' . $product_aisle . '&amp;id=' . $product_id; ?>" method="POST">
                         <!-- Optional Flavour or Cut control -->
                         <?php
                          if (count($product_obj->options) >= 1) {
