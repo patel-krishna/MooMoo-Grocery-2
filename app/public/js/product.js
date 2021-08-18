@@ -52,3 +52,4 @@ function moreDescription() {
     subtotal.innerHTML = (quantity * unitPrice).toFixed(2);
   }
   
+  
