@@ -8,8 +8,8 @@ if(isset($_POST['submit'])) {
 
     $xml->load(XML_DB . DS ."users.xml");
 
-    $users = $xml -> getElementsByTagName("users")->item(0);
-    $user = $xml ->createElement("user");
+    $users = $xml->getElementsByTagName("users")->item(0);
+    $user = $xml->createElement("user");
     //$user->setAttribute("name", $_POST['firstname']);
 
     $id = getNextUserID();
@@ -31,6 +31,7 @@ if(isset($_POST['submit'])) {
     $language = $_POST['language'];
     $admin = 'false';
 
+    $xml->getElementsByTagName("next")->item(0)->textContent = $id + 1;
     $user->appendChild($xml->createElement("id", $id));
     $user->appendChild($xml->createElement("firstname", $firstname));
     $user->appendChild($xml->createElement("middlename", $middlename));
@@ -53,6 +54,8 @@ if(isset($_POST['submit'])) {
     $users->appendChild($user);
 
     $xml->save(XML_DB . DS ."users.xml") or die("Error, unable to create xml file.");
+
+    //assignNextUserID();
 
     header("Location: user-list.php");
 } else {

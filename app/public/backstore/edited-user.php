@@ -8,7 +8,7 @@ if(isset($_POST['submit'])) {
 
     $xml->load(XML_DB . DS ."users.xml");
 
-    $id = 0001;
+    $id = $_POST['user-id'];
     $firstname = $_POST['first-name'];
     $middlename = $_POST['middle-name'];
     $lastname = $_POST['last-name'];
@@ -31,7 +31,7 @@ if(isset($_POST['submit'])) {
     $users = $root->getElementsByTagName("user");
 
     foreach ($users as $user) {
-        if ($user->getElementsByTagName('id')->item(0)->textContent == 0001) {
+        if ($user->getElementsByTagName('id')->item(0)->textContent == $id) {
             $user->getElementsByTagName('firstname')->item(0)->textContent = $firstname;
             $user->getElementsByTagName('middlename')->item(0)->textContent = $middlename;
             $user->getElementsByTagName('lastname')->item(0)->textContent = $lastname;
@@ -52,7 +52,7 @@ if(isset($_POST['submit'])) {
         }
 
     }
-    
+
     $xml->save(XML_DB . DS ."users.xml") or die("Error, unable to create xml file.");
 
     header("Location: user-list.php");

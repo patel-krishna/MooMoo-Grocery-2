@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <users>
-<<<<<<< HEAD
+  <next>1007</next>
   <user>
-    <id>0001</id>
+    <id>1001</id>
     <firstname>Zachary</firstname>
     <middlename>Robert</middlename>
     <lastname>Bruce</lastname>
@@ -22,7 +22,7 @@
     <admin>true</admin>
   </user>
   <user>
-    <id>0002</id>
+    <id>1002</id>
     <firstname>Youngjae</firstname>
     <middlename/>
     <lastname>Kim</lastname>
@@ -42,7 +42,7 @@
     <admin>true</admin>
   </user>
   <user>
-    <id>0003</id>
+    <id>1003</id>
     <firstname>Sephora</firstname>
     <middlename/>
     <lastname>Maltais</lastname>
@@ -62,7 +62,7 @@
     <admin>true</admin>
   </user>
   <user>
-    <id>0004</id>
+    <id>1004</id>
     <firstname>John</firstname>
     <middlename/>
     <lastname>Lin</lastname>
@@ -82,7 +82,7 @@
     <admin>true</admin>
   </user>
   <user>
-    <id>0005</id>
+    <id>1005</id>
     <firstname>Krishna</firstname>
     <middlename/>
     <lastname>Patel</lastname>
@@ -102,7 +102,7 @@
     <admin>true</admin>
   </user>
   <user>
-    <id>0006</id>
+    <id>1006</id>
     <firstname>Test</firstname>
     <middlename/>
     <lastname>Person</lastname>
@@ -144,6 +144,3 @@
     <admin></admin>
   </user>
 -->
-=======
-<user name="Youngjae"><admin>yes</admin><firstname>Youngjae</firstname><lastname>Kim</lastname><middlename/><address>1231 Claremont avenue</address><apartment>#207</apartment><city>Montreal</city><country>Canada</country><province>Quebec</province><postalcode>H3Z 2P8</postalcode><phonenumber>4381111111</phonenumber><email>happya@gmail.com</email><language>English</language><password>Nice1234##</password><paymentmethod>debit</paymentmethod><cardnumber>1231312313132122</cardnumber><cvc>123</cvc></user><user name="Junhwan"><firstname>Junhwan</firstname><lastname>Im</lastname><middlename/><address>1233 Claremont avenue</address><apartment>#212</apartment><city>Montreal</city><country>Canada</country><province>New Brunswick</province><postalcode>H3J 3P3</postalcode><phonenumber>4382222222</phonenumber><email>a11@naver.com</email><language>English</language><password>Abcd1234##</password><paymentmethod>debit</paymentmethod><cardnumber>1231312313132122</cardnumber><cvc>111</cvc></user><user name="Sandeep"><firstname>Sandeep</firstname><lastname>Abock</lastname><middlename/><address>1233 Claremont avenue</address><apartment>#212</apartment><city>Montreal</city><country>Canada</country><province>New Brunswick</province><postalcode>H3J 3P3</postalcode><phonenumber>4388807469</phonenumber><email>hello@naver.com</email><language>English</language><password>Hello1234##</password><paymentmethod>debit</paymentmethod><cardnumber>1231312313132122</cardnumber><cvc>123</cvc></user></users>
->>>>>>> upstream/master

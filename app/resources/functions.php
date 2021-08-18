@@ -251,20 +251,22 @@ function getNextProductId() {
 function display_users() {
     $xml = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
         foreach ($xml->children() as $user) {
-            $user_out = <<<DELIMITER
-            <tr>
-              <td>{$user->id}</td>
-              <td>{$user->lastname}</td>
-              <td>{$user->firstname}</td>
-              <td class="hide-mobile">{$user->email}</td>
-              <td class="hide-mobile">{$user->phonenumber}</td>
-              <td>
-                  <a class="edit-action" href="user-edit.php?id={$user->id}">Edit</a>
-                  <a class="delete-action" href="delete_user.php?id={$user->id}">Delete</a>
-              </td>
-            </tr>
-            DELIMITER;
-            echo $user_out;
+            if ($user->getName() != "next") {
+              $user_out = <<<DELIMITER
+              <tr>
+                <td>{$user->id}</td>
+                <td>{$user->lastname}</td>
+                <td>{$user->firstname}</td>
+                <td class="hide-mobile">{$user->email}</td>
+                <td class="hide-mobile">{$user->phonenumber}</td>
+                <td>
+                    <a class="edit-action" href="user-edit.php?id={$user->id}">Edit</a>
+                    <a class="delete-action" href="delete_user.php?id={$user->id}">Delete</a>
+                </td>
+              </tr>
+              DELIMITER;
+              echo $user_out;
+            }
         }
 }
 
@@ -285,7 +287,7 @@ function getUserXml($user_id) {
 
 //delete a user from users.xml
 function deleteUserXml($user_id) {
-  $xml = new DOMDOcument;
+  $xml = new DOMDocument;
   $xml->load(XML_DB . DS . "users.xml");
   $xpath = new DOMXpath($xml);
   foreach ($xpath->query('//user[id="' . $user_id .'"]') as $node) {
@@ -294,9 +296,12 @@ function deleteUserXml($user_id) {
   $xml->save(XML_DB . DS . "users.xml");
 }
 
+//returns next unused user ID
 function getNextUserID() {
-  return 1;
-  //return $nextUserID;
+  $xmla = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
+  $nextID = $xmla->next[0];
+
+  return $nextID;
 }
 
 ?>

@@ -11,6 +11,7 @@
     $user = getUserXml($user_id);
     $action = "edited-user.php";
   } else {
+    $user_id = getNextUserID();
     $action = "added-user.php";
   }
 ?>
@@ -21,7 +22,7 @@
     <div class="prop-row">
       <div class="col-8">
         <label for="user-id">User ID:</label>
-        <input class="properties-input" type="text" id="user-id" name="user-id" value="<?php echo $user->id; ?>" disabled>
+        <input class="properties-input" type="text" id="user-id" name="user-id" value="<?php echo $user_id; ?>" readonly>
       </div>
       <div class="col-4">
         <label for="language">Language:</label>
@@ -96,7 +97,7 @@
     </div>
     <div class="col-12">
       <label for="password">Current Password: </label>
-      <input class="properties-input" type="password" id="password" name="password" value="<?php echo $user->password; ?>" disabled>
+      <input class="properties-input" type="password" id="password" name="password" value="<?php echo $user->password; ?>" readonly>
     </div>
     <div class="col-12">
       <label for="new-password">New Password*: </label>
