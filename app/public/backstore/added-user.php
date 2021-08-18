@@ -24,7 +24,7 @@ if(isset($_POST['submit'])) {
     $province = $_POST['province'];
     $postalcode = $_POST['postal-code'];
     $country = $_POST['country'];
-    $password = $_POST['password'];
+    $password = $_POST['new-password'];
     $paymentmethod = $_POST['payment-method'];
     $cardnumber =$_POST['card-number'];
     $cvc = $_POST['cvc'];
