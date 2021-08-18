@@ -1,3 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <users>
-<user name="Youngjae"><admin>yes</admin><firstname>Youngjae</firstname><lastname>Kim</lastname><middlename/><address>1231 Claremont avenue</address><apartment>#207</apartment><city>Montreal</city><country>Canada</country><province>Quebec</province><postalcode>H3Z 2P8</postalcode><phonenumber>4381111111</phonenumber><email>happya@gmail.com</email><language>English</language><password>Nice1234##</password><paymentmethod>debit</paymentmethod><cardnumber>1231312313132122</cardnumber><cvc>123</cvc></user><user name="Junhwan"><firstname>Junhwan</firstname><lastname>Im</lastname><middlename/><address>1233 Claremont avenue</address><apartment>#212</apartment><city>Montreal</city><country>Canada</country><province>New Brunswick</province><postalcode>H3J 3P3</postalcode><phonenumber>4382222222</phonenumber><email>a11@naver.com</email><language>English</language><password>Abcd1234##</password><paymentmethod>debit</paymentmethod><cardnumber>1231312313132122</cardnumber><cvc>111</cvc></user><user name="Sandeep"><firstname>Sandeep</firstname><lastname>Abock</lastname><middlename/><address>1233 Claremont avenue</address><apartment>#212</apartment><city>Montreal</city><country>Canada</country><province>New Brunswick</province><postalcode>H3J 3P3</postalcode><phonenumber>4388807469</phonenumber><email>hello@naver.com</email><language>English</language><password>Hello1234##</password><paymentmethod>debit</paymentmethod><cardnumber>1231312313132122</cardnumber><cvc>123</cvc></user></users>
+  <next>1007</next>
+  <user>
+    <id>1001</id>
+    <firstname>Zachary</firstname>
+    <middlename>Robert</middlename>
+    <lastname>Bruce</lastname>
+    <email>zackrbruce@gmail.com</email>
+    <phonenumber>1234567890</phonenumber>
+    <address>111 Sample Street</address>
+    <apartment>1</apartment>
+    <city>Montreal</city>
+    <province>QC</province>
+    <postalcode>A1B 2C3</postalcode>
+    <country>Canada</country>
+    <password>examplepass123</password>
+    <paymentmethod>Credit</paymentmethod>
+    <cardnumber>1111222233334444</cardnumber>
+    <cvc>111</cvc>
+    <language>English</language>
+    <admin>true</admin>
+  </user>
+  <user>
+    <id>1002</id>
+    <firstname>Youngjae</firstname>
+    <middlename/>
+    <lastname>Kim</lastname>
+    <email>youngjae0719@gmail.com</email>
+    <phonenumber>5142222222</phonenumber>
+    <address>222 Sample Street</address>
+    <apartment>2</apartment>
+    <city>Montreal</city>
+    <province>QC</province>
+    <country>Canada</country>
+    <postalcode>A1B 2C3</postalcode>
+    <password>examplepass123</password>
+    <paymentmethod>Debit</paymentmethod>
+    <cardnumber>5555666677778888</cardnumber>
+    <cvc>999</cvc>
+    <language>English</language>
+    <admin>true</admin>
+  </user>
+  <user>
+    <id>1003</id>
+    <firstname>Sephora</firstname>
+    <middlename/>
+    <lastname>Maltais</lastname>
+    <email>seph156@gmail.com</email>
+    <phonenumber>5143333333</phonenumber>
+    <address>333 Sample Street</address>
+    <apartment>3</apartment>
+    <city>Montreal</city>
+    <province>QC</province>
+    <country>Canada</country>
+    <postalcode>A1B 2C3</postalcode>
+    <password>examplepass123</password>
+    <paymentmethod>Credit</paymentmethod>
+    <cardnumber>7777888899990000</cardnumber>
+    <cvc>333</cvc>
+    <language>English</language>
+    <admin>true</admin>
+  </user>
+  <user>
+    <id>1004</id>
+    <firstname>John</firstname>
+    <middlename/>
+    <lastname>Lin</lastname>
+    <email>john.lin@mail.concordia.com</email>
+    <phonenumber>5144444444</phonenumber>
+    <address>444 Sample Street</address>
+    <apartment/>
+    <city>Montreal</city>
+    <province>QC</province>
+    <country>Canada</country>
+    <postalcode>A1B 2C3</postalcode>
+    <password>examplepass123</password>
+    <paymentmethod>Credit</paymentmethod>
+    <cardnumber>0000111122223333</cardnumber>
+    <cvc>444</cvc>
+    <language>English</language>
+    <admin>true</admin>
+  </user>
+  <user>
+    <id>1005</id>
+    <firstname>Krishna</firstname>
+    <middlename/>
+    <lastname>Patel</lastname>
+    <email>krishnaletap@gmail.com</email>
+    <phonenumber>5145555555</phonenumber>
+    <address>555 Sample Street</address>
+    <apartment>4</apartment>
+    <city>Montreal</city>
+    <province>QC</province>
+    <country>Canada</country>
+    <postalcode>A1B 2C3</postalcode>
+    <password>examplepass123</password>
+    <paymentmethod>Debit</paymentmethod>
+    <cardnumber>1234000011112222</cardnumber>
+    <cvc>555</cvc>
+    <language>English</language>
+    <admin>true</admin>
+  </user>
+  <user>
+    <id>1006</id>
+    <firstname>Test</firstname>
+    <middlename/>
+    <lastname>Person</lastname>
+    <email>testperson1@gmail.com</email>
+    <phonenumber>5146666666</phonenumber>
+    <address>666 Sample Street</address>
+    <apartment>6</apartment>
+    <city>Montreal</city>
+    <province>QC</province>
+    <country>Canada</country>
+    <postalcode>A1B 2C3</postalcode>
+    <password>examplepass123</password>
+    <paymentmethod>Debit</paymentmethod>
+    <cardnumber>1234111122223333</cardnumber>
+    <cvc>555</cvc>
+    <language>English</language>
+    <admin>false</admin>
+  </user>
+</users>
+<!-- user structure
+  <user>
+    <id></id>
+    <firstname></firstname>
+    <middlename></middleName>
+    <lastname></lastname>
+    <email></email>
+    <phonenumber></phonenumber>
+    <address></address>
+    <apartment></apartment>
+    <city></city>
+    <province></province>
+    <country></country>
+    <postalcode></postalcode>
+    <password></password>
+    <paymentmethod></paymentmethod>
+    <cardnumber></cardnumber>
+    <cvc></cvc>
+    <language></language>
+    <admin></admin>
+  </user>
+-->
