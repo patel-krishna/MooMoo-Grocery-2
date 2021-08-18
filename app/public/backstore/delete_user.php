@@ -1,5 +1,9 @@
 <?php require_once("../../resources/config.php");
 
+if (!isset($_COOKIE["admin"])) {
+  header("Location: ../index.php");
+}
+
 if(isset($_GET['id'])) {
     $user_id =  htmlspecialchars($_GET["id"]);
 

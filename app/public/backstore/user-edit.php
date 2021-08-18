@@ -56,8 +56,8 @@
       <div class="col-4">
         <label for="admin">Admin:</label>
         <select class="admin-select properties-input" id="admin" name="admin">
-          <option value="true" <?php if ($user->admin == "true" || $user->admin == "yes") echo 'selected' ?> >Yes</option>
-          <option value="false" <?php if ($user->admin == "false" || $user->admin == "no") echo 'selected' ?> >No</option>
+          <option value="yes" <?php if ($user->admin == "yes") echo 'selected' ?> >Yes</option>
+          <option value="no" <?php if ($user->admin == "no") echo 'selected' ?> >No</option>
         </select>
       </div>
     </div>

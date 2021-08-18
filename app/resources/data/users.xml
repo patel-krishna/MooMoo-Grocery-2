@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <users>
-  <next>1007</next>
+  <next>1008</next>
   <user>
     <id>1001</id>
     <firstname>Zachary</firstname>
@@ -19,7 +19,7 @@
     <cardnumber>1111222233334444</cardnumber>
     <cvc>111</cvc>
     <language>English</language>
-    <admin>true</admin>
+    <admin>yes</admin>
   </user>
   <user>
     <id>1002</id>
@@ -39,7 +39,7 @@
     <cardnumber>5555666677778888</cardnumber>
     <cvc>999</cvc>
     <language>English</language>
-    <admin>true</admin>
+    <admin>yes</admin>
   </user>
   <user>
     <id>1003</id>
@@ -59,7 +59,7 @@
     <cardnumber>7777888899990000</cardnumber>
     <cvc>333</cvc>
     <language>English</language>
-    <admin>true</admin>
+    <admin>yes</admin>
   </user>
   <user>
     <id>1004</id>
@@ -79,7 +79,7 @@
     <cardnumber>0000111122223333</cardnumber>
     <cvc>444</cvc>
     <language>English</language>
-    <admin>true</admin>
+    <admin>yes</admin>
   </user>
   <user>
     <id>1005</id>
@@ -99,7 +99,7 @@
     <cardnumber>1234000011112222</cardnumber>
     <cvc>555</cvc>
     <language>English</language>
-    <admin>true</admin>
+    <admin>yes</admin>
   </user>
   <user>
     <id>1006</id>
@@ -119,7 +119,7 @@
     <cardnumber>1234111122223333</cardnumber>
     <cvc>555</cvc>
     <language>English</language>
-    <admin>false</admin>
+    <admin>no</admin>
   </user>
 </users>
 <!-- user structure

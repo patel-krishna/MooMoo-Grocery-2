@@ -1,4 +1,8 @@
-<?php require_once("../../resources/config.php"); 
+<?php require_once("../../resources/config.php");
+
+if (!isset($_COOKIE["admin"])) {
+  header("Location: ../index.php");
+}
 
 if(isset($_GET['id']) && isset($_GET['category'])) {
     $product_aisle = htmlspecialchars($_GET["category"]);
