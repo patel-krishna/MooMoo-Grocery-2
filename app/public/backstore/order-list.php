@@ -74,6 +74,8 @@
       <td class="completed-order">Completed</td>
       <td><a class="edit-action" href="add-order.html">Edit</a> <a class="delete-action" href="#">Delete</a></td>
     </tr>
+    <!-- // Dynamically display orders -->
+    <?php display_orders() ?>
   </table>
 
   <div class="page-numbers-container">
