@@ -1,8 +1,8 @@
 <?php
   if (isset($_COOKIE["admin"])) {
-    setcookie("admin", "", 1, "/MooMoo-Grocery-2/app/public");
+    setcookie("admin", "", 1, "/");
   } else if (isset($_COOKIE["user"])) {
-    setcookie("user", "", 1, "/MooMoo-Grocery-2/app/public");
+    setcookie("user", "", 1, "/");
   }
 
   header("Location: index.php");

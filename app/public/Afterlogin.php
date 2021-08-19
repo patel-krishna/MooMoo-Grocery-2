@@ -32,14 +32,14 @@ $xml = simplexml_load_file(XML_DB . DS ."users.xml") or die("Error of calling fi
                     if(isset($_COOKIE["admin"])||isset($_COOKIE["user"]))
                        {
                            unset($_COOKIE["admin"]);
-                           setcookie("admin", "", time()-3600, "/MooMoo-Grocery-2/app/public");
+                           setcookie("admin", "", time()-3600, "/");
                            unset($_COOKIE["user"]);
-                           setcookie("user", "", time()-3600, "/MooMoo-Grocery-2/app/public");
-                           setcookie("admin",$cookievalue, 0, "/MooMoo-Grocery-2/app/public");
+                           setcookie("user", "", time()-3600, "/");
+                           setcookie("admin",$cookievalue, 0, "/");
                        }
                     else
                     {
-                        setcookie("admin",$cookievalue, 0, "/MooMoo-Grocery-2/app/public");
+                        setcookie("admin",$cookievalue, 0, "/");
                     }
 
                     header("Location: backstore/order-list.php");
@@ -51,14 +51,14 @@ $xml = simplexml_load_file(XML_DB . DS ."users.xml") or die("Error of calling fi
                     if(isset($_COOKIE["admin"])||isset($_COOKIE["user"]))
                        {
                            unset($_COOKIE["admin"]);
-                           setcookie("admin", "", time()-3600, "/MooMoo-Grocery-2/app/public");
+                           setcookie("admin", "", time()-3600, "/");
                            unset($_COOKIE["user"]);
-                           setcookie("user", "", time()-3600, "/MooMoo-Grocery-2/app/public");
-                           setcookie("user",$cookievalue, 0, "/MooMoo-Grocery-2/app/public");
+                           setcookie("user", "", time()-3600, "/");
+                           setcookie("user",$cookievalue, 0, "/");
                        }
                     else
                     {
-                        setcookie("user",$cookievalue, 0, "/MooMoo-Grocery-2/app/public");
+                        setcookie("user",$cookievalue, 0, "/");
                     }
                     header("Location: index.php");
                     break;
