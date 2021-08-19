@@ -92,6 +92,7 @@
         }
         .message{color: white; font-weight: bold; font-style: italic;}
     </style>
+    <script type="text/javaScript" src = "js/login.js"></script>
 </head>
 
 <body>
@@ -184,7 +185,8 @@
             <br/><br/><span class="message">Now you can log in!</span>
         <form action="Afterlogin.php" method="POST">
             <div class="cardinside">
-                <p>Email Address <br /> <input type="email" id="email" name="email"><br /></p>
+                <p>Email Address <br /> <input type="text" id="email" name="email" onchange="checkformat()"><br /></p>
+                <span id="formatmessage" style="color:red; display:none;">Please input value in right format.</span>
                 <p>Password <br /> <input type="password" id="password" name="password"><br /></p>
                 <div class="buttons">
                     <input type="submit" id="submit" value="Log in" name="submit">&nbsp;&nbsp;
