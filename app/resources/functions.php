@@ -135,7 +135,7 @@ function display_products()
                     <td class="hide-mobile">&#36;{$product->price}</td>
                     <td class="hide-mobile">{$product->quantity}</td>
                     <td><a class="edit-action" href="product-edit.php?category={$aisle_name}&amp;label={$label}&amp;id={$product->id}">Edit</a> <a class="delete-action" href="delete_product.php?category={$aisle_name}&amp;id={$product->id}">Delete</a></td>
-                </tr> 
+                </tr>
                 DELIMITER;
 
                 echo $product_out;
@@ -262,7 +262,7 @@ function display_users()
 {
     $xml = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
     foreach ($xml->children() as $user) {
-        if ($user->getName() != "next") {
+        if ($user->getName() == "user" && $user->firstname != $_COOKIE["admin"]) {
             $user_out = <<<DELIMITER
               <tr>
                 <td>{$user->id}</td>
@@ -273,6 +273,21 @@ function display_users()
                 <td>
                     <a class="edit-action" href="user-edit.php?id={$user->id}">Edit</a>
                     <a class="delete-action" href="delete_user.php?id={$user->id}">Delete</a>
+                </td>
+              </tr>
+              DELIMITER;
+            echo $user_out;
+        } else if ($user->getName() == "user" && $user->firstname == $_COOKIE["admin"]) {
+            $user_out = <<<DELIMITER
+              <tr>
+                <td>{$user->id}</td>
+                <td>{$user->lastname}</td>
+                <td>{$user->firstname}</td>
+                <td class="hide-mobile">{$user->email}</td>
+                <td class="hide-mobile">{$user->phonenumber}</td>
+                <td>
+                    <a class="edit-action" href="user-edit.php?id={$user->id}">Edit</a>
+                    <a class="delete-action" href="" style="background-color: lightgrey; color: #999999; pointer-events: none;">Delete</a>
                 </td>
               </tr>
               DELIMITER;
@@ -331,4 +346,3 @@ function display_orders()
         }
     }
 }
-
