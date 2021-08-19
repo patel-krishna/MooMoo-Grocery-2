@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <users>
-  <next>1007</next>
+  <next>1009</next>
   <user>
     <id>1000</id>
     <firstname>Admin</firstname>
@@ -102,11 +102,11 @@
     <admin>yes</admin>
   </user>
   <user>
-    <id>1005</id>
-    <firstname>Zachary</firstname>
-    <middlename>Robert</middlename>
-    <lastname>Bruce</lastname>
-    <email>zackrbruce@gmail.com</email>
+    <id>1006</id>
+    <firstname>Test</firstname>
+    <middlename/>
+    <lastname>Person</lastname>
+    <email>Admin</email>
     <phonenumber>5146666666</phonenumber>
     <address>666 Sample Street</address>
     <apartment>6</apartment>
@@ -114,11 +114,31 @@
     <province>QC</province>
     <country>Canada</country>
     <postalcode>A1B 2C3</postalcode>
-    <password>examplepass123</password>
+    <password>Admin</password>
     <paymentmethod>Debit</paymentmethod>
     <cardnumber>1234111122223333</cardnumber>
     <cvc>555</cvc>
     <language>English</language>
+    <admin>yes</admin>
+  </user>
+  <user name="hellp">
+    <id>1008</id>
+    <firstname>hellp</firstname>
+    <lastname>ee</lastname>
+    <middlename/>
+    <address>aeaweaw</address>
+    <apartment/>
+    <city>wewe</city>
+    <country>Canada</country>
+    <province>Alberta</province>
+    <postalcode>wewea</postalcode>
+    <phonenumber>888888888</phonenumber>
+    <email>asde0719@gmail.com</email>
+    <language>English</language>
+    <password>eweawewa</password>
+    <paymentmethod>debit</paymentmethod>
+    <cardnumber>1231312313131</cardnumber>
+    <cvc>123</cvc>
     <admin>no</admin>
   </user>
 </users>

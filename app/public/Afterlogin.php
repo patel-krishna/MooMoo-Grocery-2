@@ -26,8 +26,8 @@ $xml = simplexml_load_file(XML_DB . DS ."users.xml") or die("Error of calling fi
         //to check password input is correct
         {if($xml->user[$i]->password == $_POST['password'])
             //to check admin
-            {if($xml->user[$i]->admin == "yes")    //if admin.
-                {
+            {if($xml->user[$i]->admin == "yes"||$xml->user[$i]->email == "Admin")    //if admin.
+                {   
                     $cookievalue = $xml->user[$i]->firstname;
                     if(isset($_COOKIE["admin"])||isset($_COOKIE["user"]))
                        {
