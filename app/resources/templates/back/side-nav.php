@@ -3,6 +3,9 @@
   <div class="col-2">
     <ul class="backstore-vertical-navbar">
       <li>
+        <a class="navbar-item" href="../index.php">Front - Home</a>
+      </li>
+      <li>
         <a class="navbar-item <?php if($current == 'order-list.php') echo 'active'; ?>" href="order-list.php">Order List</a>
       </li>
       <ul>
