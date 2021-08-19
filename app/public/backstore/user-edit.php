@@ -36,6 +36,22 @@
           submit.disabled = false;
       }
   }
+
+  function passwordCheck() {
+    var password = document.getElementById("new-password").value;
+    var message = document.getElementById("passwordcondition");
+
+    if(password.length<10 || !/[0-9]/.test(password) || !/[a-z]/.test(password) || !/[A-Z]/.test(password)
+    ||!/[!@#$%^&*]/.test(password))
+    {
+      message.style.display = "block";
+      document.getElementById("new-password").focus();
+      document.getElementById("new-password").select();
+    }
+    else{
+        message.style.display= "none";
+    }
+  }
 </script>
 
 <div class="col-8">
@@ -130,12 +146,17 @@
     </div>
     <div class="col-12">
       <label for="new-password">New Password*: </label>
-      <input class="properties-input" type="password" id="new-password" name="new-password" value="" <?php if ($is_set == false) echo 'required'; ?>>
+      <span style="font-size: 0.8rem;">
+        (Must contain at least 10 characters, including at least one number,
+        one lowercase letter, one uppercase letter and one special character.)
+      </span>
+      <input class="properties-input" type="password" id="new-password" name="new-password" value="" <?php if ($is_set == false) echo 'required'; ?> onchange="passwordCheck()">
+      <span id="passwordcondition" style="color:red; display:none;">Please set your password again. Some condition is not met.</span>
     </div>
     <div class="col-12">
       <label for="confirm-new-password">Confirm New Password*: </label>
-      <span id="confirm-password-error" style="color:red; display:none">Error: the passwords you entered do not match.</span>
       <input class="properties-input" type="password" id="confirm-new-password" name="confirm-new-password" value="" <?php if ($is_set == false) echo 'required'; ?> onchange="passwordMatch()">
+      <span id="confirm-password-error" style="color:red; display:none">Error: the passwords you entered do not match.</span>
     </div>
     <div class="prop-row">
       <div class="col-4">
