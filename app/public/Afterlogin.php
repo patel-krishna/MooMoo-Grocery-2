@@ -11,7 +11,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>loged in</title>
+    <title>logged in</title>
 </head>
 <body>
 <?php
@@ -32,38 +32,38 @@ $xml = simplexml_load_file(XML_DB . DS ."users.xml") or die("Error of calling fi
                     if(isset($_COOKIE["admin"])||isset($_COOKIE["user"]))
                        {
                            unset($_COOKIE["admin"]);
-                           setcookie("admin", "", time()-3600);
+                           setcookie("admin", "", time()-3600, "/");
                            unset($_COOKIE["user"]);
-                           setcookie("user", "", time()-3600);
-                           setcookie("admin",$cookievalue); 
+                           setcookie("user", "", time()-3600, "/");
+                           setcookie("admin",$cookievalue, 0, "/");
                        }
                     else
                     {
-                        setcookie("admin",$cookievalue); 
+                        setcookie("admin",$cookievalue, 0, "/");
                     }
-                    
+
                     header("Location: backstore/order-list.php");
                     break;
                 }
               else //if normal user.
-                {   
+                {
                     $cookievalue = $xml->user[$i]->firstname;
                     if(isset($_COOKIE["admin"])||isset($_COOKIE["user"]))
                        {
                            unset($_COOKIE["admin"]);
-                           setcookie("admin", "", time()-3600);
+                           setcookie("admin", "", time()-3600, "/");
                            unset($_COOKIE["user"]);
-                           setcookie("user", "", time()-3600);
-                           setcookie("user",$cookievalue); 
+                           setcookie("user", "", time()-3600, "/");
+                           setcookie("user",$cookievalue, 0, "/");
                        }
                     else
                     {
-                        setcookie("user",$cookievalue); 
+                        setcookie("user",$cookievalue, 0, "/");
                     }
                     header("Location: index.php");
                     break;
-                }  
-                
+                }
+
             }
          else   //if password input is wrong
             {
@@ -74,7 +74,7 @@ $xml = simplexml_load_file(XML_DB . DS ."users.xml") or die("Error of calling fi
      else //if the email is not registered.
      {
        header("Location: not_registered.php");
-       
+
      }
     }
 

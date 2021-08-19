@@ -17,7 +17,21 @@
 </head>
 
 <body>
+
+  <?php
+  if (!isset($_COOKIE["admin"])) {
+    header("Location: ../index.php");
+  }
+  ?>
+
   <header class="backstore-header">
     <a href="../index.php"><img class="backstore-header-logo" src="../images/moomoologo.png" alt="MooMooGrocery logo"></a>
-    <a class="sign-out-button" href="../index.php">Sign Out</a>
+    <?php
+          if (isset($_COOKIE["admin"])) {
+            echo '<span class="admin-name" >Hello, ' . $_COOKIE["admin"] . '</span>';
+          } else {
+            echo '';
+          }
+      ?>
+    <a class="sign-out-button" href="../sign-out.php">Sign Out</a>
   </header>

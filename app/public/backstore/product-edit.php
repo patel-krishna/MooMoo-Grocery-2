@@ -178,6 +178,7 @@
             <label for="product-image">Product Image: </label>
             <input type="file" name="file" style="font-size:large;" id="file" onchange="return imageValidation()"
                 <?php echo ($is_set) ? '' : 'required'; ?> />
+                <span id="file-error" style="color:red; display:none;">Invalid file type - valid file extensions: .jpg, .jpeg, .png, .gif.</span>    
             <?php  if ($is_set) echo "<h4>If no image is uploaded, the product image will remain the same.</h4>";  ?>
         </div>
 
@@ -194,17 +195,19 @@
     // validate the image
     function imageValidation() {
         var input = document.getElementById('file');
+        var message = document.getElementById("file-error");
 
         var path = input.value;
 
         // Allowing file type
-        var allowedExtensions =
-            /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+        var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
 
         if (!allowedExtensions.exec(path)) {
-            alert('Invalid file type. Please try again!');
+            message.style.display = "block";
             input.value = '';
             return false;
+        } else {
+            message.style.display= "none";
         }
     }
 </script>

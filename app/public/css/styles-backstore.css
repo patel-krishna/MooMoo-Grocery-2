@@ -60,9 +60,16 @@ select {
   padding-left: 15px;
 }
 
-.sign-out-button {
+.admin-name {
+  color: #0275d8;
   position: absolute;
   right: 30px;
+  top: 20px;
+}
+
+.sign-out-button {
+  position: absolute;
+  right: 170px;
   top: 20px;
 }
 

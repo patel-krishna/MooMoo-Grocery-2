@@ -105,7 +105,7 @@
             <span class="name">Log In</span>
             <div class="cardinside">
                 <p>Email Address <br /> <input type="text" id="email" name="email" onchange="checkformat()"><br /></p>
-                <span id="formatmessage" style="color:red; display:none;">Please input value in right format.</span>
+                <span id="formatmessage" style="color:red; display:none;">Please input value in right format.(Case sensitive)</span>
                 <p>Password <br /> <input type="password" id="password" name="password"><br /></p>
                 <p style= "color: red;">You are not registered. Please sign up first!</p>
                 <div class="buttons">

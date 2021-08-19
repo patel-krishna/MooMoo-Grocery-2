@@ -186,7 +186,7 @@
         <form action="Afterlogin.php" method="POST">
             <div class="cardinside">
                 <p>Email Address <br /> <input type="text" id="email" name="email" onchange="checkformat()"><br /></p>
-                <span id="formatmessage" style="color:red; display:none;">Please input value in right format.</span>
+                <span id="formatmessage" style="color:red; display:none;">Please input value in right format.(Case sensitive)</span>
                 <p>Password <br /> <input type="password" id="password" name="password"><br /></p>
                 <div class="buttons">
                     <input type="submit" id="submit" value="Log in" name="submit">&nbsp;&nbsp;

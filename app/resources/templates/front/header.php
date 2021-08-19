@@ -52,15 +52,38 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Login.php">Sign In</a>
+            <?php
+              if (isset($_COOKIE["admin"]) || isset($_COOKIE["user"])) {
+                echo '<a class="nav-link" href="sign-out.php">Sign Out</a>';
+              } else {
+                echo '<a class="nav-link" href="Login.php">Sign In</a>';
+              }
+            ?>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="register-link" href="SignUp.php">Register</a>
+            <?php
+              if (isset($_COOKIE["user"])) {
+                echo '<a class="nav-link" id="register-link" href="SignUp.php" style="display: none">Register</a>';
+              } else if (isset($_COOKIE["admin"])) {
+                echo '<a class="nav-link" id="backstore-link" href="backstore/order-list.php" >Backstore</a>';
+              } else {
+                echo '<a class="nav-link" id="register-link" href="SignUp.php">Register</a>';
+              }
+            ?>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="cart.php"><span class="material-icons md-24">shopping_cart</span></a>
           </li>
         </ul>
       </div>
+      <?php
+          if (isset($_COOKIE["admin"])) {
+            echo '<span class="nav-item text-primary">Hello, ' . $_COOKIE["admin"] . '</span>';
+          } elseif (isset($_COOKIE["user"])) {
+            echo '<span class="nav-item text-primary">Hello, ' . $_COOKIE["user"] . '</span>';
+          } else {
+            echo '';
+          }
+      ?>
     </nav>
   </header>

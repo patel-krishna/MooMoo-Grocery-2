@@ -1,5 +1,9 @@
 <?php require_once("../../resources/config.php");
 
+if (!isset($_COOKIE["admin"])) {
+  header("Location: ../index.php");
+}
+
 if(isset($_POST['submit'])) {
     $xml = new DOMDocument('1.0', "UTF-8");
 
