@@ -365,7 +365,7 @@ function display_orders()
                     <td class="hide-mobile"><address>{$address}</address></td>
                     <td class="hide-mobile-sm">&#36;{$total}</td>
                     <td class="{$status}-order">{$status_display}</td>
-                    <td><a class="edit-action" href="add-order.html">Edit</a> <a class="delete-action" href="#">Delete</a></td>
+                    <td><a class="edit-action" href="add-order.php">Edit</a> <a class="delete-action" href="#">Delete</a></td>
                 </tr>
                 DELIMITER;
             echo $order_out;

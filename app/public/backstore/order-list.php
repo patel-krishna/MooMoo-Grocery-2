@@ -7,7 +7,7 @@
 
 <div class="col-10">
   <h1>Order List</h1>
-  <a class="add-order" href="add-order.html">Add Order</a>
+  <a class="add-order" href="add-order.php">Add Order</a>
   <!-- Order List -->
   <table class="backstore-list">
     <tr class="backstore-table-header-row">
