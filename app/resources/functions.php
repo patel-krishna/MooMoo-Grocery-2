@@ -326,23 +326,75 @@ function deleteUserXml($user_id)
 
 //returns next unused user ID
 
-function getNextUserID() {
-  $xml = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
-  $nextID = $xml->next[0];
+function getNextUserID()
+{
+    $xml = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
+    $nextID = $xml->next[0];
 
-  return $nextID;
+    return $nextID;
 }
 
 
 // For <../backstore/order-list.php> displays orders in the table dynamically based on entries in the XML file
 function display_orders()
 {
-    $xml = simplexml_load_file(XML_DB . DS . "orders.xml") or die("Error: Cannot create object");
-    foreach ($xml->children() as $orders) {
-        // If order tag is not next, output short order summary
-        if (strcmp($orders->getName(), "next") != 0) {
+    // Load orders.xml
+    $order_xml = simplexml_load_file(XML_DB . DS . "orders.xml") or die("Error: Cannot create object");
 
-            print_r($orders);
+    // Load products
+    $product_xml = simplexml_load_file(XML_DB . DS . "products.xml") or die("Error: Cannot create object");
+
+    foreach ($order_xml->children() as $order) {
+        // Ignore next tag
+        if (strcmp($order->getName(), "next") != 0) {
+            // Get customer info from match to ID
+            $customer = match_customer_id($order->customer_id);
+
+            // Gather all relevant attributes to put in table
+            $fullname = $customer[0];
+            $address = $customer[1];
+            $total = $order->cart->total;
+            $status = $order->status;
+            $status_display = ucfirst($status);
+
+            $order_out = <<<DELIMITER
+                <tr>
+                    <td>&#35;{$order->order_id}</td>
+                    <td>{$order->date}</td>
+                    <td class="hide-mobile">{$fullname}</td>
+                    <td class="hide-mobile"><address>{$address}</address></td>
+                    <td class="hide-mobile-sm">&#36;{$total}</td>
+                    <td class="{$status}-order">{$status_display}</td>
+                    <td><a class="edit-action" href="add-order.html">Edit</a> <a class="delete-action" href="#">Delete</a></td>
+                </tr>
+                DELIMITER;
+            echo $order_out;
         }
     }
+}
+
+// Matches customer ID and returns array of full name and address
+function match_customer_id($customer_id)
+{
+    // Load users
+    $user_xml = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
+
+    // Declare fullname and address variables
+    $fullname = $address = "";
+
+    foreach ($user_xml->children() as $attribute) {
+        // Ignore next tag
+        if (strcmp($attribute->getName(), "next") != 0) {
+            // If there is a match in the customer ID
+            if (strcmp($customer_id, $attribute->id) == 0) {
+                // Append attributes to fullname and address
+                $fullname = $attribute->firstname . " " . $attribute->lastname;
+                $address = $attribute->address . ", " . $attribute->city . ", " . $attribute->province . " " . $attribute->postalcode . ", " . $attribute->country;
+            }
+        }
+    }
+
+    // Return a simple array with fullname and address
+    $customer = array($fullname, $address);
+    return $customer;
 }
