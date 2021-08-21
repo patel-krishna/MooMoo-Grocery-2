@@ -12,6 +12,6 @@
             </product>
             <total></total>
         </cart>
-        <status>completed</status>
+        <status>processing</status>
     </order>
 </orders>
