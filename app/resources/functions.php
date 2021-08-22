@@ -432,7 +432,7 @@ function display_ordered_products($order_id)
                 // Output values
                 $table_out = <<<DELIMITER
                     <tr>
-                        <td>{$product_id}</td>
+                        <td name="product-id">{$product_id}</td>
                         <td class="hide-mobile-o">{$product_name}</td>
                         <td><input class="quantity-input" type="number" name="quantity" id="quantity" min="1" value="{$p_quantity}"></td>
                         <td class="hide-mobile-o" id="product_subtotal">{$price}</td>
@@ -449,7 +449,6 @@ function display_ordered_products($order_id)
 // Get product XML given ONLY product ID
 function order_product_info($product_id)
 {
-
     // Load products.xml
     $product_xml = simplexml_load_file(XML_DB . DS . "products.xml") or die("Error: Cannot create object");
 
@@ -464,5 +463,63 @@ function order_product_info($product_id)
             }
         }
     }
+    // Return null if no match to product ID
     return NULL;
+}
+
+/**
+ * Edits existing orders or adds orders if none exist
+ */
+function edit_order($is_set)
+{
+    // If changes are saved, save order to XML file <orders.xml>
+    if (isset($_POST['save-order'])) {
+        $order_id = sanitize_input($_POST["order-id"]);
+        $customer_id = sanitize_input($_POST["customer-id"]);
+        $date = date("M d, Y");
+
+        // Settings for XML output
+        $xml = new DOMDocument('1.0', "UTF-8");
+        $xml->preserveWhiteSpace = false;
+        $xml->formatOutput = true;
+
+        // Load XML document
+        $xml->load(XML_DB . DS . "orders.xml");
+        $xpath = new DOMXpath($xml);
+
+        if ($is_set) {
+            $nextId = $order_id;
+        } else {
+            $nextId = getNextOrderID();
+            // increment next id value
+            foreach ($xpath->query('//next') as $next) {
+                $next->firstChild->nodeValue = ($nextId + 1);
+            }
+        }
+
+        // Fill in XML file <orders.xml>
+        $order = $xml->createElement("order");
+        $order->appendChild($xml->createElement("order_id", $order_id));
+        $order->appendChild($xml->createElement("date", $date));
+        $order->appendChild($xml->createElement("customer_id", $customer_id));
+
+        // Initialize cart within orders
+        $cart = $xml->createElement("cart");
+        $order->appendChild($cart);
+
+        // Save XML and reload order-list
+        $xml->save(XML_DB . DS . "orders.xml") or die("Error, unable to save xml file.");
+        header("Location: order-list.php");
+    }
+}
+
+/**
+ * Gets next order ID
+ */
+function getNextOrderID()
+{
+    $xml = simplexml_load_file(XML_DB . DS . "orders.xml") or die("Error: Cannot create object");
+    $nextID = $xml->next[0];
+
+    return $nextID;
 }
