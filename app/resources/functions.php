@@ -341,9 +341,6 @@ function display_orders()
     // Load orders.xml
     $order_xml = simplexml_load_file(XML_DB . DS . "orders.xml") or die("Error: Cannot create object");
 
-    // Load products
-    $product_xml = simplexml_load_file(XML_DB . DS . "products.xml") or die("Error: Cannot create object");
-
     foreach ($order_xml->children() as $order) {
         // Ignore next tag
         if (strcmp($order->getName(), "next") != 0) {
@@ -365,7 +362,7 @@ function display_orders()
                     <td class="hide-mobile"><address>{$address}</address></td>
                     <td class="hide-mobile-sm">&#36;{$total}</td>
                     <td class="{$status}-order">{$status_display}</td>
-                    <td><a class="edit-action" href="add-order.php">Edit</a> <a class="delete-action" href="#">Delete</a></td>
+                    <td><a class="edit-action" href="add-order.php?order_id={$order->order_id}">Edit</a> <a class="delete-action" href="#">Delete</a></td>
                 </tr>
                 DELIMITER;
             echo $order_out;
@@ -397,4 +394,75 @@ function match_customer_id($customer_id)
     // Return a simple array with fullname and address
     $customer = array($fullname, $address);
     return $customer;
+}
+
+// Gets order XML given an order ID
+function getOrderXml($order_id)
+{
+    // Load orders.xml
+    $order_xml = simplexml_load_file(XML_DB . DS . "orders.xml") or die("Error: Cannot create object");
+
+    // Loop through list to find matching order with ID, return order
+    foreach ($order_xml->children() as $order) {
+        if ($order->order_id == $order_id) {
+            return $order;
+        }
+    }
+}
+
+// Display ordered products when editing an order in <add-order.php>
+function display_ordered_products($order_id)
+{
+    // Load orders.xml
+    $order_xml = simplexml_load_file(XML_DB . DS . "orders.xml") or die("Error: Cannot create object");
+
+    // Loop through order list to grab each product
+    foreach ($order_xml->children() as $order) {
+        if ($order->order_id == $order_id) {
+            $cart = $order->cart;
+            // For each item in the cart, print out product by getting value from products xml
+
+            foreach ($cart->product as $product) {
+                $product_id = $product->id;
+                $p_quantity = $product->p_quantity;
+                $full_product = order_product_info($product_id);
+                $product_name = $full_product->name;
+                $price = $full_product->price;
+
+                // Output values
+                $table_out = <<<DELIMITER
+                    <tr>
+                        <td>{$product_id}</td>
+                        <td class="hide-mobile-o">{$product_name}</td>
+                        <td><input class="quantity-input" type="number" name="quantity" id="quantity" min="1" value="{$p_quantity}"></td>
+                        <td class="hide-mobile-o" id="product_subtotal">{$price}</td>
+                        <td><a href="#">Delete</a></td>
+                    </tr>
+                DELIMITER;
+
+                echo $table_out;
+            }
+        }
+    }
+}
+
+// Get product XML given ONLY product ID
+function order_product_info($product_id)
+{
+
+    // Load products.xml
+    $product_xml = simplexml_load_file(XML_DB . DS . "products.xml") or die("Error: Cannot create object");
+
+    // Loop through each aisle, O(n^3) because have to loop deeply within XML to find product
+    foreach ($product_xml->children() as $aisle) {
+        foreach ($aisle->children() as $section) {
+            foreach ($section->children() as $product) {
+                // If there is match in product IDs from the XML, return product
+                if (intval($product->id) == $product_id) {
+                    return $product;
+                }
+            }
+        }
+    }
+    return NULL;
 }
