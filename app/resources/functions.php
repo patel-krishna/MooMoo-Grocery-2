@@ -362,7 +362,7 @@ function display_orders()
                     <td class="hide-mobile"><address>{$address}</address></td>
                     <td class="hide-mobile-sm">&#36;{$total}</td>
                     <td class="{$status}-order">{$status_display}</td>
-                    <td><a class="edit-action" href="add-order.php?order_id={$order->order_id}">Edit</a> <a class="delete-action" href="#">Delete</a></td>
+                    <td><a class="edit-action" href="add-order.php?order_id={$order->order_id}">Edit</a> <a class="delete-action" href="order-delete.php?order_id={$order->order_id}">Delete</a></td>
                 </tr>
                 DELIMITER;
             echo $order_out;
@@ -408,6 +408,20 @@ function getOrderXml($order_id)
             return $order;
         }
     }
+}
+
+/**
+ * Deletes order entry by order_ID in orders.xml
+ */
+function deleteOrderXML($order_id)
+{
+    $xml = new DOMDocument;
+    $xml->load(XML_DB . DS . "orders.xml");
+    $xpath = new DOMXpath($xml);
+    foreach ($xpath->query('//order[order_id="' . $order_id . '"]') as $node) {
+        $node->parentNode->removeChild($node);
+    }
+    $xml->save(XML_DB . DS . "orders.xml");
 }
 
 // Display ordered products when editing an order in <add-order.php>
