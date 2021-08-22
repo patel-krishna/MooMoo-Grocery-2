@@ -10,6 +10,23 @@
                 <id>003</id>
                 <p_quantity>1</p_quantity>
             </product>
+            <product>
+                <id>005</id>
+                <p_quantity>15</p_quantity>
+            </product>
+            <total></total>
+        </cart>
+        <status>processing</status>
+    </order>
+    <order>
+        <order_id>1002</order_id>
+        <date>Jul 12, 2021</date>
+        <customer_id>1003</customer_id>
+        <cart>
+            <product>
+                <id>004</id>
+                <p_quantity>1</p_quantity>
+            </product>
             <total></total>
         </cart>
         <status>processing</status>
