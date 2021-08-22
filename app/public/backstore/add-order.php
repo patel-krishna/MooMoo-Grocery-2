@@ -59,7 +59,7 @@ if (isset($_GET['order_id'])) {
           <th class="backstore-table-header">Product ID</th>
           <th class="backstore-table-header hide-mobile-o">Product Name</th>
           <th class="backstore-table-header">Quantity</th>
-          <th class="backstore-table-header hide-mobile-o">Price/Unit</th>
+          <th class="backstore-table-header hide-mobile-o">Price</th>
           <th class="backstore-table-header">Action</th>
         </tr>
         <?php display_ordered_products($order_id) ?>
