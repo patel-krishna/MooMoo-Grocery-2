@@ -14,7 +14,7 @@
                 <id>005</id>
                 <p_quantity>15</p_quantity>
             </product>
-            <total/>
+            <total />
         </cart>
         <status>processing</status>
     </order>
@@ -27,7 +27,7 @@
                 <id>004</id>
                 <p_quantity>1</p_quantity>
             </product>
-            <total/>
+            <total />
         </cart>
         <status>processing</status>
     </order>
@@ -44,7 +44,7 @@
                 <id>016</id>
                 <p_quantity>4</p_quantity>
             </product>
-            <total/>
+            <total />
         </cart>
         <status>processing</status>
     </order>

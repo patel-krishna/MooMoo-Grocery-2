@@ -450,7 +450,7 @@ function display_ordered_products($order_id)
                         <td class="hide-mobile-o">{$product_name}</td>
                         <td><input class="quantity-input" type="number" name="quantity" id="quantity" min="1" value="{$p_quantity}"></td>
                         <td class="hide-mobile-o" id="product_subtotal">{$price}</td>
-                        <td><a href="delete-order-product.php?order_id={$order_id}&amp;product_id={$product_id}">Delete</a></td>
+                        <td><a class="add-order-product" href="delete-order-product.php?order_id={$order_id}&amp;product_id={$product_id}">Delete</a></td>
                     </tr>
                 DELIMITER;
 
@@ -461,7 +461,7 @@ function display_ordered_products($order_id)
 }
 
 /**
- * TODO Deletes product from order list
+ * Deletes product from order list
  */
 function deleteOrderProduct($order_id, $product_id)
 {
@@ -470,8 +470,11 @@ function deleteOrderProduct($order_id, $product_id)
     $xpath = new DOMXpath($xml);
 
     // Query path with regex for product node, then remove it
-    foreach ($xpath->query('//order[order_id="' . $order_id . '"]//product[id="' . $product_id . '"]') as $node) {
-        $node->parentNode->removeChild($node);
+    foreach ($xpath->query('//order[order_id="' . $order_id . '"]') as $node) {
+        $orderPath = "" . $node->getNodePath() . "/cart/product[id='" . $product_id . "']";
+        foreach ($xpath->query($orderPath) as $child) {
+            $child->parentNode->removeChild($child);
+        }
     }
 
     // Save updated
