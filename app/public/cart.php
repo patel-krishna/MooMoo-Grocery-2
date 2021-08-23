@@ -25,7 +25,7 @@
   <link rel="stylesheet" type="text/css" href="../css/styles-p3.css" />
 
   <!-- Cart styling sheet -->
-  <link rel="stylesheet" type="text/css" href="css/p4-style.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" type="text/css" href="css/p4-style.css" />
 
 
   <!-- JavaScript -->
@@ -35,7 +35,7 @@
 
 
 <body onload="updateSummary()">
-    <!-- Header with menu -->
+      <!-- Header with menu -->
   <header class="container-fluid fixed-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <a class="navbar-brand" href="index.php"><img src="images/moomoologo.png" alt="MooMoo Grocery Logo"></a>
@@ -87,6 +87,15 @@
           </li>
         </ul>
       </div>
+      <?php
+          if (isset($_COOKIE["admin"])) {
+            echo '<span class="nav-item text-primary">Hello, ' . $_COOKIE["admin"] . '</span>';
+          } elseif (isset($_COOKIE["user"])) {
+            echo '<span class="nav-item text-primary">Hello, ' . $_COOKIE["user"] . '</span>';
+          } else {
+            echo '';
+          }
+      ?>
     </nav>
   </header>
   <br>
@@ -124,6 +133,7 @@
                            echo "<img class='product-picture' src='images/{$product->image}'> ";
                             echo "<div class='product-description'>";
                             echo "<h3 class='name'><a href='products/productDisplay.php?category={$aisle_name}&id={$ids}'>{$product->name}</a></h3>";
+                            echo "<p class='id' style='display:none'>{$product->id}</p>";
                             echo "<h4>Price: $<span class='price'>{$product->price}</span></h4>";
                             echo "<p class='quantity'>
                             Quantity:
@@ -198,9 +208,9 @@
       <hr />
       <h3 class="total">TOTAL COST: $<span id="total"></span></h3>
 
-      <a href="#"><button class="checkout" type="button">Checkout</button></a>
+      <button class="checkout" type="button" onclick="sendOrder()">Checkout</button>
 
-      <a href="index.html"><button class="back-to-shopping" type="button">
+      <a href="index.php"><button class="back-to-shopping" type="button" >
           Back to shopping
         </button></a>
     </div>
@@ -214,10 +224,7 @@
 
   <script>
 
-    <?php
-
-    ?>
-
+       function sendOrder() {
          //if browser supports XMLHttpRequest
             
          if (window.XMLHttpRequest) { // Create an instance of XMLHttpRequest object. 
@@ -239,9 +246,60 @@
 
             rootNode.appendChild(newOrder);
 
+            //adding order ID
+            var id = xmlDoc.createElement("order_id");
+
+            newOrder.appendChild(id);
             var orderId = xmlDoc.createTextNode((Math.random() * 1000));
-            var date = xmlDoc.createTextNode(new Date().toLocaleDateString()); 
-            var customerId = xmlDoc.createTextNode(<?php echo ($_COOKIE[$user]) ?>);
+
+            id.appendChild(orderId);
+
+            //adding date 
+            var date = xmlDoc.createElement("date");
+            newOrder.appendChild(date);
+            var orderDate = xmlDoc.createTextNode(new Date().toLocaleDateString()); 
+            date.appendChild(orderDate);
+
+            //adding customer id 
+            var customer_id = xmlDoc.createElement("customer_id");
+            newOrder.appendChild(customer_id);
+            var customerId = xmlDoc.createTextNode(<?php echo ($_COOKIE["user"]) ?>);
+            customer_id.appendChild(customerId); 
+
+            //creating cart node 
+            var order_cart = xmlDoc.createElement("cart");
+            newOrder.appendChild(order_cart); 
+
+            //creating product nodes, product id and quantity
+            var p_IDS = document.getElementsByClassName("id");
+            var p_quantity = document.getElementsByClassName("quantity"); 
+
+            for (let i=0; i< <?php echo count($_SESSION['cart']); ?> , i++){
+
+              var product = xmlDoc.createElement("product");
+              
+
+              var x = xmlDoc.createElement("id");
+              var xx =  xmlDoc.createTextNode(p_IDS[i].innerHTML); 
+
+              x.appendChild(xx);
+              product.appendChild(x); 
+
+              var y = xmlDoc.createElement("p_quantity");
+              var yy = xmlDoc.createTextNode(p_quantity[i].value); 
+
+              y.appendChild(yy);
+              product.appendChild(y);
+
+
+              order_cart.appendChild(product);
+
+            }
+        }   
+            
+
+
+
          
 
 
