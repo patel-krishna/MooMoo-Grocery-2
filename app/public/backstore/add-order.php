@@ -29,13 +29,14 @@ if (isset($_GET['order_id'])) {
 
 <div class="col-8">
   <h1>Edit or Add an Order</h1>
-  <?php edit_order($is_set); ?>
+  <?php add_order($is_set); ?>
   <h3>Specify, edit or add details to a specific order.</h3>
   <form class="properties" action="" method="post" enctype="text/plain">
     <div class="">
       <div class="col-6">
         <label for="first-name">Order ID:</label>
-        <input class="properties-input" type="text" id="order-id" name="order-id" value="<?php if ($is_set) echo $order_id; ?>" required>
+        <input class="properties-input" type="text" id="order-id" name="order-id" value="<?php if ($is_set) echo $order_id;
+                                                                                          else echo getNextOrderID(); ?>" required>
       </div>
       <div class="col-6">
         <label for="last-name">Customer ID:</label>
@@ -52,6 +53,12 @@ if (isset($_GET['order_id'])) {
         <input class="properties-input" type="text" id="last-name" name="last-name" value="<?php if ($is_set) echo $lastname; ?>">
       </div>
     </div>
+    <div class="prop-row">
+      <div class="col-6">
+        <label for="status" style="padding-bottom: 20px;">Order Completed</label>
+        <input type="checkbox" id="status" name="status">
+      </div>
+    </div>
 
     <div class="col-10">
       <table class="backstore-list">
@@ -65,10 +72,10 @@ if (isset($_GET['order_id'])) {
         <?php display_ordered_products($order_id) ?>
         <tr>
           <td><input class="product-input" type="text" id="productID" name="productID" value=""></td>
-          <td class="hide-mobile-o"><input class="product-input hide-mobile-o" type="text" id="productName" name="productName" value=""></td>
+          <td class="hide-mobile-o"><input class="product-input hide-mobile-o" type="text" id="productName" name="productName" value="" disabled></td>
           <td><input class="quantity-input" type="number" id="quantity" name="quantity" min="0" value=""></td>
-          <td class="hide-mobile-o"><input class="product-input hide-mobile-o" type="text" id="productPrice" name="productPrice" value=""></td>
-          <td><a href="">Add Product</a></td>
+          <td class="hide-mobile-o"><input class="product-input hide-mobile-o" type="text" id="productPrice" name="productPrice" value="" disabled></td>
+          <td><a href="">Add</a></td>
         </tr>
       </table>
       <!-- Empty Column -->
@@ -76,6 +83,7 @@ if (isset($_GET['order_id'])) {
     </div>
 
     <div class="col-12">
+
       <input class="save-button" type="submit" name="save-order" value="Save Changes"></p>
     </div>
 
