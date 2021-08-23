@@ -53,12 +53,6 @@ if (isset($_GET['order_id'])) {
         <input class="properties-input" type="text" id="last-name" name="last-name" value="<?php if ($is_set) echo $lastname; ?>">
       </div>
     </div>
-    <div class="prop-row">
-      <div class="col-6">
-        <label for="status" style="padding-bottom: 20px;">Order Completed</label>
-        <input type="checkbox" id="status" name="status">
-      </div>
-    </div>
 
     <div class="col-10">
       <table class="backstore-list">
@@ -81,7 +75,12 @@ if (isset($_GET['order_id'])) {
       <!-- Empty Column -->
 
     </div>
-
+    <div class="prop-row">
+      <div class="col-6">
+        <label for="status" style="padding-bottom: 20px;">Order Completed</label>
+        <input type="checkbox" id="status" name="status">
+      </div>
+    </div>
     <div class="col-12">
 
       <input class="save-button" type="submit" name="save-order" value="Save Changes"></p>
