@@ -169,7 +169,19 @@ select {
   padding: 0;
   text-align: center;
   text-decoration: none;
-  width: 60%;
+  width: 80%;
+}
+
+.add-order-product {
+  background-color: lightgrey;
+  border-radius: 5px;
+  display: block;
+  float: left;
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 80%;
 }
 
 .backstore-list a.edit-button:hover {
@@ -305,14 +317,14 @@ select {
 
 /* Desktop View */
 @media only screen and (min-width: 768px) {
-
   .hide-mobile-o {
-      display: table-cell;
+    display: table-cell;
   }
 }
 
 a.add-order,
-a.add-product, a.add-user {
+a.add-product,
+a.add-user {
   background-color: lightgrey;
   border-radius: 5px;
   display: block;
@@ -327,7 +339,7 @@ a.add-order:hover,
 a.edit-action:hover,
 a.add-product:hover,
 a.add-user:hover {
-  background-color: #1089FF;
+  background-color: #1089ff;
   color: white;
 }
 
@@ -361,30 +373,30 @@ a.edit-action {
 /* Desktop View */
 @media only screen and (min-width: 768px) {
   a.edit-action {
-      max-width: 35%;
-      margin-right: 3px;
+    max-width: 35%;
+    margin-right: 3px;
   }
 
   a.delete-action {
-      max-width: 60%;
+    max-width: 60%;
   }
 
   .hide-mobile-sm {
-      display: table-cell;
+    display: table-cell;
   }
 }
 
-input[type=submit] {
-  padding:10px 25px;
-  background:#ccc;
-  border:0 none;
-  cursor:pointer;
+input[type="submit"] {
+  padding: 10px 25px;
+  background: #ccc;
+  border: 0 none;
+  cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   font-size: 1rem;
 }
 
-input[type=submit]:hover {
-  background-color: #1089FF;
+input[type="submit"]:hover {
+  background-color: #1089ff;
   color: white;
 }

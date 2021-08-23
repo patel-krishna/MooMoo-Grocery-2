@@ -341,9 +341,6 @@ function display_orders()
     // Load orders.xml
     $order_xml = simplexml_load_file(XML_DB . DS . "orders.xml") or die("Error: Cannot create object");
 
-    // Load products
-    $product_xml = simplexml_load_file(XML_DB . DS . "products.xml") or die("Error: Cannot create object");
-
     foreach ($order_xml->children() as $order) {
         // Ignore next tag
         if (strcmp($order->getName(), "next") != 0) {
@@ -365,7 +362,7 @@ function display_orders()
                     <td class="hide-mobile"><address>{$address}</address></td>
                     <td class="hide-mobile-sm">&#36;{$total}</td>
                     <td class="{$status}-order">{$status_display}</td>
-                    <td><a class="edit-action" href="add-order.php">Edit</a> <a class="delete-action" href="#">Delete</a></td>
+                    <td><a class="edit-action" href="add-order.php?order_id={$order->order_id}">Edit</a> <a class="delete-action" href="order-delete.php?order_id={$order->order_id}">Delete</a></td>
                 </tr>
                 DELIMITER;
             echo $order_out;
@@ -397,4 +394,164 @@ function match_customer_id($customer_id)
     // Return a simple array with fullname and address
     $customer = array($fullname, $address);
     return $customer;
+}
+
+// Gets order XML given an order ID
+function getOrderXml($order_id)
+{
+    // Load orders.xml
+    $order_xml = simplexml_load_file(XML_DB . DS . "orders.xml") or die("Error: Cannot create object");
+
+    // Loop through list to find matching order with ID, return order
+    foreach ($order_xml->children() as $order) {
+        if ($order->order_id == $order_id) {
+            return $order;
+        }
+    }
+}
+
+/**
+ * Deletes order entry by order_ID in orders.xml
+ */
+function deleteOrderXML($order_id)
+{
+    $xml = new DOMDocument;
+    $xml->load(XML_DB . DS . "orders.xml");
+    $xpath = new DOMXpath($xml);
+    foreach ($xpath->query('//order[order_id="' . $order_id . '"]') as $node) {
+        $node->parentNode->removeChild($node);
+    }
+    $xml->save(XML_DB . DS . "orders.xml");
+}
+
+// Display ordered products when editing an order in <add-order.php>
+function display_ordered_products($order_id)
+{
+    // Load orders.xml
+    $order_xml = simplexml_load_file(XML_DB . DS . "orders.xml") or die("Error: Cannot create object");
+
+    // Loop through order list to grab each product
+    foreach ($order_xml->children() as $order) {
+        if ($order->order_id == $order_id) {
+            $cart = $order->cart;
+            // For each item in the cart, print out product by getting value from products xml
+
+            foreach ($cart->product as $product) {
+                $product_id = $product->id;
+                $p_quantity = $product->p_quantity;
+                $full_product = order_product_info($product_id);
+                $product_name = $full_product->name;
+                $price = $full_product->price;
+
+                // Output values
+                $table_out = <<<DELIMITER
+                    <tr>
+                        <td name="product-id">{$product_id}</td>
+                        <td class="hide-mobile-o">{$product_name}</td>
+                        <td><input class="quantity-input" type="number" name="quantity" id="quantity" min="1" value="{$p_quantity}"></td>
+                        <td class="hide-mobile-o" id="product_subtotal">{$price}</td>
+                        <td><a class="add-order-product" href="delete-order-product.php?order_id={$order_id}&amp;product_id={$product_id}">Delete</a></td>
+                    </tr>
+                DELIMITER;
+
+                echo $table_out;
+            }
+        }
+    }
+}
+
+/**
+ * Deletes product from order list
+ */
+function deleteOrderProduct($order_id, $product_id)
+{
+    $xml = new DOMDocument;
+    $xml->load(XML_DB . DS . "orders.xml");
+    $xpath = new DOMXpath($xml);
+
+    // Query path with regex for product node, then remove it
+    foreach ($xpath->query('//order[order_id="' . $order_id . '"]') as $node) {
+        $orderPath = "" . $node->getNodePath() . "/cart/product[id='" . $product_id . "']";
+        foreach ($xpath->query($orderPath) as $child) {
+            $child->parentNode->removeChild($child);
+        }
+    }
+
+    // Save updated
+    $xml->save(XML_DB . DS . "orders.xml");
+}
+
+// Get product XML given ONLY product ID
+function order_product_info($product_id)
+{
+    // Load products.xml
+    $product_xml = simplexml_load_file(XML_DB . DS . "products.xml") or die("Error: Cannot create object");
+
+    // Loop through each aisle, O(n^3) because have to loop deeply within XML to find product
+    foreach ($product_xml->children() as $aisle) {
+        foreach ($aisle->children() as $section) {
+            foreach ($section->children() as $product) {
+                // If there is match in product IDs from the XML, return product
+                if (intval($product->id) == $product_id) {
+                    return $product;
+                }
+            }
+        }
+    }
+    // Return null if no match to product ID
+    return NULL;
+}
+
+/**
+ * TODO Edits existing orders or adds orders if none exist
+ */
+function add_order($is_set)
+{
+    // If changes are saved, save order to XML file <orders.xml>
+    if (isset($_POST['save-order'])) {
+        $order_id = sanitize_input($_POST["order-id"]);
+        $customer_id = sanitize_input($_POST["customer-id"]);
+        $date = date("M d, Y"); // Today's date
+
+        // Settings for XML output
+        $xml = new DOMDocument('1.0', "UTF-8");
+        $xml->preserveWhiteSpace = false;
+        $xml->formatOutput = true;
+
+        // Load XML document
+        $xml->load(XML_DB . DS . "orders.xml");
+        $xpath = new DOMXpath($xml);
+
+        // Increment next orderID
+        $nextID = getNextOrderID();
+        $next = $xpath->query('//next');
+        $next->firstChild->nodeValue = ($nextID + 1);
+
+        // Fill in XML file <orders.xml>
+        $order = $xml->createElement("order");
+        $order->appendChild($xml->createElement("order_id", $order_id));
+        $order->appendChild($xml->createElement("date", $date));
+        $order->appendChild($xml->createElement("customer_id", $customer_id));
+
+        // Initialize cart within orders
+        $cart = $xml->createElement("cart");
+        $order->appendChild($cart);
+
+
+
+        // Save XML and reload order-list
+        $xml->save(XML_DB . DS . "orders.xml") or die("Error, unable to save xml file.");
+        header("Location: order-list.php");
+    }
+}
+
+/**
+ * Gets next order ID
+ */
+function getNextOrderID()
+{
+    $xml = simplexml_load_file(XML_DB . DS . "orders.xml") or die("Error: Cannot create object");
+    $nextID = $xml->next[0];
+
+    return $nextID;
 }

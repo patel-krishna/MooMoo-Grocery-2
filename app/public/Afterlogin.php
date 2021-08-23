@@ -1,19 +1,4 @@
 <?php require_once("../resources/config.php"); ?>
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="author" content="Youngjae Kim 40169282" />
-    <meta name="description" content="loginpage" />
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>logged in</title>
-</head>
-<body>
 <?php
 //load the xml file to compare user information
 $xml = simplexml_load_file(XML_DB . DS ."users.xml") or die("Error of calling file");
@@ -81,5 +66,20 @@ $xml = simplexml_load_file(XML_DB . DS ."users.xml") or die("Error of calling fi
   }
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Youngjae Kim 40169282" />
+    <meta name="description" content="loginpage" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>logged in</title>
+</head>
+<body>
+
 </body>
 </html>
