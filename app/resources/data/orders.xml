@@ -10,7 +10,7 @@
                 <id>003</id>
                 <p_quantity>1</p_quantity>
             </product>
-            <total></total>
+            <total>1.00</total>
         </cart>
         <status>processing</status>
     </order>
