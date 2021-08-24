@@ -6,7 +6,7 @@
 <?php include(TEMPLATE_BACK . DS . "side-nav.php"); ?>
 
 <!-- If editing, fill in default values -->
-<?php 
+<?php
     $product_id = NULL;
     $img = NULL;
     $is_set = false;
@@ -36,7 +36,7 @@
     }
 ?>
 
-<div class="col-8">
+<div class="col-8 backstore-body">
     <h1>Edit Product Info</h1>
     <?php add_product($is_set, $product_id, $img); ?>
     <form class="properties" method="post" action="" enctype="multipart/form-data">
@@ -179,7 +179,7 @@
             <label for="product-image">Product Image: </label>
             <input type="file" name="file" style="font-size:large;" id="file" onchange="return imageValidation()"
                 <?php echo ($is_set) ? '' : 'required'; ?> />
-                <span id="file-error" style="color:red; display:none;">Invalid file type - valid file extensions: .jpg, .jpeg, .png, .gif.</span>    
+                <span id="file-error" style="color:red; display:none;">Invalid file type - valid file extensions: .jpg, .jpeg, .png, .gif.</span>
             <?php  if ($is_set) echo "<h4>If no image is uploaded, the product image will remain the same.</h4>";  ?>
         </div>
 

@@ -5,7 +5,7 @@
 <!-- Side Navigation -->
 <?php include(TEMPLATE_BACK . DS . "side-nav.php"); ?>
 
-<div class="col-10">
+<div class="col-10 backstore-body">
   <h1>Product List</h1>
   <!-- Add product button -->
   <a class="add-product" href="product-edit.php">Add Product</a>
@@ -24,14 +24,6 @@
     <?php display_products() ?>
   </table>
 
-  <!-- TODO: pagination -->
-  <div class="page-numbers-container">
-    <div class="page-numbers">
-      <a href="#">&laquo;</a>
-      <a href="#" class="active">1</a>
-      <a href="#">&raquo;</a>
-    </div>
-  </div>
 </div>
 
 <div class="col-2">
