@@ -86,6 +86,7 @@
                 <option value="mL" <?php if ($is_set && (strcasecmp($unit, 'ml') === 0)) echo 'selected'; ?>>ml</option>
                 <option value="L" <?php if ($is_set && (strcasecmp($unit, 'L') === 0)) echo 'selected'; ?>>L</option>
                 <option value="ea" <?php if ($is_set && (strcasecmp($unit, 'ea') === 0)) echo 'selected'; ?>>ea</option>
+                <option value="bunch" <?php if ($is_set && (strcasecmp($unit, 'bunch') === 0)) echo 'selected'; ?>>bunch</option>
             </select>
         </div>
         <div class="col-6">
@@ -137,8 +138,8 @@
                 <option value="aisle_bakery-Pastries"
                     <?php if ($is_set && (strcasecmp($label, 'Pastries') === 0)) echo 'selected'; ?>>Bakery - Pastries
                 </option>
-                <option value="aisle_bakery-Desserts">
-                    <?php if ($is_set && (strcasecmp($label, 'Desserts') === 0)) echo 'selected'; ?> Bakery - Desserts
+                <option value="aisle_bakery-Desserts"
+                    <?php if ($is_set && (strcasecmp($label, 'Desserts') === 0)) echo 'selected'; ?>>Bakery - Desserts
                 </option>
                 <option value="aisle_meat-Beef"
                     <?php if ($is_set && (strcasecmp($label, 'Beef') === 0)) echo 'selected'; ?>>Meat - Beef and Pork

@@ -12,7 +12,7 @@
   <!-- list of products -->
   <table class="backstore-list">
     <tr class="backstore-table-header-row">
-      <th class="backstore-table-header">Serial Number</th>
+      <th class="backstore-table-header">Product ID</th>
       <th class="backstore-table-header">Product Name</th>
       <th class="backstore-table-header hide-mobile">Display Price</th>
       <th class="backstore-table-header hide-mobile">

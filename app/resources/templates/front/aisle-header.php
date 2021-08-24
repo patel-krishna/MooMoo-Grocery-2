@@ -22,7 +22,7 @@
   <link rel="stylesheet" type="text/css" href="../css/styles-main.css" />
 </head>
 
-<body>
+<body  class="d-flex flex-column min-vh-100">
   <!-- Header with menu -->
   <header class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-white">

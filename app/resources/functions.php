@@ -42,14 +42,24 @@ function display_aisle_products($aisle, $section)
     $aisle_xml = load_aisle_xml($aisle);
     // separate each section
     $section = $aisle_xml->aisle_section[$section];
+    if (count($section) === 0) {
+        $no_product = <<<DELIMITER
+        <div class="col-sm-12" style="margin-top:30px;">
+            <p class="text-muted"># # #</p>
+            <h5 class="text-muted" style="margin-top:25px; margin-bottom: 25px;">Restocking Shelves... Please Come Back Soon!</h5>
+            <p class="text-muted"># # #</p>
+        </div>
+        DELIMITER;
 
+        echo $no_product;
+    }
     foreach ($section->children() as $product) {
         $div_media = (count($section) >= 3) ? "col-lg-4" : " ";
         $product_card = <<<DELIMITER
         <div class="col-sm-12 col-md-6 {$div_media} mb-3">
             <div class="card mb-3 h-100">
                 <div class="embed-responsive embed-responsive-4by3">
-                    <a href="../products/productDisplay.php?category={$aisle}&amp;id={$product->id}"><img src="../images/{$product->image}" class="card-img-top embed-responsive-item" alt="{$product->name}"></a>
+                    <a href="../products/productDisplay.php?category={$aisle}&amp;id={$product->id}"><img src="../uploads/{$product->image}" class="card-img-top embed-responsive-item" alt="{$product->name}"></a>
                 </div>
                 <div class="card-body">
                     <a href="../products/productDisplay.php?category={$aisle}&amp;id={$product->id}"><h4 class="card-title">{$product->name}</h4></a>
@@ -130,7 +140,7 @@ function display_products()
                 $label = $aisle_section['label'];
                 $product_out = <<<DELIMITER
                 <tr>
-                    <td>{$product->serial}</td>
+                    <td>{$product->id}</td>
                     <td>{$product->name}</td>
                     <td class="hide-mobile">&#36;{$product->price}</td>
                     <td class="hide-mobile">{$product->quantity}</td>
