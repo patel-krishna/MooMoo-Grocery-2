@@ -24,19 +24,20 @@ if (isset($_GET['order_id'])) {
   $customer = getUserXml(intval($customer_id));
   $firstname = $customer->firstname;
   $lastname = $customer->lastname;
+} else {
+  $order_id = getNextOrderID();
 }
 ?>
 
 <div class="col-8">
   <h1>Edit or Add an Order</h1>
-  <?php add_order($is_set); ?>
+  <?php save_order($is_set); ?>
   <h3>Specify, edit or add details to a specific order.</h3>
-  <form class="properties" action="" method="post" enctype="text/plain">
+  <form class="properties" action="" method="POST" enctype="text/plain">
     <div class="">
       <div class="col-6">
         <label for="first-name">Order ID:</label>
-        <input class="properties-input" type="text" id="order-id" name="order-id" value="<?php if ($is_set) echo $order_id;
-                                                                                          else echo getNextOrderID(); ?>" required>
+        <input class="properties-input" type="text" id="order-id" name="order-id" value="<?php echo $order_id; ?>" required>
       </div>
       <div class="col-6">
         <label for="last-name">Customer ID:</label>
@@ -82,7 +83,6 @@ if (isset($_GET['order_id'])) {
       </div>
     </div>
     <div class="col-12">
-
       <input class="save-button" type="submit" name="save-order" value="Save Changes"></p>
     </div>
 

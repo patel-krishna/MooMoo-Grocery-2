@@ -503,46 +503,74 @@ function order_product_info($product_id)
 }
 
 /**
- * TODO Edits existing orders or adds orders if none exist
+ * TODO Check if order exists in xml
+ * If so, update order entries
+ * If not, create a new order entry
  */
-function add_order($is_set)
+function save_order($is_set)
 {
     // If changes are saved, save order to XML file <orders.xml>
     if (isset($_POST['save-order'])) {
-        $order_id = sanitize_input($_POST["order-id"]);
-        $customer_id = sanitize_input($_POST["customer-id"]);
-        $date = date("M d, Y"); // Today's date
+        // If order exists, edit order
+        if (checkOrderExists($_POST['order-id'])) {
+            header("Location: order-existing.php");
+        }
+        // Else, save as new order
+        else {
+            header("Location: order-new.php");
+        }
 
-        // Settings for XML output
-        $xml = new DOMDocument('1.0', "UTF-8");
-        $xml->preserveWhiteSpace = false;
-        $xml->formatOutput = true;
+        // $customer_id = sanitize_input($_POST["customer-id"]);
+        // $date = date("M d, Y"); // Today's date
 
-        // Load XML document
-        $xml->load(XML_DB . DS . "orders.xml");
-        $xpath = new DOMXpath($xml);
+        // // Settings for XML output
+        // $xml = new DOMDocument('1.0', "UTF-8");
+        // $xml->preserveWhiteSpace = false;
+        // $xml->formatOutput = true;
 
-        // Increment next orderID
-        $nextID = getNextOrderID();
-        $next = $xpath->query('//next');
-        $next->firstChild->nodeValue = ($nextID + 1);
+        // // Load XML document
+        // $xml->load(XML_DB . DS . "orders.xml");
+        // $xpath = new DOMXpath($xml);
 
-        // Fill in XML file <orders.xml>
-        $order = $xml->createElement("order");
-        $order->appendChild($xml->createElement("order_id", $order_id));
-        $order->appendChild($xml->createElement("date", $date));
-        $order->appendChild($xml->createElement("customer_id", $customer_id));
+        // // Increment next orderID
+        // $nextID = getNextOrderID();
+        // $next = $xpath->query('//next');
+        // $next->firstChild->nodeValue = ($nextID + 1);
 
-        // Initialize cart within orders
-        $cart = $xml->createElement("cart");
-        $order->appendChild($cart);
+        // // Fill in XML file <orders.xml>
+        // $order = $xml->createElement("order");
+        // $order->appendChild($xml->createElement("order_id", $order_id));
+        // $order->appendChild($xml->createElement("date", $date));
+        // $order->appendChild($xml->createElement("customer_id", $customer_id));
+
+        // // Initialize cart within orders
+        // $cart = $xml->createElement("cart");
+        // $order->appendChild($cart);
 
 
 
-        // Save XML and reload order-list
-        $xml->save(XML_DB . DS . "orders.xml") or die("Error, unable to save xml file.");
-        header("Location: order-list.php");
+        // // Save XML and reload order-list
+        // $xml->save(XML_DB . DS . "orders.xml") or die("Error, unable to save xml file.");
+        // header("Location: order-list.php");
     }
+}
+
+/**
+ * Checks to see if order exists in orders XML file and returns boolean
+ */
+function checkOrderExists($order_id)
+{
+    // Load orders.xml
+    $order_xml = simplexml_load_file(XML_DB . DS . "orders.xml") or die("Error: Cannot create object");
+
+    // Loop through each child to find order ID
+    foreach ($order_xml->children() as $order) {
+        if ($order->order_id == $order_id) {
+            return true;
+        }
+    }
+    // If list is empty, return false
+    return false;
 }
 
 /**
