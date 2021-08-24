@@ -77,9 +77,9 @@
       </div>
       <?php
           if (isset($_COOKIE["admin"])) {
-            echo '<span class="nav-item text-primary">Hello, ' . $_COOKIE["admin"] . '</span>';
+            echo '<span class="navbar-text text-primary">Hello, ' . $_COOKIE["admin"] . '</span>';
           } elseif (isset($_COOKIE["user"])) {
-            echo '<span class="nav-item text-primary">Hello, ' . $_COOKIE["user"] . '</span>';
+            echo '<span class="navbar-text text-primary">Hello, ' . $_COOKIE["user"] . '</span>';
           } else {
             echo '';
           }

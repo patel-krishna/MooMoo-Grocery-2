@@ -240,7 +240,7 @@ function add_product($is_set, $id, $img)
             $poption = $xml->createElement("options", "");
             $values = explode(",", $optionvals);
             foreach ($values as $value) {
-                $pvalue = $xml->createElement($option, ucwords($value));
+                $pvalue = $xml->createElement($option, ucwords(trim($value)));
                 $poption->appendChild($pvalue);
             }
             $product->appendChild($poption);

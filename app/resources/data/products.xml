@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aisles>
-  <next>56</next>
+  <next>58</next>
   <!-- dairy aisle -->
   <aisle_dairy>
     <aisle_section label="Milk">
@@ -73,10 +73,18 @@
       </product>
     </aisle_section>
     <aisle_section label="Cheese">
-      
-      
-      
-    <product><id>55</id><name>Saint Augur Blue</name><serial>09875090</serial><description>Strong and spicy, Saint Augur Blue is made from pasteurized cow's milk and imported from the village of Beauzac in France. Aged for 60 days.</description><price>6.49</price><quantity>23</quantity><unit>125 g</unit><price_per_unit>5.19 / 100 g</price_per_unit><image>blue-cheese.png</image></product></aisle_section>
+      <product>
+        <id>55</id>
+        <name>Saint Augur Blue</name>
+        <serial>09875090</serial>
+        <description>Strong and spicy, Saint Augur Blue is made from pasteurized cow's milk and imported from the village of Beauzac in France. Aged for 60 days.</description>
+        <price>6.49</price>
+        <quantity>23</quantity>
+        <unit>125 g</unit>
+        <price_per_unit>5.19 / 100 g</price_per_unit>
+        <image>blue-cheese.png</image>
+      </product>
+    </aisle_section>
   </aisle_dairy>
   <!-- bakery aisle -->
   <aisle_bakery>
@@ -211,6 +219,8 @@
         <price_per_unit>0.44 / 100 g</price_per_unit>
         <image>apple.jpg</image>
       </product>
+      
+      
     </aisle_section>
     <aisle_section label="Vegetables">
       <product>

@@ -7,11 +7,11 @@
         <customer_id>1001</customer_id>
         <cart>
             <product>
-                <id>003</id>
+                <id>50</id>
                 <p_quantity>1</p_quantity>
             </product>
             <product>
-                <id>005</id>
+                <id>41</id>
                 <p_quantity>15</p_quantity>
             </product>
             <total />
@@ -24,7 +24,7 @@
         <customer_id>1003</customer_id>
         <cart>
             <product>
-                <id>004</id>
+                <id>20</id>
                 <p_quantity>1</p_quantity>
             </product>
             <total />
@@ -37,11 +37,11 @@
         <customer_id>1002</customer_id>
         <cart>
             <product>
-                <id>021</id>
+                <id>11</id>
                 <p_quantity>15</p_quantity>
             </product>
             <product>
-                <id>016</id>
+                <id>12</id>
                 <p_quantity>4</p_quantity>
             </product>
             <total />
