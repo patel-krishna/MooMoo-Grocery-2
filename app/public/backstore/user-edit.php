@@ -146,17 +146,12 @@
     </div>
     <div class="col-12">
       <label for="new-password">New Password*: </label>
-      <span style="font-size: 0.8rem;">
-        (Must contain at least 10 characters, including at least one number,
-        one lowercase letter, one uppercase letter and one special character.)
-      </span>
-      <input class="properties-input" type="password" id="new-password" name="new-password" value="" <?php if ($is_set == false) echo 'required'; ?> onchange="passwordCheck()">
-      <span id="passwordcondition" style="color:red; display:none;">Please set your password again. Some condition is not met.</span>
+      <input class="properties-input" type="password" id="new-password" name="new-password" value="" <?php if ($is_set == false) echo 'required'; ?>>
     </div>
     <div class="col-12">
       <label for="confirm-new-password">Confirm New Password*: </label>
-      <input class="properties-input" type="password" id="confirm-new-password" name="confirm-new-password" value="" <?php if ($is_set == false) echo 'required'; ?> onchange="passwordMatch()">
       <span id="confirm-password-error" style="color:red; display:none">Error: the passwords you entered do not match.</span>
+      <input class="properties-input" type="password" id="confirm-new-password" name="confirm-new-password" value="" <?php if ($is_set == false) echo 'required'; ?> onchange="passwordMatch()">
     </div>
     <div class="prop-row">
       <div class="col-4">
