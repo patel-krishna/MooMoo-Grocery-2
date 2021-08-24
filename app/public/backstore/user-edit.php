@@ -52,6 +52,16 @@
         message.style.display= "none";
     }
   }
+
+  function showPassword() {
+    var passwordInput = document.getElementById("password");
+
+    if (passwordInput.type == "password") {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  }
 </script>
 
 <div class="col-8">
@@ -142,6 +152,10 @@
     </div>
     <div class="col-12">
       <label for="password">Current Password: </label>
+      <span style="font-size: 0.8rem;">
+        <input type="checkbox" name="show-password" onclick="showPassword()" style="position: relative; top: 2px;" value="">
+        Show Password
+      </span>
       <input class="properties-input" type="password" id="password" name="password" value="<?php if ($is_set) echo $user->password; ?>" readonly>
     </div>
     <div class="col-12">
