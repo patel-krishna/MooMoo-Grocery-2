@@ -1,6 +1,4 @@
-
-
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,20 +19,20 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
   <!-- Main styling sheet -->
-  <link rel="stylesheet" type="text/css" href="../css/styles-universal.css" />
-  <link rel="stylesheet" type="text/css" href="../css/styles-p3.css" />
+  <link rel="stylesheet" type="text/css" href="css/styles-universal.css" />
+  <link rel="stylesheet" type="text/css" href="css/styles-p3.css" />
 
   <!-- Cart styling sheet -->
   <link rel="stylesheet" type="text/css" href="css/p4-style.css" />
 
 
   <!-- JavaScript -->
-  <script type="text/javaScript" src="../js/product.js"></script>
+  <script type="text/javaScript" src="js/product.js"></script>
 
 </head>
 
 
-<body onload="updateSummary()">
+<body class="d-flex flex-column min-vh-100" onload="updateSummary()">
       <!-- Header with menu -->
   <header class="container-fluid fixed-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -108,8 +106,6 @@
 
 
        <?php
-
-              session_start();
 
               if(!empty($_SESSION['cart'])){
 
@@ -221,89 +217,6 @@
   <script type="text/javaScript" src="js/cart.js"></script>
 
   <!-- sending order Javascript -->
-
-  <script>
-
-       function sendOrder() {
-         //if browser supports XMLHttpRequest
-            
-         if (window.XMLHttpRequest) { // Create an instance of XMLHttpRequest object. 
-               code for IE7+, Firefox, Chrome, Opera, Safari xmlhttp  =  new XMLHttpRequest();
-            } else { // code for IE6, IE5 
-               xmlhttp  =  new ActiveXObject("Microsoft.XMLHTTP");
-            }
-   
-         // sets and sends the request for calling "node.xml"
-            xmlhttp.open("GET","../resources/data/orders.xml",false);
-            xmlhttp.send();
-
-         // sets and returns the content as XML DOM
-            xmlDoc = xmlhttp.responseXML;
-
-            //creating a new order node and adding it to the root node 
-            var rootNode = xmlDoc.getElementsByTagName("orders");
-            var newOrder = xmlDoc.createElement("order");
-
-            rootNode.appendChild(newOrder);
-
-            //adding order ID
-            var id = xmlDoc.createElement("order_id");
-
-            newOrder.appendChild(id);
-            var orderId = xmlDoc.createTextNode((Math.random() * 1000));
-
-            id.appendChild(orderId);
-
-            //adding date 
-            var date = xmlDoc.createElement("date");
-            newOrder.appendChild(date);
-            var orderDate = xmlDoc.createTextNode(new Date().toLocaleDateString()); 
-            date.appendChild(orderDate);
-
-            //adding customer id 
-            var customer_id = xmlDoc.createElement("customer_id");
-            newOrder.appendChild(customer_id);
-            var customerId = xmlDoc.createTextNode(<?php echo ($_COOKIE["user"]) ?>);
-            customer_id.appendChild(customerId); 
-
-            //creating cart node 
-            var order_cart = xmlDoc.createElement("cart");
-            newOrder.appendChild(order_cart); 
-
-            //creating product nodes, product id and quantity
-            var p_IDS = document.getElementsByClassName("id");
-            var p_quantity = document.getElementsByClassName("quantity"); 
-
-            for (let i=0; i< <?php echo count($_SESSION['cart']); ?> , i++){
-
-              var product = xmlDoc.createElement("product");
-              
-
-              var x = xmlDoc.createElement("id");
-              var xx =  xmlDoc.createTextNode(p_IDS[i].innerHTML); 
-
-              x.appendChild(xx);
-              product.appendChild(x); 
-
-              var y = xmlDoc.createElement("p_quantity");
-              var yy = xmlDoc.createTextNode(p_quantity[i].value); 
-
-              y.appendChild(yy);
-              product.appendChild(y);
-
-
-              order_cart.appendChild(product);
-
-            }
-        }   
-            
-
-
-
-         
-
-
-  </script>
 
 
 

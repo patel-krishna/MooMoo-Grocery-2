@@ -121,26 +121,7 @@
     <language>English</language>
     <admin>yes</admin>
   </user>
-  <user name="hellp">
-    <id>1008</id>
-    <firstname>hellp</firstname>
-    <lastname>ee</lastname>
-    <middlename/>
-    <address>aeaweaw</address>
-    <apartment/>
-    <city>wewe</city>
-    <country>Canada</country>
-    <province>Alberta</province>
-    <postalcode>wewea</postalcode>
-    <phonenumber>888888888</phonenumber>
-    <email>asde0719@gmail.com</email>
-    <language>English</language>
-    <password>eweawewa</password>
-    <paymentmethod>debit</paymentmethod>
-    <cardnumber>1231312313131</cardnumber>
-    <cvc>123</cvc>
-    <admin>no</admin>
-  </user>
+  
 </users>
 <!-- user structure
   <user>
