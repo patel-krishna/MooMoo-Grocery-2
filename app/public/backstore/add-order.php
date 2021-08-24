@@ -29,7 +29,7 @@ if (isset($_GET['order_id'])) {
 }
 ?>
 
-<div class="col-8">
+<div class="col-8 backstore-body">
   <h1>Edit or Add an Order</h1>
   <?php save_order($is_set); ?>
   <h3>Specify, edit or add details to a specific order.</h3>

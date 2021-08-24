@@ -54,10 +54,14 @@ select {
   border-color: #d72323;
   border-style: none none solid none;
   border-width: 1px;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .backstore-header-logo {
-  padding-left: 15px;
+  padding-left: 0;
 }
 
 .admin-name {
@@ -69,7 +73,7 @@ select {
 
 .sign-out-button {
   position: absolute;
-  right: 170px;
+  right: 135px;
   top: 20px;
 }
 
@@ -81,7 +85,7 @@ select {
   height: 100%;
   line-height: 2;
   list-style-type: none;
-  margin: 0;
+  margin: 66px 0 0 0;
   padding: 0 0 0 0;
   width: auto;
 }
@@ -113,12 +117,17 @@ select {
 }
 
 /* Backstore Form (Edit Properties) */
+.backstore-body {
+  padding-top: 0;
+}
+
 .properties {
   line-height: 2;
 }
 
 .properties select {
   padding-top: 6px;
+  background-color: white;
 }
 
 .properties-input {
@@ -383,6 +392,22 @@ a.edit-action {
 
   .hide-mobile-sm {
     display: table-cell;
+  }
+
+  .backstore-header-logo {
+    padding-left: 15px;
+  }
+
+  .backstore-body {
+    padding-top: 66px;
+  }
+
+  .backstore-vertical-navbar {
+    margin-top: 0;
+  }
+
+  .sign-out-button {
+    right: 170px;
   }
 }
 

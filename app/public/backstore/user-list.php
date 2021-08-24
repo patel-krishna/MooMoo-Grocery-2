@@ -5,7 +5,7 @@
 <!-- Side Navigation -->
 <?php include(TEMPLATE_BACK . DS . "side-nav.php"); ?>
 
-<div class="col-10">
+<div class="col-10 backstore-body">
   <h1>User List</h1>
   <!-- Add user button -->
   <a class="add-user" href="user-edit.php">Add User</a>
@@ -21,13 +21,6 @@
     <?php display_users() ?>
   </table>
 
-  <div class="page-numbers-container">
-    <div class="page-numbers">
-      <a href="#">&laquo;</a>
-      <a href="#" class="active">1</a>
-      <a href="#">&raquo;</a>
-    </div>
-  </div>
 </div>
 </div>
 </body>
