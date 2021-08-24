@@ -33,7 +33,7 @@
             <div class="row">
                 <!-- Product image -->
                 <div class="col-md-6" id="productImage">
-                    <img src="../images/<?php echo $product_obj->image; ?>" class="img-fluid"
+                    <img src="../uploads/<?php echo $product_obj->image; ?>" class="img-fluid"
                         alt="Image of <?php echo $product_obj->name; ?>." />
                 </div>
 
