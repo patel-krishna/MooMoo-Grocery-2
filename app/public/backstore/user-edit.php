@@ -55,7 +55,7 @@
 </script>
 
 <div class="col-8">
-  <h1>Edit User Info</h1>
+  <h1> <?php if ($is_set) echo 'Edit User Info'; else echo 'Add User'; ?></h1>
   <form class="properties" action="<?php echo $action; ?>" method="POST">
     <div class="prop-row">
       <div class="col-4">
