@@ -2,26 +2,6 @@
 <users>
   <next>1009</next>
   <user>
-    <id>1000</id>
-    <firstname>Admin</firstname>
-    <middlename/>
-    <lastname>Admin</lastname>
-    <email>admin@moomoo.com</email>
-    <phonenumber>1234567890</phonenumber>
-    <address>111 Sample Street</address>
-    <apartment>1</apartment>
-    <city>Montreal</city>
-    <province>QC</province>
-    <postalcode>A1B 2C3</postalcode>
-    <country>Canada</country>
-    <password>Admin</password>
-    <paymentmethod>Credit</paymentmethod>
-    <cardnumber>1111222233334444</cardnumber>
-    <cvc>111</cvc>
-    <language>English</language>
-    <admin>yes</admin>
-  </user>
-  <user>
     <id>1001</id>
     <firstname>Youngjae</firstname>
     <middlename/>
@@ -121,7 +101,6 @@
     <language>English</language>
     <admin>yes</admin>
   </user>
-  
 </users>
 <!-- user structure
   <user>

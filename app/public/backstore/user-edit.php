@@ -65,84 +65,84 @@
       <div class="col-4">
         <label for="language">Language:</label>
         <select class="language-select properties-input" id="language" name="language">
-          <option value="English" <?php if ($user->language == "English") echo 'selected' ?> >English</option>
-          <option value="French" <?php if ($user->language == "French") echo 'selected' ?> >French</option>
+          <option value="English" <?php if ($is_set && $user->language == "English") echo 'selected';?> >English</option>
+          <option value="French" <?php if ($is_set && $user->language == "French") echo 'selected';?> >French</option>
         </select>
       </div>
       <div class="col-4">
         <label for="admin">Admin:</label>
         <select class="admin-select properties-input" id="admin" name="admin">
-          <option value="yes" <?php if ($user->admin == "yes") echo 'selected' ?> >Yes</option>
-          <option value="no" <?php if ($user->admin == "no") echo 'selected' ?> >No</option>
+          <option value="yes" <?php if ($is_set && $user->admin == "yes") echo 'selected'; ?> >Yes</option>
+          <option value="no" <?php if ($is_set && $user->admin == "no") echo 'selected'; ?> >No</option>
         </select>
       </div>
     </div>
     <div class="prop-row">
       <div class="col-4">
         <label for="first-name">First Name:</label>
-        <input class="properties-input" type="text" id="first-name" name="first-name" value="<?php echo $user->firstname; ?>">
+        <input class="properties-input" type="text" id="first-name" name="first-name" value="<?php if ($is_set) echo $user->firstname; ?>">
       </div>
       <div class="col-4">
         <label for="middle-name">Middle Name:</label>
-        <input class="properties-input" type="text" id="middle-name" name="middle-name" value="<?php echo $user->middlename; ?>">
+        <input class="properties-input" type="text" id="middle-name" name="middle-name" value="<?php if ($is_set) echo $user->middlename; ?>">
       </div>
       <div class="col-4">
         <label for="last-name">Last Name:</label>
-        <input class="properties-input" type="text" id="last-name" name="last-name" value="<?php echo $user->lastname; ?>">
+        <input class="properties-input" type="text" id="last-name" name="last-name" value="<?php if ($is_set) echo $user->lastname; ?>">
       </div>
     </div>
     <div class="prop-row">
       <div class="col-7">
         <label for="email-address">Email Address:</label>
-        <input class="properties-input" type="email" id="email-address" name="email-address" value="<?php echo $user->email; ?>">
+        <input class="properties-input" type="email" id="email-address" name="email-address" value="<?php if ($is_set) echo $user->email; ?>">
       </div>
       <div class="col-5">
         <label for="phone-number">Phone Number:</label>
-        <input class="properties-input" type="text" id="phone-number" name="phone-number" value="<?php echo $user->phonenumber; ?>">
+        <input class="properties-input" type="text" id="phone-number" name="phone-number" value="<?php if ($is_set) echo $user->phonenumber; ?>">
       </div>
     </div>
     <div class="prop-row">
       <div class="col-7">
         <label for="street-address">Street Address:</label>
-        <input class="properties-input" type="text" id="street-address" name="street-address" value="<?php echo $user->address; ?>">
+        <input class="properties-input" type="text" id="street-address" name="street-address" value="<?php if ($is_set) echo $user->address; ?>">
       </div>
       <div class="col-2">
         <label for="apartment">Apt:</label>
-        <input class="properties-input" type="text" id="apartment" name="apartment" value="<?php echo $user->apartment; ?>">
+        <input class="properties-input" type="text" id="apartment" name="apartment" value="<?php if ($is_set) echo $user->apartment; ?>">
       </div>
       <div class="col-3">
         <label for="province">Province:</label>
         <select class="province-select properties-input" id="province" name="province">
-          <option value="AB" <?php if ($user->province == "AB" || $user->province == "Alberta") echo 'selected' ?> >AB</option>
-          <option value="BC" <?php if ($user->province == "BC" || $user->province == "British Colubmia") echo 'selected' ?> >BC</option>
-          <option value="MB" <?php if ($user->province == "MB" || $user->province == "Manitoba") echo 'selected' ?> >MB</option>
-          <option value="NB" <?php if ($user->province == "NB" || $user->province == "New Brunswick") echo 'selected' ?> >NB</option>
-          <option value="NL" <?php if ($user->province == "NL" || $user->province == "Newfoundland and Labrador") echo 'selected' ?> >NL</option>
-          <option value="NS" <?php if ($user->province == "NS" || $user->province == "Nova Scotia") echo 'selected' ?> >NS</option>
-          <option value="ON" <?php if ($user->province == "ON" || $user->province == "Ontario") echo 'selected' ?> >ON</option>
-          <option value="PE" <?php if ($user->province == "PE" || $user->province == "Prince Edward Island") echo 'selected' ?> >PE</option>
-          <option value="QC" <?php if ($user->province == "QC" || $user->province == "Quebec") echo 'selected' ?> >QC</option>
-          <option value="SK" <?php if ($user->province == "SK" || $user->province == "Saskatchewan") echo 'selected' ?> >SK</option>
+          <option value="AB" <?php if ($is_set && ($user->province == "AB" || $user->province == "Alberta")) echo 'selected'; ?> >AB</option>
+          <option value="BC" <?php if ($is_set && ($user->province == "BC" || $user->province == "British Colubmia")) echo 'selected'; ?> >BC</option>
+          <option value="MB" <?php if ($is_set && ($user->province == "MB" || $user->province == "Manitoba")) echo 'selected'; ?> >MB</option>
+          <option value="NB" <?php if ($is_set && ($user->province == "NB" || $user->province == "New Brunswick")) echo 'selected'; ?> >NB</option>
+          <option value="NL" <?php if ($is_set && ($user->province == "NL" || $user->province == "Newfoundland and Labrador")) echo 'selected'; ?> >NL</option>
+          <option value="NS" <?php if ($is_set && ($user->province == "NS" || $user->province == "Nova Scotia")) echo 'selected'; ?> >NS</option>
+          <option value="ON" <?php if ($is_set && ($user->province == "ON" || $user->province == "Ontario")) echo 'selected'; ?> >ON</option>
+          <option value="PE" <?php if ($is_set && ($user->province == "PE" || $user->province == "Prince Edward Island")) echo 'selected'; ?> >PE</option>
+          <option value="QC" <?php if ($is_set && ($user->province == "QC" || $user->province == "Quebec")) echo 'selected'; ?> >QC</option>
+          <option value="SK" <?php if ($is_set && ($user->province == "SK" || $user->province == "Saskatchewan")) echo 'selected'; ?> >SK</option>
         </select>
       </div>
     </div>
     <div class="prop-row">
       <div class="col-5">
         <label for="city">City:</label>
-        <input class="properties-input" type="text" id="city" name="city" value="<?php echo $user->city; ?>">
+        <input class="properties-input" type="text" id="city" name="city" value="<?php if ($is_set) echo $user->city; ?>">
       </div>
       <div class="col-4">
         <label for="postal-code">Postal Code:</label>
-        <input class="properties-input" type="text" id="postal-code" name="postal-code" value="<?php echo $user->postalcode; ?>">
+        <input class="properties-input" type="text" id="postal-code" name="postal-code" value="<?php if ($is_set) echo $user->postalcode; ?>">
       </div>
       <div class="col-3">
         <label for="country">Country:</label>
-        <input class="properties-input" type="text" id="country" name="country" value="<?php echo $user->country; ?>">
+        <input class="properties-input" type="text" id="country" name="country" value="<?php if ($is_set) echo $user->country; ?>">
       </div>
     </div>
     <div class="col-12">
       <label for="password">Current Password: </label>
-      <input class="properties-input" type="password" id="password" name="password" value="<?php echo $user->password; ?>" readonly>
+      <input class="properties-input" type="password" id="password" name="password" value="<?php if ($is_set) echo $user->password; ?>" readonly>
     </div>
     <div class="col-12">
       <label for="new-password">New Password*: </label>
@@ -162,18 +162,18 @@
       <div class="col-4">
         <label for="payment-method">Card Type:</label>
         <select class="properties-input" id="payment-method" name="payment-method">
-          <option value="Debit" <?php if ($user->paymentmethod == "Debit") echo 'selected' ?> >Debit Card</option>
-          <option value="Credit" <?php if ($user->paymentmethod == "Credit") echo 'selected' ?>>Credit Card</option>
-          <option value="Moomoo card" <?php if ($user->paymentmethod == "Moomoo card") echo 'selected' ?>>MooMoo Card</option>
+          <option value="Debit" <?php if ($is_set && $user->paymentmethod == "Debit") echo 'selected'; ?> >Debit Card</option>
+          <option value="Credit" <?php if ($is_set && $user->paymentmethod == "Credit") echo 'selected'; ?>>Credit Card</option>
+          <option value="Moomoo card" <?php if ($is_set && $user->paymentmethod == "Moomoo card") echo 'selected'; ?>>MooMoo Card</option>
         </select>
       </div>
       <div class="col-5">
         <label for="card-number">Card Number:</label>
-        <input class="properties-input" type="text" maxlength="16" id="card-number" name="card-number" value="<?php echo $user->cardnumber; ?>">
+        <input class="properties-input" type="text" maxlength="16" id="card-number" name="card-number" value="<?php if ($is_set) echo $user->cardnumber; ?>">
       </div>
       <div class="col-3">
         <label for="cvc">CVC:</label>
-        <input class="properties-input" type="text" maxlength="3"id="cvc" name="cvc" value="<?php echo $user->cvc; ?>">
+        <input class="properties-input" type="text" maxlength="3"id="cvc" name="cvc" value="<?php if ($is_set) echo $user->cvc; ?>">
       </div>
     </div>
     <div class="col-12">
