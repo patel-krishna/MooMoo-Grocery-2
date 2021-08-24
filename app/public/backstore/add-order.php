@@ -10,6 +10,7 @@
 // Assume add order is empty
 $order_id = NULL;
 $is_set = false;
+$action = NULL;
 // If there is a redirect from edit button in order-list.php, use the order ID to populate form
 if (isset($_GET['order_id'])) {
   $is_set = true;
@@ -24,16 +25,19 @@ if (isset($_GET['order_id'])) {
   $customer = getUserXml(intval($customer_id));
   $firstname = $customer->firstname;
   $lastname = $customer->lastname;
+
+  // Link to existing order php
+  $action = "order-existing.php";
 } else {
   $order_id = getNextOrderID();
+  $action = "order-new.php";
 }
 ?>
 
 <div class="col-8 backstore-body">
   <h1>Edit or Add an Order</h1>
-  <?php save_order($is_set); ?>
   <h3>Specify, edit or add details to a specific order.</h3>
-  <form class="properties" action="" method="POST" enctype="text/plain">
+  <form class="properties" action="<?php echo $action; ?>" method="POST">
     <div class="">
       <div class="col-6">
         <label for="first-name">Order ID:</label>
