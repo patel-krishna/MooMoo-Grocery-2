@@ -5,7 +5,7 @@
 <!-- Side Navigation -->
 <?php include(TEMPLATE_BACK . DS . "side-nav.php") ?>
 
-<div class="col-10">
+<div class="col-10 backstore-body">
   <h1>Order List</h1>
   <a class="add-order" href="add-order.php">Add Order</a>
   <!-- Order List -->
@@ -23,13 +23,6 @@
     <?php display_orders() ?>
   </table>
 
-  <div class="page-numbers-container">
-    <div class="page-numbers">
-      <a href="#">&laquo;</a>
-      <a href="#" class="active">1</a>
-      <a href="#">&raquo;</a>
-    </div>
-  </div>
 </div>
 </div>
 </body>
