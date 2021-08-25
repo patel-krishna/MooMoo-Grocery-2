@@ -547,3 +547,24 @@ function calculateTotal($order_id)
     $total = $subtotal * 1.15;
     return $total;
 }
+
+/**
+ * Returns boolean whether or not $customer_ID is valid
+ */
+function validCustomerID($customer_id)
+{
+    // Load users
+    $user_xml = simplexml_load_file(XML_DB . DS . "users.xml") or die("Error: Cannot create object");
+
+    foreach ($user_xml->children() as $attribute) {
+        // Ignore next tag
+        if (strcmp($attribute->getName(), "next") != 0) {
+            // If there is a match in the customer ID
+            if (strcmp($customer_id, $attribute->id) == 0) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
