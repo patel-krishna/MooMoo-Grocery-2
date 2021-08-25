@@ -8,6 +8,11 @@ if (!isset($_COOKIE["admin"])) {
 // Collect orderID from outside
 $order_id = $_GET["order_id"];
 
+// Check if customer ID is valid, if not, send back to prev page.
+if (!validCustomerID($_GET['customer_id'])) {
+    header("Location: add-order.php?order_id={$order_id}");
+}
+
 // If both order_id exist, product_id is not empty and quantity is above 0, add product, else return to <add-order.php>
 if (isset($_GET['order_id']) && isset($_GET['customer_id']) && !empty($_GET['product_id']) && isset($_GET['quantity'])) {
 
