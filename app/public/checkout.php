@@ -3,7 +3,7 @@
 
 session_start();
 
-if($_COOKIE["user"] || $_COOKIE["admin"]) {
+if(null !== ($_COOKIE["user"] || $_COOKIE["admin"]) && count($_SESSION['cart'])>0) {
 
     
     //set xml
@@ -103,8 +103,14 @@ if($_COOKIE["user"] || $_COOKIE["admin"]) {
 
 
     }
+
 }else{
-    echo '<script>if(confirm("Sorry! You must be a member to checkout!")) document.location = "../public/Login.php";</script>';
+    if(($_COOKIE["user"] || $_COOKIE["admin"]) == null){
+        echo '<script>if(confirm("Sorry! You must be a member to checkout!")) document.location = "../public/Login.php";</script>';
+    } else if (count($_SESSION['cart'])<=0){
+        echo '<script>if(confirm("Sorry! You must add an item to your cart to checkout!")) document.location = "../public/cart.php";</script>';
+    }
+    
 }
 
 function getNextOrderID()
