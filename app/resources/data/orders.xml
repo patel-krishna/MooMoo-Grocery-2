@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <orders>
-  <next>1006</next>
+  <next>1004</next>
   <order>
     <order_id>1001</order_id>
-    <date>Jul 10, 2021</date>
+    <date>Aug 25, 2021</date>
     <customer_id>1001</customer_id>
     <cart>
       <product>
         <id>022</id>
-        <p_quantity>1</p_quantity>
+        <p_quantity>5</p_quantity>
       </product>
       <product>
         <id>048</id>
@@ -20,12 +20,12 @@
   </order>
   <order>
     <order_id>1002</order_id>
-    <date>Jul 12, 2021</date>
+    <date>Aug 25, 2021</date>
     <customer_id>1003</customer_id>
     <cart>
       <product>
         <id>036</id>
-        <p_quantity>1</p_quantity>
+        <p_quantity>7</p_quantity>
       </product>
       <total/>
     </cart>

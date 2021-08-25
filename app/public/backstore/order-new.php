@@ -40,7 +40,6 @@ if (isset($_POST["save-order"])) {
     $cart = $xml->createElement("cart");
     $order->appendChild($cart);
 
-    // For the products, loop through all elements and append to cart
     // foreach ($_POST["product-id"] as $product_id) {
     //     $product = $xml->createElement("product");
     //     $product->appendChild($product_id);
@@ -61,7 +60,7 @@ if (isset($_POST["save-order"])) {
 
     // Save XML file
     $xml->save(XML_DB . DS . "orders.xml") or die("Error, unable to create xml file.");
-    header("Location: order-list.php");
+    // header("Location: order-list.php");
 }
 // Else redirect to order-list
 else {
