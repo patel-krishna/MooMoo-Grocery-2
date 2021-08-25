@@ -10,6 +10,46 @@ Zachary Bruce 40136585,
 Youngjae Kim 40169282,
 Krishna Patel 40176352
 
+### User example input for testing
+
+- First Name: Billy
+- Middle Name: Ray
+- Last Name: Jones
+- Email Address: billy@example.com
+- Phone Number: 5556667777
+- Street Address: 1043 McNamee Place
+- Province: BC
+- City: Vancouver
+- Postal Code: V8B 2B7
+- Country: Canada
+- Password: Example&123
+- Payment Method: Visa
+- Card Number: 9999999999999999
+- CVC Number: 999
+
+### Product example input for testing
+
+- Aisle: Dairy - Cheese
+- Item Name: Swiss Gruyere
+- Serial Number: 09876513
+- Description: Sharp and flavourful, Swiss Gruyere is made from raw cow's millk and imported from Switzerland. Aged for 300 days.
+- Image: swiss.png (In outer folder for easy access)
+- Unit: g
+- Size: 400
+- Quantity: 34
+- Price: 10.60
+- Price per unit: 5.19
+- Per unit size: 100 g
+- Options: none
+
+### Order example input for testing
+
+- Customer ID - 1001
+- Customer First Name: Youngjae
+- Customer Last Name: Kim
+- Order Status: Not Completed
+- List of Products IDs: 11, 23
+
 ## Website uses Bootstrap 4
 
 ### User Data Structure
