@@ -129,7 +129,7 @@
                           $sub_total = $quantity*$product->price;
                          
                           echo " <div class='product'>"; 
-                           echo "<img class='product-picture' src='images/{$product->image}'> ";
+                           echo "<img class='product-picture' src='uploads/{$product->image}'> ";
                             echo "<div class='product-description'>";
                             echo "<h3 class='name'><a href='products/productDisplay.php?category={$aisle_name}&id={$ids}'>{$product->name}</a></h3>";
                             
