@@ -444,8 +444,8 @@ function display_ordered_products($order_id)
     foreach ($order_xml->children() as $order) {
         if ($order->order_id == $order_id) {
             $cart = $order->cart;
-            // For each item in the cart, print out product by getting value from products xml
 
+            // For each item in the cart, print out product by getting value from products xml
             foreach ($cart->product as $product) {
                 $product_id = $product->id;
                 $p_quantity = $product->p_quantity;
@@ -510,49 +510,6 @@ function order_product_info($product_id)
     }
     // Return null if no match to product ID
     return NULL;
-}
-
-/**
- * TODO Edits existing orders or adds orders if none exist
- */
-function add_order($is_set)
-{
-    // If changes are saved, save order to XML file <orders.xml>
-    if (isset($_POST['save-order'])) {
-        $order_id = sanitize_input($_POST["order-id"]);
-        $customer_id = sanitize_input($_POST["customer-id"]);
-        $date = date("M d, Y"); // Today's date
-
-        // Settings for XML output
-        $xml = new DOMDocument('1.0', "UTF-8");
-        $xml->preserveWhiteSpace = false;
-        $xml->formatOutput = true;
-
-        // Load XML document
-        $xml->load(XML_DB . DS . "orders.xml");
-        $xpath = new DOMXpath($xml);
-
-        // Increment next orderID
-        $nextID = getNextOrderID();
-        $next = $xpath->query('//next');
-        $next->firstChild->nodeValue = ($nextID + 1);
-
-        // Fill in XML file <orders.xml>
-        $order = $xml->createElement("order");
-        $order->appendChild($xml->createElement("order_id", $order_id));
-        $order->appendChild($xml->createElement("date", $date));
-        $order->appendChild($xml->createElement("customer_id", $customer_id));
-
-        // Initialize cart within orders
-        $cart = $xml->createElement("cart");
-        $order->appendChild($cart);
-
-
-
-        // Save XML and reload order-list
-        $xml->save(XML_DB . DS . "orders.xml") or die("Error, unable to save xml file.");
-        header("Location: order-list.php");
-    }
 }
 
 /**
