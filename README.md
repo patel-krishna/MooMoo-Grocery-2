@@ -53,121 +53,134 @@ Krishna Patel 40176352
 
 ```
 .
-├── LICENSE
-├── Login.html
 ├── README.md
-├── SignUp.html
-├── aisles
-│   ├── bakery.html
-│   ├── beverages.html
-│   ├── dairy.html
-│   ├── meat.html
-│   └── produce.html
-├── backstore
-│   ├── add-order.html
-│   ├── order-list.html
-│   ├── product-edit.html
-│   ├── product-list.html
-│   ├── user-edit.html
-│   └── user-list.html
-├── cart.html
-├── css
-│   ├── p3-style.css
-│   ├── p3-style.css.map
-│   ├── p3-style.scss
-│   ├── p4-style.css
-│   ├── styles-backstore.css
-│   ├── styles-main.css
-│   ├── styles-product.css
-│   └── styles-universal.css
-├── images
-│   ├── apple.jpg
-│   ├── b.jpeg
-│   ├── background2.jpg
-│   ├── banana.jpg
-│   ├── blue-cheese.png
-│   ├── c.jpg
-│   ├── carrots.jpg
-│   ├── cb.jpeg
-│   ├── chris-abney-3Vfdiz2Re80-unsplash.jpg
-│   ├── cl.jpeg
-│   ├── cookie.jpg
-│   ├── donut.jpg
-│   ├── eggs.png
-│   ├── fruits.jpg
-│   ├── gouda.png
-│   ├── grocery-front.jpg
-│   ├── ice-cream.png
-│   ├── icon-moo.png
-│   ├── ja-san-miguel-xYSp0kkIUio-unsplash.jpg
-│   ├── jarritos-mexican-soda-fW9O-VGwhCw-unsplash.jpg
-│   ├── jason-jarrach-JAmAeLSU1CM-unsplash.jpg
-│   ├── lia-regina-2TxmAfd3bxU-unsplash.jpg
-│   ├── loginpage.jfif
-│   ├── meat.jfif
-│   ├── milk-aisle.jpg
-│   ├── milk.png
-│   ├── moomoo.ico
-│   ├── moomoologo.png
-│   ├── multigrain.jpg
-│   ├── pear.jpg
-│   ├── pexels-any-lane-5945669.jpg
-│   ├── pexels-charlotte-may-5946611.jpg
-│   ├── pexels-karolina-grabowska-4389681.jpg
-│   ├── pie.jpg
-│   ├── pr.jpeg
-│   ├── produce-display.jpg
-│   ├── radish.jpg
-│   ├── s.jpeg
-│   ├── steak.jpeg
-│   ├── swiss.png
-│   ├── tomato-header.jpg
-│   ├── tomato.jpg
-│   ├── waldemar-brandt-kPqaqug998Y-unsplash.jpg
-│   ├── white-eggs.png
-│   └── yogurt.png
-├── index.html
-├── js
-│   ├── bakery-products.js
-│   ├── beverage-products.js
-│   ├── dairy-products.js
-│   ├── meat-product.js
-│   └── produce-products.js
-└── products
-    ├── B.html
-    ├── BSC.html
-    ├── CB.html
-    ├── CL.html
-    ├── PR.html
-    ├── S.html
-    ├── apples.html
-    ├── baguette.html
-    ├── bananas.html
-    ├── blue-cheese.html
-    ├── brown-eggs.html
-    ├── cake.html
-    ├── carrot.html
-    ├── coca-cola.html
-    ├── cookie.html
-    ├── croissant.html
-    ├── donut.html
-    ├── gouda-cheese.html
-    ├── ice-cream.html
-    ├── jarritos.html
-    ├── la-croix.html
-    ├── mango-juice.html
-    ├── milk.html
-    ├── mixed-berry-juice.html
-    ├── multigrain.html
-    ├── orange-juice.html
-    ├── pear.html
-    ├── pepsi.html
-    ├── perrier.html
-    ├── pie.html
-    ├── radish.html
-    ├── sourdough.html
-    ├── swiss-cheese.html
-    ├── tomato.html
-    ├── white-eggs.html
-    └── yogurt.html
+├── app
+│   ├── public
+│   │   ├── Afterlogin.php
+│   │   ├── Login.php
+│   │   ├── SignUp.php
+│   │   ├── aisles
+│   │   │   ├── bakery.php
+│   │   │   ├── beverages.php
+│   │   │   ├── dairy.php
+│   │   │   ├── meat.php
+│   │   │   └── produce.php
+│   │   ├── backstore
+│   │   │   ├── add-order-product.php
+│   │   │   ├── add-order.php
+│   │   │   ├── added-user.php
+│   │   │   ├── delete-order-product.php
+│   │   │   ├── delete_product.php
+│   │   │   ├── delete_user.php
+│   │   │   ├── edited-user.php
+│   │   │   ├── order-delete.php
+│   │   │   ├── order-existing.php
+│   │   │   ├── order-list.php
+│   │   │   ├── order-new.php
+│   │   │   ├── product-edit.php
+│   │   │   ├── product-list.php
+│   │   │   ├── user-edit.php
+│   │   │   └── user-list.php
+│   │   ├── cart.php
+│   │   ├── checkout.php
+│   │   ├── css
+│   │   │   ├── p4-style.css
+│   │   │   ├── styles-backstore.css
+│   │   │   ├── styles-main.css
+│   │   │   ├── styles-p3.css
+│   │   │   ├── styles-product.css
+│   │   │   └── styles-universal.css
+│   │   ├── images
+│   │   │   ├── aisle_bakery.jpg
+│   │   │   ├── aisle_beverages.jpg
+│   │   │   ├── aisle_dairy.jpg
+│   │   │   ├── aisle_meat.jpg
+│   │   │   ├── aisle_produce.jpg
+│   │   │   ├── background2.jpg
+│   │   │   ├── eggs.png
+│   │   │   ├── fruits.jpg
+│   │   │   ├── grocery-front.jpg
+│   │   │   ├── icon-moo.png
+│   │   │   ├── loginpage.jfif
+│   │   │   ├── meat.jfif
+│   │   │   ├── milk-aisle.jpg
+│   │   │   ├── moomoo.ico
+│   │   │   ├── moomoologo.png
+│   │   │   ├── produce-display.jpg
+│   │   │   ├── steak.jpeg
+│   │   │   ├── tomato-header.jpg
+│   │   │   └── waldemar-brandt-kPqaqug998Y-unsplash.jpg
+│   │   ├── index.php
+│   │   ├── js
+│   │   │   ├── cart.js
+│   │   │   ├── login.js
+│   │   │   ├── product.js
+│   │   │   └── sign-up.js
+│   │   ├── not_registered.php
+│   │   ├── products
+│   │   │   ├── add-to-cart.php
+│   │   │   └── productDisplay.php
+│   │   ├── remove-from-cart.php
+│   │   ├── sign-out.php
+│   │   ├── update-quantity.php
+│   │   ├── uploads
+│   │   │   ├── TP5X_open\ (2).png
+│   │   │   ├── apple.jpg
+│   │   │   ├── bacon.jpeg
+│   │   │   ├── baguette.jpeg
+│   │   │   ├── banana.jpg
+│   │   │   ├── berry.jpg
+│   │   │   ├── blue-cheese.png
+│   │   │   ├── cake.jpeg
+│   │   │   ├── carrots.jpg
+│   │   │   ├── chickb.jpeg
+│   │   │   ├── chickl.jpeg
+│   │   │   ├── coke.jpg
+│   │   │   ├── cookie.jpg
+│   │   │   ├── croissant.jpg
+│   │   │   ├── donut.jpg
+│   │   │   ├── eggs.png
+│   │   │   ├── gouda.png
+│   │   │   ├── ice-cream.png
+│   │   │   ├── jarrito.jpg
+│   │   │   ├── lacroix.jpg
+│   │   │   ├── mango.jpg
+│   │   │   ├── milk.png
+│   │   │   ├── multigrain.jpg
+│   │   │   ├── orange.jpg
+│   │   │   ├── pear.jpg
+│   │   │   ├── pepsi.jpg
+│   │   │   ├── perrier.jpg
+│   │   │   ├── pie.jpg
+│   │   │   ├── pork.jpeg
+│   │   │   ├── radish.jpg
+│   │   │   ├── sausage.jpeg
+│   │   │   ├── sourdough.jpeg
+│   │   │   ├── steak.jpeg
+│   │   │   ├── swiss.png
+│   │   │   ├── tomato.jpg
+│   │   │   ├── white-eggs.png
+│   │   │   └── yogurt.png
+│   │   ├── user.php
+│   │   └── wrong_password.php
+│   └── resources
+│       ├── config.php
+│       ├── data
+│       │   ├── orders.xml
+│       │   ├── products.xml
+│       │   └── users.xml
+│       ├── functions.php
+│       └── templates
+│           ├── back
+│           │   ├── header.php
+│           │   └── side-nav.php
+│           └── front
+│               ├── aisle-footer.php
+│               ├── aisle-header.php
+│               ├── footer.php
+│               ├── header.php
+│               ├── product-header.php
+│               └── product-navbar.php
+├── docker-compose.yml
+└── nginx.conf
 ```
