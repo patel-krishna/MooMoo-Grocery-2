@@ -458,7 +458,7 @@ function display_ordered_products($order_id)
                     <tr>
                         <td><input class="product-input" name="product-id[]" value="{$product_id}"></td>
                         <td class="hide-mobile-o">{$product_name}</td>
-                        <td><input class="quantity-input" type="number" name="p_quantity[]" id="quantity" min="1" value="{$p_quantity}"></td>
+                        <td><input class="quantity-input" type="number" name="p_quantity[]" id="quantity" min="1" value="{$p_quantity}" onchange="updatePrice()"></td>
                         <td class="hide-mobile-o" id="product_subtotal">{$price}</td>
                         <td><a class="add-order-product" href="delete-order-product.php?order_id={$order_id}&amp;product_id={$product_id}">Delete</a></td>
                     </tr>

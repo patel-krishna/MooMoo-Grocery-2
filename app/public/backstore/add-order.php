@@ -74,7 +74,7 @@ if (isset($_GET['order_id'])) {
           <td class="hide-mobile-o"><input class="product-input hide-mobile-o" type="text" id="productName" name="productName" value="" disabled style="visibility:hidden;"></td>
           <td><input class="quantity-input" type="number" id="quantity" name="quantity" min="0" value=""></td>
           <td class="hide-mobile-o"><input class="product-input hide-mobile-o" type="text" id="productPrice" name="productPrice" value="" disabled style="visibility:hidden;"></td>
-          <td><a href="">Add</a></td>
+          <td><a href="add-order-product.php?order_id=<?php echo $order_id; ?>&amp;product_id=">Add</a></td>
         </tr>
       </table>
       <!-- Empty Column -->
