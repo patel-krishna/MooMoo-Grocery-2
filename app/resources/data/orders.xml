@@ -1,53 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <orders>
-  <next>1006</next>
-  <order>
-    <order_id>1001</order_id>
-    <date>Jul 10, 2021</date>
-    <customer_id>1001</customer_id>
-    <cart>
-      <product>
-        <id>22</id>
-        <p_quantity>1</p_quantity>
-      </product>
-      <product>
-        <id>50</id>
-        <p_quantity>15</p_quantity>
-      </product>
-      <total/>
-    </cart>
-    <status>processing</status>
-  </order>
-  <order>
-    <order_id>1002</order_id>
-    <date>Jul 12, 2021</date>
-    <customer_id>1003</customer_id>
-    <cart>
-      <product>
-        <id>36</id>
-        <p_quantity>1</p_quantity>
-      </product>
-      <total/>
-    </cart>
-    <status>processing</status>
-  </order>
-  <order>
-    <order_id>1003</order_id>
-    <date>Jul 12, 2021</date>
-    <customer_id>1002</customer_id>
-    <cart>
-      <product>
-        <id>21</id>
-        <p_quantity>15</p_quantity>
-      </product>
-      <product>
-        <id>52</id>
-        <p_quantity>4</p_quantity>
-      </product>
-      <total/>
-    </cart>
-    <status>processing</status>
-  </order>
+    <next>1004</next>
+    <order>
+        <order_id>1001</order_id>
+        <date>Aug 25, 2021</date>
+        <customer_id>1001</customer_id>
+        <cart>
+            <product>
+                <id>22</id>
+                <p_quantity>1</p_quantity>
+            </product>
+            <product>
+                <id>50</id>
+                <p_quantity>15</p_quantity>
+            </product>
+            <total>122.22</total>
+            <product>
+                <id>32</id>
+                <p_quantity>1</p_quantity>
+            </product>
+            <product>
+                <id>41</id>
+                <p_quantity>5</p_quantity>
+            </product>
+        </cart>
+        <status>processing</status>
+    </order>
+    <order>
+        <order_id>1002</order_id>
+        <date>Aug 25, 2021</date>
+        <customer_id>1003</customer_id>
+        <cart>
+            <product>
+                <id>36</id>
+                <p_quantity>1</p_quantity>
+            </product>
+            <total>10.32</total>
+        </cart>
+        <status>processing</status>
+    </order>
+    <order>
+        <order_id>1003</order_id>
+        <date>Aug 25, 2021</date>
+        <customer_id>1002</customer_id>
+        <cart>
+            <product>
+                <id>21</id>
+                <p_quantity>15</p_quantity>
+            </product>
+            <product>
+                <id>52</id>
+                <p_quantity>4</p_quantity>
+            </product>
+            <total>117.31</total>
+        </cart>
+        <status>processing</status>
+    </order>
 </orders>
-    
-

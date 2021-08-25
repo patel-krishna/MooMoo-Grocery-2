@@ -74,7 +74,7 @@ if (isset($_GET['order_id'])) {
           <td class="hide-mobile-o"><input class="product-input hide-mobile-o" type="text" id="productName" name="productName" value="" disabled style="visibility:hidden;"></td>
           <td><input class="quantity-input" type="number" id="quantity" name="quantity" min="0" value=""></td>
           <td class="hide-mobile-o"><input class="product-input hide-mobile-o" type="text" id="productPrice" name="productPrice" value="" disabled style="visibility:hidden;"></td>
-          <td><a href="">Add</a></td>
+          <td><a href="add-order-product.php?order_id=<?php echo $order_id; ?>" id="add_product" onclick="changeLink();">Add</a></td>
         </tr>
       </table>
       <!-- Empty Column -->
@@ -92,6 +92,26 @@ if (isset($_GET['order_id'])) {
 
   </form>
 </div>
+
+<script>
+  // Add product by passing value of product ID to new page
+  function changeLink() {
+    // Link var
+    var link = document.getElementById("add_product");
+
+    // Check to see if customer ID is filled or not
+    var customerID = document.getElementById("customer-id").value;
+    if (!customerID) {
+      alert("Enter a customer ID.");
+    }
+
+    // Product value var
+    var productID = document.getElementById("productID").value;
+    var productQuantity = document.getElementById("quantity").value;
+
+    link.href += "&customer_id=" + customerID + "&product_id=" + productID + "&quantity=" + productQuantity;
+  }
+</script>
 
 </div>
 </body>

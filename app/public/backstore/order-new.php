@@ -36,22 +36,29 @@ if (isset($_POST["save-order"])) {
     $order->appendChild($xml->createElement("date", $date));
     $order->appendChild($xml->createElement("customer_id", $customer_id));
 
-    // Create new element: cart and append as child of order
-    $cart = $xml->createElement("cart");
-    $order->appendChild($cart);
+    // Create a new cart and append
+    $cartList = $xml->createElement("cart");
+    $order->appendChild($cartList);
 
-    // For the products, loop through all elements and append to cart
-    // foreach ($_POST["product-id"] as $product_id) {
-    //     $product = $xml->createElement("product");
-    //     $product->appendChild($product_id);
+    // Create a new product and add to cart
+    $cart = $order->getElementsByTagName("cart")->item(0);
 
-    //     // Retrieve product quantity and append as child of product
-    //     $quantity = $_POST["quantity"];
-    //     $product->appendChild($xml->createElement("p_quantity", $quantity));
+    // Create a new element of type product
+    $product = $xml->createElement("product");
 
-    //     // Append product to cart
-    //     $cart->appendChild($product);
-    // }
+    // Get values for product ID and quantity
+    $product_id = $_POST["productID"];
+    $quantity = $_POST["quantity"];
+    // Append these values to product 
+    $product->appendChild($xml->createElement("id", $product_id));
+    $product->appendChild($xml->createElement("p_quantity", $quantity));
+
+    // Append product to end
+    $cart->appendChild($product);
+
+    // After adding product, set total to 0
+    $total = 0;
+    $cart->appendChild($xml->createElement("total", $total));
 
     // Finally update status
     $order->appendChild($xml->createElement("status", $status));

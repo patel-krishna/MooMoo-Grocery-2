@@ -456,9 +456,9 @@ function display_ordered_products($order_id)
                 // Output values
                 $table_out = <<<DELIMITER
                     <tr>
-                        <td name="product-id">{$product_id}</td>
+                        <td><input class="product-input" name="product-id[]" value="{$product_id}"></td>
                         <td class="hide-mobile-o">{$product_name}</td>
-                        <td><input class="quantity-input" type="number" name="quantity" id="quantity" min="1" value="{$p_quantity}"></td>
+                        <td><input class="quantity-input" type="number" name="p_quantity[]" id="p_quantity" min="1" value="{$p_quantity}" onchange="updatePrice()"></td>
                         <td class="hide-mobile-o" id="product_subtotal">{$price}</td>
                         <td><a class="add-order-product" href="delete-order-product.php?order_id={$order_id}&amp;product_id={$product_id}">Delete</a></td>
                     </tr>
@@ -521,4 +521,29 @@ function getNextOrderID()
     $nextID = $xml->next[0];
 
     return $nextID;
+}
+
+// Calculates total of order
+function calculateTotal($order_id)
+{
+    // First get order info
+    $order = getOrderXml($order_id);
+
+    // Initialize total
+    $subtotal = 0;
+
+    // Get all products and price
+    foreach ($order->cart->product as $product) {
+        $productID = $product->id;
+        $p_quantity = $product->p_quantity;
+        $full_product = order_product_info($productID);
+        $price = $full_product->price;
+
+        // Add price * quantity of product to total
+        $subtotal += $price * $p_quantity;
+    }
+
+    // Quick and dirty tax calculation and return
+    $total = $subtotal * 1.15;
+    return $total;
 }
