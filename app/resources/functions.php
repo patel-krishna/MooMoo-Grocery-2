@@ -522,3 +522,28 @@ function getNextOrderID()
 
     return $nextID;
 }
+
+// Calculates total of order
+function calculateTotal($order_id)
+{
+    // First get order info
+    $order = getOrderXml($order_id);
+
+    // Initialize total
+    $subtotal = 0;
+
+    // Get all products and price
+    foreach ($order->cart->product as $product) {
+        $productID = $product->id;
+        $p_quantity = $product->p_quantity;
+        $full_product = order_product_info($productID);
+        $price = $full_product->price;
+
+        // Add price * quantity of product to total
+        $subtotal += $price * $p_quantity;
+    }
+
+    // Quick and dirty tax calculation and return
+    $total = $subtotal * 1.15;
+    return $total;
+}

@@ -69,6 +69,9 @@ if (isset($_POST["save-order"])) {
                     }
                 }
             }
+            // After adding product, add total
+            $total = calculateTotal($order_id);
+            $order->getElementsByTagName("total")->item(0)->textContent = sprintf("%.2f", $total);
         }
     }
 

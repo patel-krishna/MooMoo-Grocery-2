@@ -52,6 +52,10 @@ if (isset($_POST["save-order"])) {
     //     $cart->appendChild($product);
     // }
 
+    // After adding product, add total
+    $total = calculateTotal($order_id);
+    $cart->appendChild($xml->createElement("total", $total));
+
     // Finally update status
     $order->appendChild($xml->createElement("status", $status));
 
