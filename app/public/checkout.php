@@ -26,7 +26,7 @@ if($_COOKIE["user"] || $_COOKIE["admin"]) {
         $order_id = getNextOrderID() ;    
         $orders->getElementsByTagName("next")->item(0)->textContent = $order_id + 1;
         
-        $date = date("Y/m/d");
+        $date = date("M d, Y");
        
         if(isset( $_COOKIE["user"])){
             $customer_id = $_COOKIE["user"];
@@ -45,7 +45,7 @@ if($_COOKIE["user"] || $_COOKIE["admin"]) {
 
         }
       
-        $status= "pocessing"; 
+        $status= "processing"; 
 
         $cart = $xml ->createElement("cart");
         
