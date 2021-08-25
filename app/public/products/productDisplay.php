@@ -24,7 +24,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                 <li class="breadcrumb-item"><a
-                        href="../aisles/<?php echo $product_category; ?>.php"><?php echo $product_category; ?></a></li>
+                        href="../aisles/<?php echo strtolower($product_category); ?>.php"><?php echo $product_category; ?></a></li>
                 <li class="breadcrumb-item active" aria-current="page"><?php echo $product_obj->name; ?></li>
             </ol>
         </nav>
