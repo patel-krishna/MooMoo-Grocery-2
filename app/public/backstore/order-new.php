@@ -36,21 +36,19 @@ if (isset($_POST["save-order"])) {
     $order->appendChild($xml->createElement("date", $date));
     $order->appendChild($xml->createElement("customer_id", $customer_id));
 
-    // Create new element: cart and append as child of order
-    $cart = $xml->createElement("cart");
-    $order->appendChild($cart);
+    // Create a new cart and append
+    $cartList = $xml->createElement("cart");
+    $order->appendChild($cartList);
 
-    // foreach ($_POST["product-id"] as $product_id) {
-    //     $product = $xml->createElement("product");
-    //     $product->appendChild($product_id);
+    // Create a new product and add to cart
+    $cart = $order->getElementsByTagName("cart")->item(0);
+    // Create a new element of type product
+    $product = $xml->createElement("product");
+    $product->appendChild($xml->createElement("id", $product_id));
+    $product->appendChild($xml->createElement("p_quantity", $quantity));
 
-    //     // Retrieve product quantity and append as child of product
-    //     $quantity = $_POST["quantity"];
-    //     $product->appendChild($xml->createElement("p_quantity", $quantity));
-
-    //     // Append product to cart
-    //     $cart->appendChild($product);
-    // }
+    // Append product to end
+    $cart->appendChild($product);
 
     // After adding product, add total
     $total = calculateTotal($order_id);
