@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <orders>
-  <next>1009</next>
+  <next>1012</next>
   <order>
     <order_id>1001</order_id>
     <date>Aug 25, 2021</date>
@@ -107,5 +107,18 @@
       </product>
     </cart>
     <status>completed</status>
+  </order>
+  <order>
+    <order_id>1011</order_id>
+    <date>Aug 25, 2021</date>
+    <customer_id>25</customer_id>
+    <cart>
+      <product>
+        <id/>
+        <p_quantity></p_quantity>
+      </product>
+      <total>0.00</total>
+    </cart>
+    <status>processing</status>
   </order>
 </orders>
