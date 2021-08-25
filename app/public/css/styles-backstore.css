@@ -54,15 +54,26 @@ select {
   border-color: #d72323;
   border-style: none none solid none;
   border-width: 1px;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .backstore-header-logo {
-  padding-left: 15px;
+  padding-left: 0;
+}
+
+.admin-name {
+  color: #0275d8;
+  position: absolute;
+  right: 30px;
+  top: 20px;
 }
 
 .sign-out-button {
   position: absolute;
-  right: 30px;
+  right: 135px;
   top: 20px;
 }
 
@@ -74,7 +85,7 @@ select {
   height: 100%;
   line-height: 2;
   list-style-type: none;
-  margin: 0;
+  margin: 66px 0 0 0;
   padding: 0 0 0 0;
   width: auto;
 }
@@ -106,12 +117,17 @@ select {
 }
 
 /* Backstore Form (Edit Properties) */
+.backstore-body {
+  padding-top: 0;
+}
+
 .properties {
   line-height: 2;
 }
 
 .properties select {
   padding-top: 6px;
+  background-color: white;
 }
 
 .properties-input {
@@ -162,7 +178,19 @@ select {
   padding: 0;
   text-align: center;
   text-decoration: none;
-  width: 60%;
+  width: 80%;
+}
+
+.add-order-product {
+  background-color: lightgrey;
+  border-radius: 5px;
+  display: block;
+  float: left;
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 80%;
 }
 
 .backstore-list a.edit-button:hover {
@@ -298,14 +326,14 @@ select {
 
 /* Desktop View */
 @media only screen and (min-width: 768px) {
-
   .hide-mobile-o {
-      display: table-cell;
+    display: table-cell;
   }
 }
 
 a.add-order,
-a.add-product, a.add-user {
+a.add-product,
+a.add-user {
   background-color: lightgrey;
   border-radius: 5px;
   display: block;
@@ -320,7 +348,7 @@ a.add-order:hover,
 a.edit-action:hover,
 a.add-product:hover,
 a.add-user:hover {
-  background-color: #1089FF;
+  background-color: #1089ff;
   color: white;
 }
 
@@ -354,30 +382,46 @@ a.edit-action {
 /* Desktop View */
 @media only screen and (min-width: 768px) {
   a.edit-action {
-      max-width: 35%;
-      margin-right: 3px;
+    max-width: 35%;
+    margin-right: 3px;
   }
 
   a.delete-action {
-      max-width: 60%;
+    max-width: 60%;
   }
 
   .hide-mobile-sm {
-      display: table-cell;
+    display: table-cell;
+  }
+
+  .backstore-header-logo {
+    padding-left: 15px;
+  }
+
+  .backstore-body {
+    padding-top: 66px;
+  }
+
+  .backstore-vertical-navbar {
+    margin-top: 0;
+  }
+
+  .sign-out-button {
+    right: 170px;
   }
 }
 
-input[type=submit] {
-  padding:10px 25px;
-  background:#ccc;
-  border:0 none;
-  cursor:pointer;
+input[type="submit"] {
+  padding: 10px 25px;
+  background: #ccc;
+  border: 0 none;
+  cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   font-size: 1rem;
 }
 
-input[type=submit]:hover {
-  background-color: #1089FF;
+input[type="submit"]:hover {
+  background-color: #1089ff;
   color: white;
 }

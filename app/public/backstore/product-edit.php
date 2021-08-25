@@ -6,7 +6,7 @@
 <?php include(TEMPLATE_BACK . DS . "side-nav.php"); ?>
 
 <!-- If editing, fill in default values -->
-<?php 
+<?php
     $product_id = NULL;
     $img = NULL;
     $is_set = false;
@@ -36,7 +36,7 @@
     }
 ?>
 
-<div class="col-8">
+<div class="col-8 backstore-body">
     <h1>Edit Product Info</h1>
     <?php add_product($is_set, $product_id, $img); ?>
     <form class="properties" method="post" action="" enctype="multipart/form-data">
@@ -44,7 +44,7 @@
             <div class="col-6">
                 <label for="item-name">Item Name:</label>
                 <input class="properties-input" type="text" id="item-name" name="item-name"
-                    value="<?php if ($is_set) echo $product_obj->name; ?>" required />
+                    value="<?php if ($is_set) echo $product_obj->name; ?>" pattern="[a-zA-Z0-9]+.*" required />
             </div>
             <div class="col-6">
                 <label for="item-serial">Serial Number:</label>
@@ -86,6 +86,7 @@
                 <option value="mL" <?php if ($is_set && (strcasecmp($unit, 'ml') === 0)) echo 'selected'; ?>>ml</option>
                 <option value="L" <?php if ($is_set && (strcasecmp($unit, 'L') === 0)) echo 'selected'; ?>>L</option>
                 <option value="ea" <?php if ($is_set && (strcasecmp($unit, 'ea') === 0)) echo 'selected'; ?>>ea</option>
+                <option value="bunch" <?php if ($is_set && (strcasecmp($unit, 'bunch') === 0)) echo 'selected'; ?>>bunch</option>
             </select>
         </div>
         <div class="col-6">
@@ -112,7 +113,7 @@
         </div>
         <div class="col-6">
             <label for="options">Options: </label>
-            <select id="options" name="options" class="properties-input">
+            <select id="options" name="options" class="properties-input" onchange="toggleOptions(this)">
                 <option value="none" <?php if ($is_set && (strcasecmp($option_type, 'none') === 0)) echo 'selected'; ?>>
                     None</option>
                 <option value="flavour"
@@ -137,8 +138,8 @@
                 <option value="aisle_bakery-Pastries"
                     <?php if ($is_set && (strcasecmp($label, 'Pastries') === 0)) echo 'selected'; ?>>Bakery - Pastries
                 </option>
-                <option value="aisle_bakery-Desserts">
-                    <?php if ($is_set && (strcasecmp($label, 'Desserts') === 0)) echo 'selected'; ?> Bakery - Desserts
+                <option value="aisle_bakery-Desserts"
+                    <?php if ($is_set && (strcasecmp($label, 'Desserts') === 0)) echo 'selected'; ?>>Bakery - Desserts
                 </option>
                 <option value="aisle_meat-Beef"
                     <?php if ($is_set && (strcasecmp($label, 'Beef') === 0)) echo 'selected'; ?>>Meat - Beef and Pork
@@ -170,14 +171,16 @@
         </div>
         <div class="col-12">
             <label for="option-vals">Optional Values:</label>
-            <input class="properties-input" type="text" id="option-vals" name="option-vals"
-                placeholder="Example: flavour1, flavour2, flavour3"
-                <?php if ($is_set && (strcasecmp($option_type, 'none') !== 0)) echo 'value="' . $option_values . '"'; ?>>
+            <input class="properties-input" type="text" id="option-vals" name="option-vals" onchange="optionValidation()" placeholder = "Applicable if an option is chosen."
+                <?php if ($is_set && (strcasecmp($option_type, 'none') !== 0)) echo 'value="' . $option_values . '"'; ?> disabled>
+                <span id="options-error" style="color:red; display:none;">* Please include at least two comma separated options.</span>
         </div>
         <div class="col-12">
             <label for="product-image">Product Image: </label>
             <input type="file" name="file" style="font-size:large;" id="file" onchange="return imageValidation()"
                 <?php echo ($is_set) ? '' : 'required'; ?> />
+                <span id="file-size-error" style="color:red; display:none;">* Invalid file size - must be less than 1 mb.</span>
+                <span id="file-type-error" style="color:red; display:none;">* Invalid file type - valid file extensions: .jpg, .jpeg, .png, .gif.</span>
             <?php  if ($is_set) echo "<h4>If no image is uploaded, the product image will remain the same.</h4>";  ?>
         </div>
 
@@ -194,17 +197,66 @@
     // validate the image
     function imageValidation() {
         var input = document.getElementById('file');
+        var message1 = document.getElementById("file-size-error");
+        var message2 = document.getElementById("file-type-error");
 
         var path = input.value;
 
-        // Allowing file type
-        var allowedExtensions =
-            /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+        if (input.files.length > 0) {
+            for (const i = 0; i < input.files.length; i++) {
+  
+                const fsize = input.files.item(i).size;
+                const file = Math.round((fsize / 1024));
+                // The size of the file.
+                if (file >= 1048) {
+                    message1.style.display = "block";
+                    input.value = '';
+                } else {
+                    message1.style.display= "none";
+                }
 
-        if (!allowedExtensions.exec(path)) {
-            alert('Invalid file type. Please try again!');
-            input.value = '';
-            return false;
+                // file type
+                var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+                if (!allowedExtensions.exec(path)) {
+                    message2.style.display = "block";
+                    input.value = '';
+                    
+                } else {
+                    message2.style.display= "none";
+                }
+            }
+        }
+
+    }
+
+    // validate the options
+    function optionValidation() {
+        var input = document.getElementById('option-vals');
+        var message = document.getElementById("options-error");
+
+        if (!(/^[A-Za-z0-9]+(,\s*[A-Za-z0-9]+)+$/.test(input.value))) {
+            message.style.display = "block";
+            input.pattern = "[A-Za-z0-9]+(,\s*[A-Za-z0-9]+)+";
+            input.focus();
+        } else {
+            message.style.display= "none";
+        }
+    }
+
+    // change options to disabled depending on option chosen
+    function toggleOptions(selectOption) {
+        var val = selectOption.value;
+        var optionVals = document.getElementById("option-vals");
+        if (val == "none") {
+            optionVals.setAttribute("disabled", true);
+            optionVals.removeAttribute("required");
+            optionVals.placeholder = "Applicable if an option is chosen.";
+        } else {
+            optionVals.placeholder ="Example: flavour1, flavour2, flavour3";
+            optionVals.removeAttribute("disabled");
+            optionVals.setAttribute("required", true);
+            optionVals.focus();
         }
     }
 </script>

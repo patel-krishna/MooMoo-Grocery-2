@@ -92,6 +92,7 @@
             background-color: rgb(185, 158, 158);
         }
     </style>
+    <script type="text/javaScript" src = "js/login.js"></script>
 </head>
 
 <body>
@@ -103,7 +104,8 @@
           <form action="Afterlogin.php" method="POST">
             <span class="name">Log In</span>
             <div class="cardinside">
-                <p>Email Address <br /> <input type="email" id="email" name="email"><br /></p>
+                <p>Email Address <br /> <input type="text" id="email" name="email" onchange="checkformat()"><br /></p>
+                <span id="formatmessage" style="color:red; display:none;">Please input value in right format.(Case sensitive)</span>
                 <p>Password <br /> <input type="password" id="password" name="password"><br /></p>
                 <p style= "color: red;">You are not registered. Please sign up first!</p>
                 <div class="buttons">

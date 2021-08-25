@@ -1,28 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <users>
-  <next>1008</next>
+  <next>1009</next>
   <user>
     <id>1001</id>
-    <firstname>Zachary</firstname>
-    <middlename>Robert</middlename>
-    <lastname>Bruce</lastname>
-    <email>zackrbruce@gmail.com</email>
-    <phonenumber>1234567890</phonenumber>
-    <address>111 Sample Street</address>
-    <apartment>1</apartment>
-    <city>Montreal</city>
-    <province>QC</province>
-    <postalcode>A1B 2C3</postalcode>
-    <country>Canada</country>
-    <password>examplepass123</password>
-    <paymentmethod>Credit</paymentmethod>
-    <cardnumber>1111222233334444</cardnumber>
-    <cvc>111</cvc>
-    <language>English</language>
-    <admin>yes</admin>
-  </user>
-  <user>
-    <id>1002</id>
     <firstname>Youngjae</firstname>
     <middlename/>
     <lastname>Kim</lastname>
@@ -42,7 +22,7 @@
     <admin>yes</admin>
   </user>
   <user>
-    <id>1003</id>
+    <id>1002</id>
     <firstname>Sephora</firstname>
     <middlename/>
     <lastname>Maltais</lastname>
@@ -62,7 +42,7 @@
     <admin>yes</admin>
   </user>
   <user>
-    <id>1004</id>
+    <id>1003</id>
     <firstname>John</firstname>
     <middlename/>
     <lastname>Lin</lastname>
@@ -82,7 +62,7 @@
     <admin>yes</admin>
   </user>
   <user>
-    <id>1005</id>
+    <id>1004</id>
     <firstname>Krishna</firstname>
     <middlename/>
     <lastname>Patel</lastname>
@@ -103,10 +83,10 @@
   </user>
   <user>
     <id>1006</id>
-    <firstname>Test</firstname>
+    <firstname>Admin</firstname>
     <middlename/>
     <lastname>Person</lastname>
-    <email>testperson1@gmail.com</email>
+    <email>Admin</email>
     <phonenumber>5146666666</phonenumber>
     <address>666 Sample Street</address>
     <apartment>6</apartment>
@@ -114,12 +94,12 @@
     <province>QC</province>
     <country>Canada</country>
     <postalcode>A1B 2C3</postalcode>
-    <password>examplepass123</password>
+    <password>Admin</password>
     <paymentmethod>Debit</paymentmethod>
     <cardnumber>1234111122223333</cardnumber>
     <cvc>555</cvc>
     <language>English</language>
-    <admin>no</admin>
+    <admin>yes</admin>
   </user>
 </users>
 <!-- user structure

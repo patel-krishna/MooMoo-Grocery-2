@@ -1,8 +1,14 @@
 body{
     background-color: #f7e0da ;
     background-image: url("https://images.pexels.com/photos/4022091/pexels-photo-4022091.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+<<<<<<< HEAD
     background-size: 100% 100vh;;
     overflow-x: hidden;
+=======
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+>>>>>>> 08b80f28aae0f16d8425f186fb3f1af79178be64
 }
 
 
@@ -65,10 +71,13 @@ header{
 
     }
 
+<<<<<<< HEAD
     body{
         background-size:cover;
     }
 
+=======
+>>>>>>> 08b80f28aae0f16d8425f186fb3f1af79178be64
     .product-picture{
         width:80%;
     }
