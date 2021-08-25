@@ -28,6 +28,8 @@
 
   <!-- JavaScript -->
   <script type="text/javaScript" src="js/product.js"></script>
+  
+  
 
 </head>
 
@@ -104,6 +106,7 @@
     <div class="shopping-cart">
       <h2 class="title">Shopping Cart</h2>
 
+     
 
        <?php
 
@@ -129,21 +132,28 @@
                            echo "<img class='product-picture' src='images/{$product->image}'> ";
                             echo "<div class='product-description'>";
                             echo "<h3 class='name'><a href='products/productDisplay.php?category={$aisle_name}&id={$ids}'>{$product->name}</a></h3>";
-                            echo "<p class='id' style='display:none'>{$product->id}</p>";
+                            
                             echo "<h4>Price: $<span class='price'>{$product->price}</span></h4>";
+                         
+                            echo "<form class='updateQty' action='update-quantity.php?id={$product->id}' method='POST'>";
+                          
                             echo "<p class='quantity'>
                             Quantity:
-                            <input class='quantity q-in' type='number' min='1' id='quantity' value='{$quantity}' onchange=''; />
+                            <input class='quantity q-in' type='number' min='1' id='$product->id' name='quantity' value='{$quantity}' />
+                            <input type='submit' class='update-button' style='float:right display:flex; background-color:white; color:#3f3f3f;
+                            cursor: pointer;
+                            border-radius: 5px; margin-top:5px;' value='Update'>
                           </p>";
-                          //  echo "<h5>Subtotal: $ <span class='unitSubtotal' id={$ids}>$sub_total</span></h5>";
-                            //  echo "<form action='remove-from-cart.php?removed=$ids' method='POST'>"; 
                             echo 
                             "<button class='remove' type='button' data-toggle='modal' data-target='#removeModal'> 
                             <a style='color:#cc0009; text-decoration:none;' href='remove-from-cart.php?removed={$ids}'>
                             Remove
                             </a>
                           </button>";
-                            echo "</div>";
+                         
+                          echo "</form>";
+                       
+                          echo "</div>";
                             echo "</div>";
   
 
@@ -178,6 +188,7 @@
                     }
                   }   
                 }
+                
                
               }else{
                 echo " <div class='product'>"; 
@@ -185,9 +196,10 @@
                 echo "</div>";
               }
              
+              
        ?>
   </div>
-
+            
   <div class="order-summary">
     <h2 class="title">Order Summary</h2>
     <div class="order">
@@ -202,13 +214,21 @@
         QST : $<span id="qst"></span>
       </p>
       <hr />
-      <h3 class="total">TOTAL COST: $<span id="total"></span></h3>
 
-      <button class="checkout" type="button" onclick="sendOrder()">Checkout</button>
+      <form action="checkout.php" method="POST" onsubmit="myFunction()" id="total-form">
+      
+        <h2 class="total">TOTAL COST: 
+         <div id="test"> <span id="total"></span></div>
+      </h2> 
+
+      <input type="hidden"  name="total" id="totalHidden" value="not yet defined">
+      <button class="checkout" type="submit">Checkout</button>
 
       <a href="index.php"><button class="back-to-shopping" type="button" >
           Back to shopping
         </button></a>
+
+            </form>
     </div>
   </div>
   </div>
@@ -216,7 +236,24 @@
   <!-- JavaScript -->
   <script type="text/javaScript" src="js/cart.js"></script>
 
+
   <!-- sending order Javascript -->
+  <script>
+              // This function gets called once the user submits the form
+          function myFunction(){
+
+          // First get the value from the cronMDMtimer-span
+          var total = document.getElementById('test').textContent;
+
+          // Then store the extracted timerValue in a hidden form field
+          document.getElementById("totalHidden").value = total; 
+
+          // submit the form using it's ID "my-form"
+          document.getElementById("total-form").submit();
+          }
+
+
+  </script>
 
 
 
