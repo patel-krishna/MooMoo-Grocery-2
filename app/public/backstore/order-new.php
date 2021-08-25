@@ -42,16 +42,22 @@ if (isset($_POST["save-order"])) {
 
     // Create a new product and add to cart
     $cart = $order->getElementsByTagName("cart")->item(0);
+
     // Create a new element of type product
     $product = $xml->createElement("product");
+
+    // Get values for product ID and quantity
+    $product_id = $_POST["productID"];
+    $quantity = $_POST["quantity"];
+    // Append these values to product 
     $product->appendChild($xml->createElement("id", $product_id));
     $product->appendChild($xml->createElement("p_quantity", $quantity));
 
     // Append product to end
     $cart->appendChild($product);
 
-    // After adding product, add total
-    $total = calculateTotal($order_id);
+    // After adding product, set total to 0
+    $total = 0;
     $cart->appendChild($xml->createElement("total", $total));
 
     // Finally update status
@@ -62,7 +68,7 @@ if (isset($_POST["save-order"])) {
 
     // Save XML file
     $xml->save(XML_DB . DS . "orders.xml") or die("Error, unable to create xml file.");
-    // header("Location: order-list.php");
+    header("Location: order-list.php");
 }
 // Else redirect to order-list
 else {
