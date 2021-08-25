@@ -1,6 +1,6 @@
 # Moomoo Grocery
 
-## Live Website: [MooMooGrocery.live](https://moomoogrocery.herokuapp.com/)
+## Live Website: [MooMooGrocery](https://moomoogrocery.herokuapp.com/)
 
 Team members:
 
