@@ -10,7 +10,6 @@ if(isset($_GET['id']) && isset($_GET['category'])) {
    
     if(isset($_POST['quantity'])) {
         $product_quantity =  htmlspecialchars($_POST["quantity"]);
-        echo "Quantity: " . $product_quantity;
     }
         if(!isset($_SESSION['cart'])){
             $_SESSION['cart'] = array();
