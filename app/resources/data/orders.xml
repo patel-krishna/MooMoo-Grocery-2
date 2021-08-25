@@ -7,11 +7,11 @@
     <customer_id>1001</customer_id>
     <cart>
       <product>
-        <id>022</id>
+        <id>22</id>
         <p_quantity>1</p_quantity>
       </product>
       <product>
-        <id>048</id>
+        <id>50</id>
         <p_quantity>15</p_quantity>
       </product>
       <total/>
@@ -24,7 +24,7 @@
     <customer_id>1003</customer_id>
     <cart>
       <product>
-        <id>036</id>
+        <id>36</id>
         <p_quantity>1</p_quantity>
       </product>
       <total/>
@@ -37,15 +37,65 @@
     <customer_id>1002</customer_id>
     <cart>
       <product>
-        <id>021</id>
+        <id>21</id>
         <p_quantity>15</p_quantity>
       </product>
       <product>
-        <id>052</id>
+        <id>52</id>
         <p_quantity>4</p_quantity>
       </product>
       <total/>
     </cart>
     <status>processing</status>
   </order>
+</orders>
+=======
+    <next>1004</next>
+    <order>
+        <order_id>1001</order_id>
+        <date>Jul 10, 2021</date>
+        <customer_id>1001</customer_id>
+        <cart>
+            <product>
+                <id>50</id>
+                <p_quantity>1</p_quantity>
+            </product>
+            <product>
+                <id>41</id>
+                <p_quantity>15</p_quantity>
+            </product>
+            <total />
+        </cart>
+        <status>processing</status>
+    </order>
+    <order>
+        <order_id>1002</order_id>
+        <date>Jul 12, 2021</date>
+        <customer_id>1003</customer_id>
+        <cart>
+            <product>
+                <id>20</id>
+                <p_quantity>1</p_quantity>
+            </product>
+            <total />
+        </cart>
+        <status>processing</status>
+    </order>
+    <order>
+        <order_id>1004</order_id>
+        <date>Jul 12, 2021</date>
+        <customer_id>1002</customer_id>
+        <cart>
+            <product>
+                <id>11</id>
+                <p_quantity>15</p_quantity>
+            </product>
+            <product>
+                <id>12</id>
+                <p_quantity>4</p_quantity>
+            </product>
+            <total />
+        </cart>
+        <status>processing</status>
+    </order>
 </orders>
