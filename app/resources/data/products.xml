@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aisles>
-  <next>58</next>
+  <next>59</next>
   <!-- dairy aisle -->
   <aisle_dairy>
     <aisle_section label="Milk">
@@ -83,6 +83,17 @@
         <unit>125 g</unit>
         <price_per_unit>5.19 / 100 g</price_per_unit>
         <image>blue-cheese.png</image>
+      </product>
+      <product>
+        <id>58</id>
+        <name>Der Scharfe Maxx</name>
+        <serial>09876700</serial>
+        <description>Sweet and creamy, Der Scharfe Maxx is made from raw cow's milk and imported from Finland. Aged for 2 years.</description>
+        <price>7.49</price>
+        <quantity>18</quantity>
+        <unit>198 g</unit>
+        <price_per_unit>3.78 / 100 g</price_per_unit>
+        <image>gouda.png</image>
       </product>
     </aisle_section>
   </aisle_dairy>
@@ -219,8 +230,6 @@
         <price_per_unit>0.44 / 100 g</price_per_unit>
         <image>apple.jpg</image>
       </product>
-      
-      
     </aisle_section>
     <aisle_section label="Vegetables">
       <product>

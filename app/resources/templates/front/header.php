@@ -75,15 +75,15 @@
             <a class="nav-link" href="cart.php"><span class="material-icons md-24">shopping_cart</span></a>
           </li>
         </ul>
-      </div>
-      <?php
+        <?php
           if (isset($_COOKIE["admin"])) {
             echo '<span class="nav-item text-primary">Hello, ' . $_COOKIE["admin"] . '</span>';
           } elseif (isset($_COOKIE["user"])) {
-            echo '<span class="nav-item text-primary">Hello, ' . $_COOKIE["user"] . '</span>';
+            echo '<span class="nav-text text-primary">Hello, ' . $_COOKIE["user"] . '</span>';
           } else {
             echo '';
           }
       ?>
+      </div>
     </nav>
   </header>

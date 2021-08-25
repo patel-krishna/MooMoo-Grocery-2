@@ -12,7 +12,7 @@
     }
          
     
-        header("Location: ../public/cart.php");
+    header("Location: cart.php");
     
     
     
